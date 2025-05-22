@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>刚子编程</title>
+  <title>码农观测站</title>
   
   
   <link href="https://blog.hwtx.top/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>https://blog.hwtx.top/</id>
   
   <author>
-    <name>刚子</name>
+    <name>码农观测站</name>
     
   </author>
   
