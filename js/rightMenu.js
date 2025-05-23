@@ -62,12 +62,12 @@ function switchDarkMode() {
     removeRightMenu();
     const nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
     if (nowMode === 'light') {
-        activateDarkMode();
-        saveToLocal.set('theme', 'dark', 2);
+        btf.activateDarkMode();
+        btf.saveToLocal.set('theme', 'dark', 2);
         GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
     } else {
-        activateLightMode();
-        saveToLocal.set('theme', 'light', 2);
+        btf.activateLightMode();
+        btf.saveToLocal.set('theme', 'light', 2);
         GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
     }
     typeof utterancesTheme === 'function' && utterancesTheme();
@@ -88,9 +88,9 @@ const msgToSimplifiedChinese = translate.msgToSimplifiedChinese; /* 同上，但
 let currentEncoding = defaultEncoding;
 const targetEncodingCookie = 'translate-chn-cht';
 let targetEncoding =
-    saveToLocal.get(targetEncodingCookie) === undefined
+    btf.saveToLocal.get(targetEncodingCookie) === undefined
         ? defaultEncoding
-        : Number(saveToLocal.get('translate-chn-cht'));
+        : Number(btf.saveToLocal.get('translate-chn-cht'));
 let translateButtonObject
 const isSnackbar = GLOBAL_CONFIG.Snackbar !== undefined;
 function translateText(txt) {
@@ -125,13 +125,13 @@ function translatePage() {
     if (targetEncoding === 1) {
         currentEncoding = 1;
         targetEncoding = 2;
-        saveToLocal.set(targetEncodingCookie, targetEncoding, 2);
+        btf.saveToLocal.set(targetEncodingCookie, targetEncoding, 2);
         translateBody();
         if (isSnackbar) btf.snackbarShow(snackbarData.cht_to_chs);
     } else if (targetEncoding === 2) {
         currentEncoding = 2;
         targetEncoding = 1;
-        saveToLocal.set(targetEncodingCookie, targetEncoding, 2);
+        btf.saveToLocal.set(targetEncodingCookie, targetEncoding, 2);
         translateBody();
         if (isSnackbar) btf.snackbarShow(snackbarData.chs_to_cht);
     }
