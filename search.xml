@@ -1,42 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>这是我的第一篇 Hexo 文章</title>
-    <url>/2025/05/20/firstcontent/</url>
-    <content><![CDATA[<h1 id="欢迎来到我的博客"><a href="#欢迎来到我的博客" class="headerlink" title="欢迎来到我的博客"></a>欢迎来到我的博客</h1><p><img src="logo.png" alt="博客封面"></p>
-<p>大家好，我是刚子。这是我的第一篇 Hexo 博客文章。今天我想和大家分享一下我搭建个人博客的经历。</p>
-<h2 id="为什么选择-Hexo？"><a href="#为什么选择-Hexo？" class="headerlink" title="为什么选择 Hexo？"></a>为什么选择 Hexo？</h2><p>Hexo 是一个快速、简洁且高效的博客框架。它有以下优点：</p>
-<ol>
-<li>使用 Markdown 编写文章</li>
-<li>支持多种主题</li>
-<li>可以一键部署到 GitHub Pages</li>
-<li>丰富的插件生态</li>
-</ol>
-<h2 id="我的博客特色"><a href="#我的博客特色" class="headerlink" title="我的博客特色"></a>我的博客特色</h2><p>我的博客采用了 Butterfly 主题，它具有以下特点：</p>
-<ul>
-<li>响应式设计</li>
-<li>优雅的界面</li>
-<li>丰富的功能</li>
-<li>良好的阅读体验</li>
-</ul>
-<h2 id="未来计划"><a href="#未来计划" class="headerlink" title="未来计划"></a>未来计划</h2><p>在接下来的日子里，我会：</p>
-<ol>
-<li>分享更多技术文章</li>
-<li>记录学习心得</li>
-<li>与大家交流经验</li>
-</ol>
-<p>让我们一起在技术的道路上不断进步！</p>
-<blockquote>
-<p>注：本文中的图片仅作示例，实际使用时请替换为你自己的图片。</p>
-</blockquote>
+    <title>hello</title>
+    <url>/archives/3610a686.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>seo优化超详细步骤 — hexo_butterfly</title>
+    <url>/archives/42adfbca.html</url>
+    <content><![CDATA[<p>优化过程中踩了不少坑，这里记录一下，也希望能帮助到需要的人。</p>
+<h1 id="优化文章url，便于收录"><a href="#优化文章url，便于收录" class="headerlink" title="优化文章url，便于收录"></a>优化文章url，便于收录</h1><h2 id="缩减链接长度-且-固定链接"><a href="#缩减链接长度-且-固定链接" class="headerlink" title="缩减链接长度 且 固定链接"></a>缩减链接长度 且 固定链接</h2><p>hexo中，文章链接默认是 <code>permalink: :year/:month/:day/:title/</code> 这种形式。<br>即是：sitename&#x2F;year&#x2F;mounth&#x2F;day&#x2F;title四层的结构，且每次更改文章可能会导致链接变化<br>搜索引擎认为对于一般的中小型站点，3层足够承受所有的内容了，所以蜘蛛经常抓取的内容是前三层，而超过三层的内容蜘蛛认为那些内容并不重要，所以不经常爬取。出于这个原因所以permalink后面跟着的最好不要超过2个斜杠。<br>而我们的链接由于大多带有中文，转码的时候就会很丑很长，并且更改文章可能还会导致链接变化，有没有一种办法，既可以缩短链接长度又固定链接呢？</p>
+<p>利用 abbrlink 插件可以实现，它会在文章生成一个abbrlink字段，这个字段永远不会改变，且使链接层次短，利于seo收录</p>
+<h2 id="配置abbrlink"><a href="#配置abbrlink" class="headerlink" title="配置abbrlink"></a>配置abbrlink</h2><h3 id="在hexo根目录安装："><a href="#在hexo根目录安装：" class="headerlink" title="在hexo根目录安装："></a>在hexo根目录安装：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+<h3 id="更改hexo配置文件-config-yml"><a href="#更改hexo配置文件-config-yml" class="headerlink" title="更改hexo配置文件_config.yml"></a>更改hexo配置文件<code>_config.yml</code></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">abbrlink:   <span class="comment"># 新增abbrlink配置</span></span><br><span class="line">  alg: crc32  <span class="comment"># 算法：crc16(default) and crc32</span></span><br><span class="line">  rep: hex    <span class="comment"># 进制：dec(default) and hex</span></span><br><span class="line">permalink: posts/:abbrlink.html   <span class="comment">#修改查找代码permalink</span></span><br></pre></td></tr></table></figure>
+<p>abbrlink编码规则决定后就不要再改了，不然编码不统一，导致文章链接改变</p>
+<h3 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下"></a>效果如下</h3><p>生成的abbrlink字段<br>链接效果<br>固定链接抛开seo优化不谈，本身就很重要，它保证了你链接的完好性</p>
+<h1 id="将网站提交给百度搜索引擎"><a href="#将网站提交给百度搜索引擎" class="headerlink" title="将网站提交给百度搜索引擎"></a>将网站提交给百度搜索引擎</h1><p>这里只谈百度了，毕竟百度才是国内主要用的，谷歌有墙</p>
+<h2 id="安装站点地图sitemap"><a href="#安装站点地图sitemap" class="headerlink" title="安装站点地图sitemap"></a>安装站点地图sitemap</h2><p>站点地图是一种文件，一般为xml形式，您可以通过该文件列出您网站上的网页，从而将您网站内容的组织架构告知Google和其他搜索引擎。Googlebot等搜索引擎网页抓取工具会读取此文件，以便更加智能地抓取您的网站。</p>
+<h3 id="先安装插件"><a href="#先安装插件" class="headerlink" title="先安装插件"></a>先安装插件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save         谷歌</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save   百度</span><br></pre></td></tr></table></figure>
+<p>需要在根目录的_config.yml配置文件中添加sitemap</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sitemap:</span><br><span class="line">  path: sitemap.xml</span><br><span class="line">baidusitemap:</span><br><span class="line">  path: baidusitemap.xml</span><br></pre></td></tr></table></figure>
+<h3 id="编译博客并生成xml文件"><a href="#编译博客并生成xml文件" class="headerlink" title="编译博客并生成xml文件"></a>编译博客并生成xml文件</h3><p>hexo g编译博客后，你会发现你的public中多了两个xml文件，分别是sitemap.xml以及baidusitemap.xml，里面收录着你博客将被爬虫的链接，此时代表你成功了。</p>
+<p>之后再hexo d部署到网站上，<a href="https://dingzh.cc/baidusitemap.xml">https://dingzh.cc/baidusitemap.xml</a> 和 <a href="https://dingzh.cc/sitemap.xml">https://dingzh.cc/sitemap.xml</a> 验证一下能否跳转即可</p>
 ]]></content>
       <categories>
-        <category>技术分享</category>
+        <category>博客教程</category>
       </categories>
       <tags>
-        <tag>博客</tag>
-        <tag>技术</tag>
-        <tag>分享</tag>
+        <tag>seo</tag>
+        <tag>hexo</tag>
+        <tag>butterfly</tag>
       </tags>
   </entry>
 </search>
