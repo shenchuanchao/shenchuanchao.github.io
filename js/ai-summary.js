@@ -52,7 +52,6 @@ function typeTextMachineStyle(text, targetSelector, options = {}) {
 }
 
 function renderAISummary() {
-    debugger
     const summaryEl = document.querySelector('.ai-summary .ai-explanation');
     if (!summaryEl) return;
 
