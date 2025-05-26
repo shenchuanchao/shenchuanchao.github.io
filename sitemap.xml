@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.hwtx.top/tags/index.html</loc>
+    <loc>https://blog.hwtx.top/archives/e3d52469.html</loc>
     
-    <lastmod>2025-05-24</lastmod>
+    <lastmod>2025-05-26</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -12,6 +12,24 @@
   
   <url>
     <loc>https://blog.hwtx.top/archives/42adfbca.html</loc>
+    
+    <lastmod>2025-05-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.hwtx.top/archives/fce81199.html</loc>
+    
+    <lastmod>2025-05-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.hwtx.top/tags/index.html</loc>
     
     <lastmod>2025-05-24</lastmod>
     
@@ -67,7 +85,7 @@
 
   <url>
     <loc>https://blog.hwtx.top/</loc>
-    <lastmod>2025-05-24</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -75,21 +93,28 @@
   
   <url>
     <loc>https://blog.hwtx.top/tags/seo/</loc>
-    <lastmod>2025-05-24</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.hwtx.top/tags/hexo/</loc>
-    <lastmod>2025-05-24</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.hwtx.top/tags/butterfly/</loc>
-    <lastmod>2025-05-24</lastmod>
+    <lastmod>2025-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.hwtx.top/tags/sem/</loc>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -98,7 +123,14 @@
   
   <url>
     <loc>https://blog.hwtx.top/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2025-05-24</lastmod>
+    <lastmod>2025-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.hwtx.top/categories/SEO%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
