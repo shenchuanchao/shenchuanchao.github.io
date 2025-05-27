@@ -187,3 +187,8 @@ $("#rightmenu-mask").contextmenu(function () {
     removeRightMenu();
     return false;
 });
+/* 切换全屏 */
+$("#menu-fullscreenmode").on("click", function () {
+    removeRightMenu();
+
+});
