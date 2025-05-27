@@ -188,7 +188,42 @@ $("#rightmenu-mask").contextmenu(function () {
     return false;
 });
 /* 切换全屏 */
+        // 检查是否处于全屏模式的函数
+        function isFullScreen() {
+            return document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+        }
+
+        // 进入或退出全屏的函数
+        function toggleFullscreen() {
+            let element = document.documentElement
+            if (!isFullScreen()) {
+                // 如果不是全屏，则尝试进入全屏
+                if (element.requestFullscreen) {
+                    element.requestFullscreen();
+                } else if (element.webkitRequestFullscreen) { // Safari
+                    element.webkitRequestFullscreen();
+                } else if (element.mozRequestFullScreen) { // Firefox
+                    element.mozRequestFullScreen();
+                } else if (element.msRequestFullscreen) { // IE/Edge
+                    element.msRequestFullscreen();
+                }
+            } else {
+                // 如果已经是全屏，则退出全屏
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { // Safari
+                    document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) { // Firefox
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) { // IE/Edge
+                    document.msExitFullscreen();
+                }
+            }
+        }
+
+
+    
 $("#menu-fullscreenmode").on("click", function () {
     removeRightMenu();
-
+    toggleFullscreen();
 });
