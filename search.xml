@@ -359,4 +359,109 @@
         <tag>波浪</tag>
       </tags>
   </entry>
+  <entry>
+    <title>SQL SERVER数据库跨服务器查询</title>
+    <url>/archives/a1b7d00f.html</url>
+    <content><![CDATA[<p>1、执行存储过程 sp_addlinkedserver 以将服务器添加到 sys.servers。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">--server72为远程服务器的别名</span></span><br><span class="line"><span class="keyword">exec</span> sp_addlinkedserver <span class="string">&#x27;server72&#x27;</span>, <span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;SQLOLEDB &#x27;</span>, <span class="string">&#x27;远程服务器名或ip地址 &#x27;</span> </span><br><span class="line"><span class="keyword">exec</span> sp_addlinkedsrvlogin <span class="string">&#x27;server72&#x27;</span>, <span class="string">&#x27;false &#x27;</span>,<span class="keyword">null</span>, <span class="string">&#x27;用户名 &#x27;</span>, <span class="string">&#x27;密码 &#x27;</span></span><br></pre></td></tr></table></figure>
+<p>2、跨服务器查询时，需要按照下列格式指定查询表添加的远程服务器别名</p>
+<ul>
+<li>数据库名</li>
+<li>数据库的schema，一般是dbo</li>
+<li>表名称</li>
+<li>查询示例</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> server72.数据库名.dbo.表名</span><br></pre></td></tr></table></figure>
+<p>3、查询服务器中已有的linkserver信息</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> SYS.LINKED_LOGINS;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> SYS.SERVERS;</span><br></pre></td></tr></table></figure>
+<p>4、删除已经存在的链接服务器</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">IF <span class="keyword">EXISTS</span>(<span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> sys.servers <span class="keyword">WHERE</span> name <span class="operator">=</span> N<span class="string">&#x27;server72&#x27;</span>)</span><br><span class="line"><span class="keyword">EXEC</span> master.sys.sp_dropserver <span class="string">&#x27;server72&#x27;</span>,<span class="string">&#x27;droplogins&#x27;</span>  </span><br><span class="line">GO</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>sql</tag>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用C#实现23种常见的设计模式</title>
+    <url>/archives/d8d7f62c.html</url>
+    <content><![CDATA[<p>设计模式是软件开发人员在设计和实现软件时可以重复使用的解决方案。在C#中实现23种常见的设计模式需要对每种模式的实现细节进行深入理解。这里我会简述一些常见的设计模式，但具体的实现代码可能会比较长，因此我这里只展示每个模式的概述和关键点。</p>
+<p>1、单例模式（Singleton）：确保一个类只有一个实例，并提供一个全局访问点。</p>
+<p>2、工厂模式（Factory）：用于创建对象，将对象的创建与使用分离。</p>
+<p>3、建造者模式（Builder）：通过将一个复杂对象的构建与其表示相分离，使得同样的构建过程可以创建不同的表示。</p>
+<p>4、原型模式（Prototype）：通过复制已有对象来创建新对象。</p>
+<p>5、适配器模式（Adapter）：将一个类的接口转换成客户端所期望的另一个接口，使得原本由于接口不兼容而无法协同工作的类能够一起工作。</p>
+<p>6、桥接模式（Bridge）：将抽象与实现解耦，使它们可以独立变化。</p>
+<p>7、组合模式（Composite）：允许你将对象组合成树形结构来表示“部分-整体”的层次结构，使得客户端以统一的方式处理单个对象以及对象的组合。</p>
+<p>8、装饰器模式（Decorator）：动态地给一个对象添加一些额外的职责，就增加功能来说，装饰器模式相比生成子类更为灵活。</p>
+<p>9、外观模式（Facade）：为子系统中的一组接口提供一个一致的界面，简化子系统的使用。</p>
+<p>10、享元模式（Flyweight）：运用共享技术有效地支持大量细粒度的对象。</p>
+<p>11、观察者模式（Observer）：定义对象之间的一对多依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都会得到通知并被自动更新。</p>
+<p>12、中介者模式（Mediator）：用一个中介对象来封装一系列的对象交互，中介者使各对象不需要显式地相互引用，从而降低耦合度。</p>
+<p>13、代理模式（Proxy）：为其他对象提供一种代理以控制对这个对象的访问。</p>
+<p>14、迭代器模式（Iterator）：提供一种方法顺序访问一个聚合对象中的各个元素，而又不暴露该对象的内部表示。</p>
+<p>15、组合模式（Composite）：将对象组合成树形结构以表示“部分-整体”的层次结构，使得客户端以统一的方式处理单个对象以及对象的组合。</p>
+<p>16、状态模式（State）：允许一个对象在其内部状态改变时改变它的行为。</p>
+<p>17、策略模式（Strategy）：定义一系列的算法，将每一个算法封装起来，并且使它们可以相互替换。</p>
+<p>18、模板方法模式（Template Method）：定义一个操作中的算法骨架，将某些步骤延迟到子类中实现。</p>
+<p>19、职责链模式（Chain of Responsibility）：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。</p>
+<p>20、备忘录模式（Memento）：在不破坏封装的前提下捕获一个对象的内部状态，并在该对象之外保存这个状态。</p>
+<p>21、解释器模式（Interpreter）：定义一个解释器类，该类解析并执行一种简单的语法结构。</p>
+<p>22、观察者模式（Observer）：定义了对象之间的一对多依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都会得到通知并被自动更新。</p>
+<p>23、访问者模式（Visitor）：将数据操作与数据结构分离，使得同一组操作可以作用于不同的数据结构。</p>
+]]></content>
+      <categories>
+        <category>后端开发</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>五个常用的.NET数据库迁移框架,你用过哪个?</title>
+    <url>/archives/9ede2f17.html</url>
+    <content><![CDATA[<p>在.NET开发中，可以使用多种数据库迁移框架来帮助我们管理数据库模式的变更和版本控制。以下是一些常用的.NET数据库迁移框架：</p>
+<h2 id="1、Entity-Framework-Migrations："><a href="#1、Entity-Framework-Migrations：" class="headerlink" title="1、Entity Framework Migrations："></a>1、Entity Framework Migrations：</h2><p>Entity Framework是.NET的一个对象关系映射（ORM）框架，它提供了官方的迁移支持。通过使用Migrations，您可以自动化数据库模式的版本控制和更新，以与代码更改保持同步。具体实现方法：<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MDEwMTE1Mw==&mid=2247485364&idx=1&sn=6d968455681676147ce70a1762248ffb&chksm=ce2ac8faf95d41ec4270b379f3cb5219d3283017fd277fa34c22635610689efba3c260fff043&token=1356968128&lang=zh_CN#rd">Entity Framework实现数据迁移的方法</a></p>
+<h2 id="2、DNXDB："><a href="#2、DNXDB：" class="headerlink" title="2、DNXDB："></a>2、DNXDB：</h2><p>DNXDB是一个轻量级、开源的数据库迁移框架，支持多种数据库，包括SQL Server、MySQL和PostgreSQL等。它允许您通过使用简单的YAML文件来定义迁移脚本，并提供了自动化迁移和回滚的功能。</p>
+<h2 id="3、FluentMigrator："><a href="#3、FluentMigrator：" class="headerlink" title="3、FluentMigrator："></a>3、FluentMigrator：</h2><p>FluentMigrator是一个开源的数据库迁移框架，它提供了一种简单而流畅的语法来编写迁移脚本。它支持多种数据库，包括SQL Server、MySQL、PostgreSQL和SQLite等。</p>
+<h2 id="4、MyBatis-NET："><a href="#4、MyBatis-NET：" class="headerlink" title="4、MyBatis.NET："></a>4、MyBatis.NET：</h2><p>MyBatis是Java中流行的ORM框架，但也有.NET版本。MyBatis.NET提供了类似于Entity Framework的迁移支持，但使用的是SQL脚本而不是代码迁移。</p>
+<h2 id="5、SQL-Server-Management-Studio-SSMS-："><a href="#5、SQL-Server-Management-Studio-SSMS-：" class="headerlink" title="5、SQL Server Management Studio (SSMS)："></a>5、SQL Server Management Studio (SSMS)：</h2><p>虽然SSMS不是严格意义上的迁移框架，但它是一个强大的工具，可以帮助您管理和操作SQL Server数据库，包括数据库的备份、恢复、升级和迁移等操作。</p>
+<p>这些框架各有优缺点，您可以根据自己的项目需求和技术背景选择适合您的框架。请注意，在选择框架之前，建议您仔细阅读文档、了解社区支持和社区反馈，以确保您选择了合适的工具。</p>
+<h2 id="优缺点："><a href="#优缺点：" class="headerlink" title="优缺点："></a>优缺点：</h2><p>Entity Framework Migrations：</p>
+<ul>
+<li>优点：是.NET开发中常用的ORM框架，与代码的集成度高，可以自动跟踪和同步数据库模式的变更。</li>
+<li>缺点：对于大型数据库和复杂查询，性能可能不如直接使用SQL。</li>
+</ul>
+<p>DNXDB：</p>
+<ul>
+<li>优点：轻量级、开源，支持多种数据库，可以通过简单的YAML文件来定义迁移脚本。</li>
+<li>缺点：相对于其他框架，DNXDB的社区支持和文档可能不够丰富。</li>
+</ul>
+<p>FluentMigrator：</p>
+<ul>
+<li>优点：提供简单流畅的语法来编写迁移脚本，支持多种数据库。</li>
+<li>缺点：对于复杂的大型数据库，性能可能不如直接使用SQL。</li>
+</ul>
+<p>MyBatis.NET：</p>
+<ul>
+<li>优点：类似于Java中的MyBatis框架，提供SQL脚本的迁移支持。</li>
+<li>缺点：相对于其他框架，MyBatis.NET的社区支持和文档可能不够丰富。</li>
+</ul>
+<p>SQL Server Management Studio (SSMS)：</p>
+<ul>
+<li>优点：是一个强大的SQL Server管理工具，可以帮助您管理和操作数据库，包括备份、恢复、升级和迁移等操作。</li>
+<li>缺点：不是严格意义上的迁移框架，对于复杂的大型数据库，性能可能不如直接使用SQL。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>后端开发</category>
+      </categories>
+      <tags>
+        <tag>.net</tag>
+        <tag>迁移框架</tag>
+      </tags>
+  </entry>
 </search>
