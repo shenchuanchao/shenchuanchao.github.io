@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.hwtx.top/archives/321b85ec.html</loc>
+    
+    <lastmod>2025-06-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.hwtx.top/archives/79c4bde.html</loc>
     
     <lastmod>2025-06-03</lastmod>
@@ -334,6 +343,13 @@
   
   <url>
     <loc>https://blog.hwtx.top/tags/www/</loc>
+    <lastmod>2025-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.hwtx.top/tags/%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E/</loc>
     <lastmod>2025-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

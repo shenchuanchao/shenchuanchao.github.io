@@ -6,7 +6,7 @@
   <link href="https://blog.hwtx.top/atom.xml" rel="self"/>
   
   <link href="https://blog.hwtx.top/"/>
-  <updated>2025-05-29T02:02:10.422Z</updated>
+  <updated>2025-06-03T09:11:58.149Z</updated>
   <id>https://blog.hwtx.top/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何给Hexo-butterfly主题博客在复制时添加版权声明</title>
+    <link href="https://blog.hwtx.top/archives/321b85ec.html"/>
+    <id>https://blog.hwtx.top/archives/321b85ec.html</id>
+    <published>2025-06-03T09:00:40.000Z</published>
+    <updated>2025-06-03T09:11:58.149Z</updated>
+    
+    
+    
+    
+    <category term="博客教程" scheme="https://blog.hwtx.top/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="hexo" scheme="https://blog.hwtx.top/tags/hexo/"/>
+    
+    <category term="butterfly" scheme="https://blog.hwtx.top/tags/butterfly/"/>
+    
+    <category term="版权声明" scheme="https://blog.hwtx.top/tags/%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E/"/>
+    
+  </entry>
   
   <entry>
     <title>使用C#实现23种常见的设计模式</title>
