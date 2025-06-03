@@ -6,7 +6,7 @@
   <link href="https://blog.hwtx.top/atom.xml" rel="self"/>
   
   <link href="https://blog.hwtx.top/"/>
-  <updated>2025-05-29T02:02:10.422Z</updated>
+  <updated>2025-06-03T02:59:58.371Z</updated>
   <id>https://blog.hwtx.top/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Visual Studio2022安装SVN插件</title>
+    <link href="https://blog.hwtx.top/archives/4e81b362.html"/>
+    <id>https://blog.hwtx.top/archives/4e81b362.html</id>
+    <published>2025-06-03T02:57:45.000Z</published>
+    <updated>2025-06-03T02:59:58.371Z</updated>
+    
+    <content type="html"><![CDATA[<p>前言</p><p>需要电脑中装有SVN并能正常使用。</p><p>具体步骤</p><p>1.下载插件VisualSVN  下载链接:<a href="https://www.visualsvn.com/visualsvn/download/">https://www.visualsvn.com/visualsvn/download/</a></p><p>1721399581790.jpg</p><p>2.安装</p><p>双击打开下载的vsix文件一路安装即可。</p><p>注意：下载后安装时要确保VS关闭，否则无法配置。</p><p>1721399456280.jpg</p><p>3.安装成功后打开Visual Studio2022可以看到上方选项卡出现svn插件就可以使用啦。</p><p>1721400127425.jpg</p><p>1721400216921.jpg</p><p>4.点击Update更新代码，方便的很</p><p>1721400281590.jpg</p><p>更新成功！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;前言&lt;/p&gt;
+&lt;p&gt;需要电脑中装有SVN并能正常使用。&lt;/p&gt;
+&lt;p&gt;具体步骤&lt;/p&gt;
+&lt;p&gt;1.下载插件VisualSVN  下载链接:&lt;a href=&quot;https://www.visualsvn.com/visualsvn/download/&quot;&gt;https://www.</summary>
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.hwtx.top/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="vs" scheme="https://blog.hwtx.top/tags/vs/"/>
+    
+    <category term="svn" scheme="https://blog.hwtx.top/tags/svn/"/>
+    
+  </entry>
   
   <entry>
     <title>使用C#实现23种常见的设计模式</title>
@@ -241,6 +270,54 @@
   </entry>
   
   <entry>
+    <title>百度分享share.js插件</title>
+    <link href="https://blog.hwtx.top/archives/7f5a1792.html"/>
+    <id>https://blog.hwtx.top/archives/7f5a1792.html</id>
+    <published>2024-03-20T03:00:41.000Z</published>
+    <updated>2025-06-03T03:05:10.444Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//百度分享</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">_bd_share_config</span> = &#123;</span><br><span class="line">   common : &#123;</span><br><span class="line">       bdText : <span class="string">&#x27;分享标题&#x27;</span>,</span><br><span class="line">       bdDesc : <span class="string">&#x27;分享描述&#x27;</span>,</span><br><span class="line">       bdUrl : <span class="string">&#x27;分享链接&#x27;</span>,</span><br><span class="line">       bdPic : <span class="string">&#x27;分享图片&#x27;</span></span><br><span class="line"></span><br><span class="line">   &#125;,</span><br><span class="line">   share : [&#123;</span><br><span class="line">       <span class="string">&quot;bdSize&quot;</span> : <span class="number">22</span></span><br><span class="line">   &#125;],</span><br><span class="line">   image : [&#123;</span><br><span class="line">       viewType : <span class="string">&#x27;list&#x27;</span>,</span><br><span class="line">       viewPos : <span class="string">&#x27;top&#x27;</span>,</span><br><span class="line">       viewColor : <span class="string">&#x27;black&#x27;</span>,</span><br><span class="line">       viewSize : <span class="string">&#x27;22&#x27;</span>,</span><br><span class="line">       viewList : [<span class="string">&#x27;qzone&#x27;</span>,<span class="string">&#x27;tsina&#x27;</span>,<span class="string">&#x27;huaban&#x27;</span>,<span class="string">&#x27;tqq&#x27;</span>,<span class="string">&#x27;renren&#x27;</span>]</span><br><span class="line">   &#125;],</span><br><span class="line">   selectShare : [&#123;</span><br><span class="line">       <span class="string">&quot;bdselectMiniList&quot;</span> : [<span class="string">&#x27;qzone&#x27;</span>,<span class="string">&#x27;tqq&#x27;</span>,<span class="string">&#x27;kaixin001&#x27;</span>,<span class="string">&#x27;bdxc&#x27;</span>,<span class="string">&#x27;tqf&#x27;</span>]</span><br><span class="line">   &#125;]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//分享按钮组织点击</span></span><br><span class="line"><span class="title function_">with</span>(<span class="variable language_">document</span>)<span class="number">0</span>[(<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;head&#x27;</span>)[<span class="number">0</span>]||body).<span class="title function_">appendChild</span>(<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>)).<span class="property">src</span>=<span class="string">&#x27;http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=&#x27;</span>+~(-<span class="keyword">new</span> <span class="title class_">Date</span>()/<span class="number">36e5</span>)];</span><br></pre></td></tr></table></figure><blockquote><p>特别注意：</p></blockquote><p>站点自从开启 https 之后 ，百度分享就不能用了！但是又寻找不到类似百度分享的替代品。</p><p>怎么办呢？要如何解决 百度分享不支持https的问题呢，</p><p>跟着博主动动手，让你百度分享仍然能在https下使用 ~</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span </summary>
+      
+    
+    
+    
+    <category term="前端开发" scheme="https://blog.hwtx.top/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="share" scheme="https://blog.hwtx.top/tags/share/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用腾讯元器，将公众号变身为强大的.NET AI智能体</title>
+    <link href="https://blog.hwtx.top/archives/2543ce4e.html"/>
+    <id>https://blog.hwtx.top/archives/2543ce4e.html</id>
+    <published>2024-03-20T02:44:23.000Z</published>
+    <updated>2025-06-03T02:55:26.351Z</updated>
+    
+    <content type="html"><![CDATA[<p>经常有粉丝朋友在公众号后台私信提问，因为个人平时比较少看公众号后台的私信所以没法及时回复。最近发现腾讯推出了一个可以创建和使用各种智能体的平台（帮助小白也能快速使用AI）：腾讯元器，正好自己每天也在公众号更新.NET相关的文章，有着较为丰富.NET相关的知识库，因此今天我将利用腾讯元器，将我的公众号变身为一个强大的.NET AI智能体，造福我的.NET粉丝朋友们。</p><p>登录腾讯元器</p><p>登录地址：<a href="https://yuanqi.tencent.com/">https://yuanqi.tencent.com</a></p><p>创建智能体</p><p>图片</p><p>基础设定</p><p>图片</p><p>名称</p><p>CSharp小沈子</p><p>简介</p><p>你是一位专注于.net领域的AI智能体，掌握全面的.net技术栈和知识点。能够帮助.NET开发者快速解答各类技术难题。</p><p>详细设定</p><ul><li><p>你的名字是CSharp小沈子，专门帮助用户解决与C#编程语言相关的问题。</p></li><li><p>你拥有丰富的C#编程知识，能够解答从基础语法到高级算法的各种问题。</p></li><li><p>你可以提供代码示例、调试建议和最佳实践，帮助用户提高编程技能。</p></li><li><p>你会用简洁明了的语言解释复杂的概念，确保用户能够轻松理解。</p></li></ul><p>图片</p><p>开场白</p><p>您好，我是CSharp小沈子，专注于.NET领域。无论您遇到什么.NET技术难题，我都能为您提供快速准确的解答。</p><p>图片</p><p>预置引导问题等设置，都可以通过AI自动生成</p><p>图片</p><p>添加知识库</p><p>图片</p><p>图片</p><p>选择公众号文章，输入名称、描述，然后授权自己的 公众号，点击保存并添加</p><p>图片</p><p>如下图这样就已经添加成功了</p><p>图片</p><p>发布智能体</p><p>接下来就可以直接发布了</p><p>图片</p><p>图片</p><p>发布好之后我们回到主页，点击顶部的知识库，可看到刚刚授权的公众号，可以查看其中的文章内容</p><p>图片</p><p>图片</p><p>图片</p><p>再回到智能体，我们可以看到已经发布成功了。接下来就可以体验了</p><p>图片</p><p>使用方式有：腾讯元宝、腾讯元器、微信公众号-订阅号 三种方式。</p><p>图片</p><p>图片</p><p>感兴趣的小伙伴们也可以去试试~</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;经常有粉丝朋友在公众号后台私信提问，因为个人平时比较少看公众号后台的私信所以没法及时回复。最近发现腾讯推出了一个可以创建和使用各种智能体的平台（帮助小白也能快速使用AI）：腾讯元器，正好自己每天也在公众号更新.NET相关的文章，有着较为丰富.NET相关的知识库，因此今天我将</summary>
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.hwtx.top/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="AI" scheme="https://blog.hwtx.top/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
     <title>五个常用的.NET数据库迁移框架,你用过哪个?</title>
     <link href="https://blog.hwtx.top/archives/9ede2f17.html"/>
     <id>https://blog.hwtx.top/archives/9ede2f17.html</id>
@@ -288,6 +365,29 @@
     
     
     <category term="个人博客" scheme="https://blog.hwtx.top/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows server 2019服务器安装IIS步骤教程</title>
+    <link href="https://blog.hwtx.top/archives/4f7ca37c.html"/>
+    <id>https://blog.hwtx.top/archives/4f7ca37c.html</id>
+    <published>2022-04-03T02:24:31.000Z</published>
+    <updated>2025-06-03T02:55:23.489Z</updated>
+    
+    <content type="html"><![CDATA[<p>1、电脑桌面，点击左下角Windows图标</p><p>image.png</p><p>2、点击【服务器管理器】</p><p>image.png</p><p>3、服务器管理器的仪表板，点击【添加角色和功能】</p><p>image.png</p><p>4、点击【下一步】</p><p>image.png</p><p>5、选择【基于角色或基于功能的安装】，再点击【下一步】</p><p>image.png</p><p>6、选择【从服务器池中选择服务器】，然后选择服务器，再点击【下一步】</p><p>image.png</p><p>7、选择【Web服务器(IIS)】</p><p>image.png</p><p>8、选择【安全性】</p><p>dea3bff5ded4494d609c0f64994f0247_.png</p><p>9、选择【常见http功能】</p><p>f287b2fe9540b2423b661db93ed3aec9_.png</p><p>10、选择【性能】和【运行状况和诊断】</p><p>52132812e4a4e3cf9684db50cae2357d_.png</p><p>11、选择【应用程序开发】</p><p>98975a7ce5d0cfa66051515002c5e10c_.png</p><p>12、选择【FTP服务器】和【管理工具】，然后点击【下一步】</p><p>74912d303c05ab54620b9476dd8b7647_.png</p><p>13、勾选好了之后点击【安装】</p><p>c0a1042593eccf1ceb82a39255e2f45c_.png</p><p>14、等待安装，安装成功之后，点击【关闭】就可以了。</p><p>dfd9db33cebf8731925206730b652d91_.png</p><p>15、如上图所示已经安装成功了，现在打开iis管理器就能看到已安装的功能了。</p>]]></content>
+    
+    
+    <summary type="html">这篇文章详细介绍了在Windows Server 2019上安装IIS的步骤教程，从打开服务器管理器开始，依次选择添加角色和功能、基于角色或功能的安装、选择服务器、勾选Web服务器IIS及其相关组件如安全性、常见HTTP功能、性能、运行状况和诊断、应用程序开发、FTP服务器和管理工具，最后完成安装并打开IIS管理器查看已安装的功能，整个过程清晰明了，帮助用户快速上手IIS的安装与配置。</summary>
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.hwtx.top/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="IIS" scheme="https://blog.hwtx.top/tags/IIS/"/>
+    
+    <category term="服务器" scheme="https://blog.hwtx.top/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
