@@ -6,7 +6,7 @@
   <link href="https://blog.hwtx.top/atom.xml" rel="self"/>
   
   <link href="https://blog.hwtx.top/"/>
-  <updated>2025-06-03T02:59:58.371Z</updated>
+  <updated>2025-05-29T02:02:10.422Z</updated>
   <id>https://blog.hwtx.top/</id>
   
   <author>
@@ -15,35 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Visual Studio2022安装SVN插件</title>
-    <link href="https://blog.hwtx.top/archives/4e81b362.html"/>
-    <id>https://blog.hwtx.top/archives/4e81b362.html</id>
-    <published>2025-06-03T02:57:45.000Z</published>
-    <updated>2025-06-03T02:59:58.371Z</updated>
-    
-    <content type="html"><![CDATA[<p>前言</p><p>需要电脑中装有SVN并能正常使用。</p><p>具体步骤</p><p>1.下载插件VisualSVN  下载链接:<a href="https://www.visualsvn.com/visualsvn/download/">https://www.visualsvn.com/visualsvn/download/</a></p><p>1721399581790.jpg</p><p>2.安装</p><p>双击打开下载的vsix文件一路安装即可。</p><p>注意：下载后安装时要确保VS关闭，否则无法配置。</p><p>1721399456280.jpg</p><p>3.安装成功后打开Visual Studio2022可以看到上方选项卡出现svn插件就可以使用啦。</p><p>1721400127425.jpg</p><p>1721400216921.jpg</p><p>4.点击Update更新代码，方便的很</p><p>1721400281590.jpg</p><p>更新成功！</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;前言&lt;/p&gt;
-&lt;p&gt;需要电脑中装有SVN并能正常使用。&lt;/p&gt;
-&lt;p&gt;具体步骤&lt;/p&gt;
-&lt;p&gt;1.下载插件VisualSVN  下载链接:&lt;a href=&quot;https://www.visualsvn.com/visualsvn/download/&quot;&gt;https://www.</summary>
-      
-    
-    
-    
-    <category term="技术分享" scheme="https://blog.hwtx.top/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-    
-    <category term="vs" scheme="https://blog.hwtx.top/tags/vs/"/>
-    
-    <category term="svn" scheme="https://blog.hwtx.top/tags/svn/"/>
-    
-  </entry>
   
   <entry>
     <title>使用C#实现23种常见的设计模式</title>
@@ -270,11 +241,68 @@
   </entry>
   
   <entry>
+    <title>Visual Studio2022安装SVN插件</title>
+    <link href="https://blog.hwtx.top/archives/4e81b362.html"/>
+    <id>https://blog.hwtx.top/archives/4e81b362.html</id>
+    <published>2024-07-19T02:57:45.000Z</published>
+    <updated>2025-06-03T03:09:11.979Z</updated>
+    
+    <content type="html"><![CDATA[<p>前言</p><p>需要电脑中装有SVN并能正常使用。</p><p>具体步骤</p><p>1.下载插件VisualSVN  下载链接:<a href="https://www.visualsvn.com/visualsvn/download/">https://www.visualsvn.com/visualsvn/download/</a></p><p>1721399581790.jpg</p><p>2.安装</p><p>双击打开下载的vsix文件一路安装即可。</p><p>注意：下载后安装时要确保VS关闭，否则无法配置。</p><p>1721399456280.jpg</p><p>3.安装成功后打开Visual Studio2022可以看到上方选项卡出现svn插件就可以使用啦。</p><p>1721400127425.jpg</p><p>1721400216921.jpg</p><p>4.点击Update更新代码，方便的很</p><p>1721400281590.jpg</p><p>更新成功！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;前言&lt;/p&gt;
+&lt;p&gt;需要电脑中装有SVN并能正常使用。&lt;/p&gt;
+&lt;p&gt;具体步骤&lt;/p&gt;
+&lt;p&gt;1.下载插件VisualSVN  下载链接:&lt;a href=&quot;https://www.visualsvn.com/visualsvn/download/&quot;&gt;https://www.</summary>
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.hwtx.top/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="vs" scheme="https://blog.hwtx.top/tags/vs/"/>
+    
+    <category term="svn" scheme="https://blog.hwtx.top/tags/svn/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IIS7 IIS8 设置将域名不带www跳转到带www上</title>
+    <link href="https://blog.hwtx.top/archives/79c4bde.html"/>
+    <id>https://blog.hwtx.top/archives/79c4bde.html</id>
+    <published>2024-03-20T03:11:54.000Z</published>
+    <updated>2025-06-03T03:18:44.340Z</updated>
+    
+    <content type="html"><![CDATA[<p>很多时候为了统一网站入口，需要将不带www的主域名解析到带www的域名记录下，当客户访问不带www的域名网址的时候自动跳转到带www的域名，在IIS Web服务器中可以通过URL重写模块来实现此功能，只需要做301永久重定向即可将实现不带www请求链接自动跳转www主机域名。</p><p>（1）首先一步是带www主机域名和不带www的主机域名解析需要能够顺利访问，涉及到域名解析平台的相关域名解析操作以及IIS网站部署操作，保证2个域名都可正常访问。建议在IIS中一个网站绑定多个主机域名的方式，绑定后效果如下图。<br>相关设置教程可参考：IIS网站如何同时解析带www和不带www的域名。</p><p>微信图片_20231211221819.png</p><p>（2）进入IIS管理界面，选中对应的网站，然后在右侧功能区域选中【URL重写】，如果没有此URL重写模块Microsoft URL Rewrite Module。建议先下载模块安装到IIS中。</p><p>URL重写模块32位系统：<a href="http://download.microsoft.com/download/4/9/C/49CD28DB-4AA6-4A51-9437-AA001221F606/rewrite_x86_zh-CN.msi">http://download.microsoft.com/download/4/9/C/49CD28DB-4AA6-4A51-9437-AA001221F606/rewrite_x86_zh-CN.msi</a><br>URL重写模块64位系统：<a href="http://download.microsoft.com/download/4/E/7/4E7ECE9A-DF55-4F90-A354-B497072BDE0A/rewrite_x64_zh-CN.msi">http://download.microsoft.com/download/4/E/7/4E7ECE9A-DF55-4F90-A354-B497072BDE0A/rewrite_x64_zh-CN.msi</a></p><p>微信图片_20231211221947.png</p><p>（3）进入【URL重写】管理界面前，先在.htaccess在线生成输入要www域名。在此网站上提供的【www域名重定向】功能中生成相应的代码。</p><p>3be7284bc66e457217f2412e57fac5e4.png</p><p>（4）复制步骤3页面生成的代码，如下所示</p><p>6697f7968266176c6744d2499ffdc8c9.png</p><p>（5）继续回到步骤2中的【URL重写】模块，进入【URL重写】界面后，点击右侧的【导入规则】。</p><p>543d4dd99db66409f8d43f4a734f77b8.png</p><p>（6）进入【导入规则】页面后，将第4步骤复制的代码黏贴到【重写规则】的输入框中，然后单击右上角的【应用】。</p><p>660e9bc8b1787c3bde14f97689f1ada2.png</p><p>（7）然后重启IIS中的网站，配置生效，此时不带www的网址将自动跳转到www上。</p><p>（8）如果出了上述的实现要求外，还需要添加http请求自动跳转https安全连接的话，可再次设置URL重写规则来实现(前提是已经配置好了带SSL证书的https安全连接网站)</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;很多时候为了统一网站入口，需要将不带www的主域名解析到带www的域名记录下，当客户访问不带www的域名网址的时候自动跳转到带www的域名，在IIS Web服务器中可以通过URL重写模块来实现此功能，只需要做301永久重定向即可将实现不带www请求链接自动跳转www主机域名</summary>
+      
+    
+    
+    
+    <category term="SEO笔记" scheme="https://blog.hwtx.top/categories/SEO%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="seo" scheme="https://blog.hwtx.top/tags/seo/"/>
+    
+    <category term="IIS" scheme="https://blog.hwtx.top/tags/IIS/"/>
+    
+    <category term="www" scheme="https://blog.hwtx.top/tags/www/"/>
+    
+  </entry>
+  
+  <entry>
     <title>百度分享share.js插件</title>
     <link href="https://blog.hwtx.top/archives/7f5a1792.html"/>
     <id>https://blog.hwtx.top/archives/7f5a1792.html</id>
     <published>2024-03-20T03:00:41.000Z</published>
-    <updated>2025-06-03T03:05:10.444Z</updated>
+    <updated>2025-06-03T03:07:33.019Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//百度分享</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">_bd_share_config</span> = &#123;</span><br><span class="line">   common : &#123;</span><br><span class="line">       bdText : <span class="string">&#x27;分享标题&#x27;</span>,</span><br><span class="line">       bdDesc : <span class="string">&#x27;分享描述&#x27;</span>,</span><br><span class="line">       bdUrl : <span class="string">&#x27;分享链接&#x27;</span>,</span><br><span class="line">       bdPic : <span class="string">&#x27;分享图片&#x27;</span></span><br><span class="line"></span><br><span class="line">   &#125;,</span><br><span class="line">   share : [&#123;</span><br><span class="line">       <span class="string">&quot;bdSize&quot;</span> : <span class="number">22</span></span><br><span class="line">   &#125;],</span><br><span class="line">   image : [&#123;</span><br><span class="line">       viewType : <span class="string">&#x27;list&#x27;</span>,</span><br><span class="line">       viewPos : <span class="string">&#x27;top&#x27;</span>,</span><br><span class="line">       viewColor : <span class="string">&#x27;black&#x27;</span>,</span><br><span class="line">       viewSize : <span class="string">&#x27;22&#x27;</span>,</span><br><span class="line">       viewList : [<span class="string">&#x27;qzone&#x27;</span>,<span class="string">&#x27;tsina&#x27;</span>,<span class="string">&#x27;huaban&#x27;</span>,<span class="string">&#x27;tqq&#x27;</span>,<span class="string">&#x27;renren&#x27;</span>]</span><br><span class="line">   &#125;],</span><br><span class="line">   selectShare : [&#123;</span><br><span class="line">       <span class="string">&quot;bdselectMiniList&quot;</span> : [<span class="string">&#x27;qzone&#x27;</span>,<span class="string">&#x27;tqq&#x27;</span>,<span class="string">&#x27;kaixin001&#x27;</span>,<span class="string">&#x27;bdxc&#x27;</span>,<span class="string">&#x27;tqf&#x27;</span>]</span><br><span class="line">   &#125;]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//分享按钮组织点击</span></span><br><span class="line"><span class="title function_">with</span>(<span class="variable language_">document</span>)<span class="number">0</span>[(<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;head&#x27;</span>)[<span class="number">0</span>]||body).<span class="title function_">appendChild</span>(<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>)).<span class="property">src</span>=<span class="string">&#x27;http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=&#x27;</span>+~(-<span class="keyword">new</span> <span class="title class_">Date</span>()/<span class="number">36e5</span>)];</span><br></pre></td></tr></table></figure><blockquote><p>特别注意：</p></blockquote><p>站点自从开启 https 之后 ，百度分享就不能用了！但是又寻找不到类似百度分享的替代品。</p><p>怎么办呢？要如何解决 百度分享不支持https的问题呢，</p><p>跟着博主动动手，让你百度分享仍然能在https下使用 ~</p>]]></content>
     
