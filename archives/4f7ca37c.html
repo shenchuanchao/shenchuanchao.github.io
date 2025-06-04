@@ -205,12 +205,11 @@ btf.addGlobalFn('pjaxSend', () => {
     let text = window.getSelection().toString();
     if (text) {
         event.preventDefault();
-        var copyright = '\n\n'
-        + '\n著作权归作者所有。'
-        + '\n商业转载请联系作者获得授权，非商业转载请注明出处。'
+        var copyright = '\n\n--------------------------------------------'
+        + '\n版权声明：本文为作者原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。'
         + '\n作者: 码农刚子'
         + '\n邮箱: wxscc@foxmail.com'
-        + '\n原文地址: ' + window.location.href;
+        + '\n原文链接: ' + window.location.href;
         clipboardData.setData('text/plain', text + copyright);
     }
 }
