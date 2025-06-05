@@ -3,11 +3,11 @@
   <title>码农观测站</title>
   
   <subtitle>欢迎进入码农观测站，分享编程学习的乐趣</subtitle>
-  <link href="https://blog.hwtx.top/atom.xml" rel="self"/>
+  <link href="https://codeobservatory.cn/atom.xml" rel="self"/>
   
-  <link href="https://blog.hwtx.top/"/>
-  <updated>2025-06-04T00:32:32.272Z</updated>
-  <id>https://blog.hwtx.top/</id>
+  <link href="https://codeobservatory.cn/"/>
+  <updated>2025-06-05T06:40:12.311Z</updated>
+  <id>https://codeobservatory.cn/</id>
   
   <author>
     <name>码农刚子</name>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>如何给Hexo-butterfly主题博客在复制时添加版权声明</title>
-    <link href="https://blog.hwtx.top/archives/321b85ec.html"/>
-    <id>https://blog.hwtx.top/archives/321b85ec.html</id>
+    <link href="https://codeobservatory.cn/archives/321b85ec.html"/>
+    <id>https://codeobservatory.cn/archives/321b85ec.html</id>
     <published>2025-06-03T09:00:40.000Z</published>
-    <updated>2025-06-04T00:32:32.272Z</updated>
+    <updated>2025-06-05T06:40:12.311Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>文章被盗，被爬取，内容被cv，你是否很苦恼？<br>被复制时，自动给文章内容添加原文信息。🤣</p><h1 id="1、确认需要版权声明的位置"><a href="#1、确认需要版权声明的位置" class="headerlink" title="1、确认需要版权声明的位置"></a>1、确认需要版权声明的位置</h1><p>通常情况下都是在拷贝博客详情内容时才给拷贝的内容添加版权信息，如果不管拷贝哪里的内容都给添加版权声明，影响用户体验。所以第一步确定博文详细内容在哪个标签中。这里我用的butterfly(蝴蝶)主题，他的文章主体内容在<div id="article-container">标签中<br><img src="https://image.hwtx.top/hexo/202506/03/20250603173739.png" alt="文章主体内容标签"></div></p><h1 id="2、编写版权声明的js"><a href="#2、编写版权声明的js" class="headerlink" title="2、编写版权声明的js"></a>2、编写版权声明的js</h1><p>js已写好，直接复制，替换自己的信息即可</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">script.</span><br><span class="line">      <span class="keyword">function</span> <span class="title function_">setClipboardText</span>(<span class="params">event</span>) &#123;</span><br><span class="line">          <span class="keyword">let</span> clipboardData = event.<span class="property">clipboardData</span> || <span class="variable language_">window</span>.<span class="property">clipboardData</span>;</span><br><span class="line">          <span class="keyword">if</span> (!clipboardData) &#123; <span class="keyword">return</span>; &#125;</span><br><span class="line">          event.<span class="title function_">preventDefault</span>();</span><br><span class="line">          <span class="keyword">let</span> text = <span class="variable language_">window</span>.<span class="title function_">getSelection</span>().<span class="title function_">toString</span>();</span><br><span class="line">          <span class="keyword">if</span> (text) &#123;</span><br><span class="line">              event.<span class="title function_">preventDefault</span>();</span><br><span class="line">              <span class="keyword">var</span> copyright = <span class="string">&#x27;\n\n&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n著作权归作者所有。&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n商业转载请联系作者获得授权，非商业转载请注明出处。&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n作者: 码农刚子&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n邮箱: wxscc@foxmail.com&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n原文地址: &#x27;</span> + <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span>;</span><br><span class="line">              clipboardData.<span class="title function_">setData</span>(<span class="string">&#x27;text/plain&#x27;</span>, text + copyright);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> contents = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;article-container&quot;</span>);</span><br><span class="line">      <span class="keyword">if</span>(contents)&#123;</span><br><span class="line">        contents.<span class="title function_">addEventListener</span>(<span class="string">&#x27;copy&#x27;</span>,<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">            <span class="title function_">setClipboardText</span>(e);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure><p>&lt;%&#x3D; page.permalink %&gt;: 当前页面链接<br>因为我们只是需要监听博客详情页的复制事件，所以我们可以直接将这段js放在博文详情页末尾。themes&#x2F;butterfly[主题的名字]&#x2F;layout&#x2F;post.pug这个文件是生成博客详情的模板。</p><h1 id="3、启动测试"><a href="#3、启动测试" class="headerlink" title="3、启动测试"></a>3、启动测试</h1><p>执行hexo clean和hexo generate清除通过修改前生成的页面，然后再根据修改后模板生成新的页面。然后执行hexo server启动测试。效果如下图<br><img src="https://image.hwtx.top/hexo/202506/03/20250603175723.png" alt="版权声明截图"></p><h1 id="4、设置文章是否需要添加版权声明"><a href="#4、设置文章是否需要添加版权声明" class="headerlink" title="4、设置文章是否需要添加版权声明"></a>4、设置文章是否需要添加版权声明</h1><p>如果我们是转载其他作者的文章，这种情况下肯定是不能添加自己的版权声明要去掉。</p><ol><li>在文章头部添加一个<code>copyright</code>属性设置为<code>false</code><br><img src="https://image.hwtx.top/hexo/202506/03/20250603174905.png" alt="添加copyright属性"><br>默认没有此属性，也相当于true，所有文章都默认加版权声明，直有copyright为false时不加版权声明</li><li>在刚刚加js代码的地方再加一行</li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">+ <span class="keyword">if</span> page.<span class="property">copyright</span> !== <span class="literal">false</span> </span><br><span class="line">    script.</span><br><span class="line">      <span class="keyword">function</span> <span class="title function_">setClipboardText</span>(<span class="params">event</span>) &#123;</span><br><span class="line">          <span class="keyword">let</span> clipboardData = event.<span class="property">clipboardData</span> || <span class="variable language_">window</span>.<span class="property">clipboardData</span>;</span><br><span class="line">          <span class="keyword">if</span> (!clipboardData) &#123; <span class="keyword">return</span>; &#125;</span><br><span class="line">          event.<span class="title function_">preventDefault</span>();</span><br><span class="line">          <span class="keyword">let</span> text = <span class="variable language_">window</span>.<span class="title function_">getSelection</span>().<span class="title function_">toString</span>();</span><br><span class="line">          <span class="keyword">if</span> (text) &#123;</span><br><span class="line">              event.<span class="title function_">preventDefault</span>();</span><br><span class="line">              <span class="keyword">var</span> copyright = <span class="string">&#x27;\n\n&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n著作权归作者所有。&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n商业转载请联系作者获得授权，非商业转载请注明出处。&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n作者: 码农刚子&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n邮箱: wxscc@foxmail.com&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n原文地址: &#x27;</span> + <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span>;</span><br><span class="line">              clipboardData.<span class="title function_">setData</span>(<span class="string">&#x27;text/plain&#x27;</span>, text + copyright);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> contents = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;article-container&quot;</span>);</span><br><span class="line">      <span class="keyword">if</span>(contents)&#123;</span><br><span class="line">        contents.<span class="title function_">addEventListener</span>(<span class="string">&#x27;copy&#x27;</span>,<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">            <span class="title function_">setClipboardText</span>(e);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>文章被盗，被爬取，内容被cv，你是否很苦恼？<br>被复制时，自动给文章内容添加原文信息。🤣</p><h1 id="1、确认需要版权声明的位置"><a href="#1、确认需要版权声明的位置" class="headerlink" title="1、确认需要版权声明的位置"></a>1、确认需要版权声明的位置</h1><p>通常情况下都是在拷贝博客详情内容时才给拷贝的内容添加版权信息，如果不管拷贝哪里的内容都给添加版权声明，影响用户体验。所以第一步确定博文详细内容在哪个标签中。这里我用的butterfly(蝴蝶)主题，他的文章主体内容在<div id="article-container">标签中<br><img src="https://images.codeobservatory.cn/hexo/202506/03/20250603173739.png" alt="文章主体内容标签"></div></p><h1 id="2、编写版权声明的js"><a href="#2、编写版权声明的js" class="headerlink" title="2、编写版权声明的js"></a>2、编写版权声明的js</h1><p>js已写好，直接复制，替换自己的信息即可</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">script.</span><br><span class="line">      <span class="keyword">function</span> <span class="title function_">setClipboardText</span>(<span class="params">event</span>) &#123;</span><br><span class="line">          <span class="keyword">let</span> clipboardData = event.<span class="property">clipboardData</span> || <span class="variable language_">window</span>.<span class="property">clipboardData</span>;</span><br><span class="line">          <span class="keyword">if</span> (!clipboardData) &#123; <span class="keyword">return</span>; &#125;</span><br><span class="line">          event.<span class="title function_">preventDefault</span>();</span><br><span class="line">          <span class="keyword">let</span> text = <span class="variable language_">window</span>.<span class="title function_">getSelection</span>().<span class="title function_">toString</span>();</span><br><span class="line">          <span class="keyword">if</span> (text) &#123;</span><br><span class="line">              event.<span class="title function_">preventDefault</span>();</span><br><span class="line">              <span class="keyword">var</span> copyright = <span class="string">&#x27;\n\n&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n著作权归作者所有。&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n商业转载请联系作者获得授权，非商业转载请注明出处。&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n作者: 码农刚子&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n邮箱: wxscc@foxmail.com&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n原文地址: &#x27;</span> + <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span>;</span><br><span class="line">              clipboardData.<span class="title function_">setData</span>(<span class="string">&#x27;text/plain&#x27;</span>, text + copyright);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> contents = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;article-container&quot;</span>);</span><br><span class="line">      <span class="keyword">if</span>(contents)&#123;</span><br><span class="line">        contents.<span class="title function_">addEventListener</span>(<span class="string">&#x27;copy&#x27;</span>,<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">            <span class="title function_">setClipboardText</span>(e);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure><p>&lt;%&#x3D; page.permalink %&gt;: 当前页面链接<br>因为我们只是需要监听博客详情页的复制事件，所以我们可以直接将这段js放在博文详情页末尾。themes&#x2F;butterfly[主题的名字]&#x2F;layout&#x2F;post.pug这个文件是生成博客详情的模板。</p><h1 id="3、启动测试"><a href="#3、启动测试" class="headerlink" title="3、启动测试"></a>3、启动测试</h1><p>执行hexo clean和hexo generate清除通过修改前生成的页面，然后再根据修改后模板生成新的页面。然后执行hexo server启动测试。效果如下图<br><img src="https://images.codeobservatory.cn/hexo/202506/03/20250603175723.png" alt="版权声明截图"></p><h1 id="4、设置文章是否需要添加版权声明"><a href="#4、设置文章是否需要添加版权声明" class="headerlink" title="4、设置文章是否需要添加版权声明"></a>4、设置文章是否需要添加版权声明</h1><p>如果我们是转载其他作者的文章，这种情况下肯定是不能添加自己的版权声明要去掉。</p><ol><li>在文章头部添加一个<code>copyright</code>属性设置为<code>false</code><br><img src="https://images.codeobservatory.cn/hexo/202506/03/20250603174905.png" alt="添加copyright属性"><br>默认没有此属性，也相当于true，所有文章都默认加版权声明，直有copyright为false时不加版权声明</li><li>在刚刚加js代码的地方再加一行</li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">+ <span class="keyword">if</span> page.<span class="property">copyright</span> !== <span class="literal">false</span> </span><br><span class="line">    script.</span><br><span class="line">      <span class="keyword">function</span> <span class="title function_">setClipboardText</span>(<span class="params">event</span>) &#123;</span><br><span class="line">          <span class="keyword">let</span> clipboardData = event.<span class="property">clipboardData</span> || <span class="variable language_">window</span>.<span class="property">clipboardData</span>;</span><br><span class="line">          <span class="keyword">if</span> (!clipboardData) &#123; <span class="keyword">return</span>; &#125;</span><br><span class="line">          event.<span class="title function_">preventDefault</span>();</span><br><span class="line">          <span class="keyword">let</span> text = <span class="variable language_">window</span>.<span class="title function_">getSelection</span>().<span class="title function_">toString</span>();</span><br><span class="line">          <span class="keyword">if</span> (text) &#123;</span><br><span class="line">              event.<span class="title function_">preventDefault</span>();</span><br><span class="line">              <span class="keyword">var</span> copyright = <span class="string">&#x27;\n\n&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n著作权归作者所有。&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n商业转载请联系作者获得授权，非商业转载请注明出处。&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n作者: 码农刚子&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n邮箱: wxscc@foxmail.com&#x27;</span></span><br><span class="line">              + <span class="string">&#x27;\n原文地址: &#x27;</span> + <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span>;</span><br><span class="line">              clipboardData.<span class="title function_">setData</span>(<span class="string">&#x27;text/plain&#x27;</span>, text + copyright);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">var</span> contents = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;article-container&quot;</span>);</span><br><span class="line">      <span class="keyword">if</span>(contents)&#123;</span><br><span class="line">        contents.<span class="title function_">addEventListener</span>(<span class="string">&#x27;copy&#x27;</span>,<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">            <span class="title function_">setClipboardText</span>(e);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
@@ -34,21 +34,21 @@
     
     
     
-    <category term="博客教程" scheme="https://blog.hwtx.top/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
+    <category term="博客教程" scheme="https://codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="hexo" scheme="https://blog.hwtx.top/tags/hexo/"/>
+    <category term="hexo" scheme="https://codeobservatory.cn/tags/hexo/"/>
     
-    <category term="butterfly" scheme="https://blog.hwtx.top/tags/butterfly/"/>
+    <category term="butterfly" scheme="https://codeobservatory.cn/tags/butterfly/"/>
     
-    <category term="版权声明" scheme="https://blog.hwtx.top/tags/%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E/"/>
+    <category term="版权声明" scheme="https://codeobservatory.cn/tags/%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E/"/>
     
   </entry>
   
   <entry>
     <title>使用C#实现23种常见的设计模式</title>
-    <link href="https://blog.hwtx.top/archives/d8d7f62c.html"/>
-    <id>https://blog.hwtx.top/archives/d8d7f62c.html</id>
+    <link href="https://codeobservatory.cn/archives/d8d7f62c.html"/>
+    <id>https://codeobservatory.cn/archives/d8d7f62c.html</id>
     <published>2025-05-29T01:53:50.000Z</published>
     <updated>2025-05-29T02:02:10.422Z</updated>
     
@@ -59,19 +59,19 @@
     
     
     
-    <category term="后端开发" scheme="https://blog.hwtx.top/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    <category term="后端开发" scheme="https://codeobservatory.cn/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="C#" scheme="https://blog.hwtx.top/tags/C/"/>
+    <category term="C#" scheme="https://codeobservatory.cn/tags/C/"/>
     
-    <category term="设计模式" scheme="https://blog.hwtx.top/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <category term="设计模式" scheme="https://codeobservatory.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title>SQL SERVER数据库跨服务器查询</title>
-    <link href="https://blog.hwtx.top/archives/a1b7d00f.html"/>
-    <id>https://blog.hwtx.top/archives/a1b7d00f.html</id>
+    <link href="https://codeobservatory.cn/archives/a1b7d00f.html"/>
+    <id>https://codeobservatory.cn/archives/a1b7d00f.html</id>
     <published>2025-05-29T01:39:27.000Z</published>
     <updated>2025-05-29T01:48:45.249Z</updated>
     
@@ -86,19 +86,19 @@
     
     
     
-    <category term="数据库" scheme="https://blog.hwtx.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <category term="数据库" scheme="https://codeobservatory.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-    <category term="sql" scheme="https://blog.hwtx.top/tags/sql/"/>
+    <category term="sql" scheme="https://codeobservatory.cn/tags/sql/"/>
     
-    <category term="数据库" scheme="https://blog.hwtx.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <category term="数据库" scheme="https://codeobservatory.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
   <entry>
     <title>Hexo-butterfly文章顶部添加波浪效果</title>
-    <link href="https://blog.hwtx.top/archives/2aebdcfd.html"/>
-    <id>https://blog.hwtx.top/archives/2aebdcfd.html</id>
+    <link href="https://codeobservatory.cn/archives/2aebdcfd.html"/>
+    <id>https://codeobservatory.cn/archives/2aebdcfd.html</id>
     <published>2025-05-28T08:44:31.000Z</published>
     <updated>2025-05-28T08:54:59.743Z</updated>
     
@@ -109,21 +109,21 @@
     
     
     
-    <category term="博客教程" scheme="https://blog.hwtx.top/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
+    <category term="博客教程" scheme="https://codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="hexo" scheme="https://blog.hwtx.top/tags/hexo/"/>
+    <category term="hexo" scheme="https://codeobservatory.cn/tags/hexo/"/>
     
-    <category term="butterfly" scheme="https://blog.hwtx.top/tags/butterfly/"/>
+    <category term="butterfly" scheme="https://codeobservatory.cn/tags/butterfly/"/>
     
-    <category term="波浪" scheme="https://blog.hwtx.top/tags/%E6%B3%A2%E6%B5%AA/"/>
+    <category term="波浪" scheme="https://codeobservatory.cn/tags/%E6%B3%A2%E6%B5%AA/"/>
     
   </entry>
   
   <entry>
     <title>Hexo-butterfly友情链接页面优化</title>
-    <link href="https://blog.hwtx.top/archives/29606f1.html"/>
-    <id>https://blog.hwtx.top/archives/29606f1.html</id>
+    <link href="https://codeobservatory.cn/archives/29606f1.html"/>
+    <id>https://codeobservatory.cn/archives/29606f1.html</id>
     <published>2025-05-28T07:36:24.000Z</published>
     <updated>2025-05-28T08:44:08.991Z</updated>
     
@@ -134,21 +134,21 @@
     
     
     
-    <category term="博客教程" scheme="https://blog.hwtx.top/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
+    <category term="博客教程" scheme="https://codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="hexo" scheme="https://blog.hwtx.top/tags/hexo/"/>
+    <category term="hexo" scheme="https://codeobservatory.cn/tags/hexo/"/>
     
-    <category term="butterfly" scheme="https://blog.hwtx.top/tags/butterfly/"/>
+    <category term="butterfly" scheme="https://codeobservatory.cn/tags/butterfly/"/>
     
   </entry>
   
   <entry>
     <title>五大方法提高网站排名</title>
-    <link href="https://blog.hwtx.top/archives/d9f9c7be.html"/>
-    <id>https://blog.hwtx.top/archives/d9f9c7be.html</id>
+    <link href="https://codeobservatory.cn/archives/d9f9c7be.html"/>
+    <id>https://codeobservatory.cn/archives/d9f9c7be.html</id>
     <published>2025-05-27T07:49:14.000Z</published>
-    <updated>2025-05-28T08:25:09.044Z</updated>
+    <updated>2025-06-05T06:39:50.561Z</updated>
     
     <content type="html"><![CDATA[<p>很多人问我，而且反复的问我，我的网站排名怎么一直上不去？我的网站排名怎么又掉了？最近百度大更新，我的网站被K了，怎么回事？不同的问题，但是回答的内容大同小异，今天<a href="https://www.codeobservatory.cn/">码农观测站</a>总结了五个方法提高网站排名，希望对你们有帮助。</p><h2 id="一、做好站内优化"><a href="#一、做好站内优化" class="headerlink" title="一、做好站内优化"></a>一、做好站内优化</h2><p>网站上线之前，做好站内优化，站内优化直接影响网站的收录情况。一般上线之后，是不需要再调整站内的布局及结构。但是可以根据网站的搜索引擎的排名情况，分析原因所在，可以适当的调整。一般情况下，影响排名的站内因素有：</p><ol><li>关键词没有定位好。我们要让关键词明确，适当的给关键词加粗，斜体，引起蜘蛛的注意，并且在站内做好锚文本加上指向首页的连接。</li><li>首页权重被内页负累。每个内页都要有关键词做锚文本指向首页，将权重传递给首页，内页做好关联连接即可。另一个增加首页权重的方法，就是次导航。我们将关键词做在次导航，并且至上首页，这样可以很好的提高网站首页的权重。</li><li>百度排名最近一直动荡，南京SEO顾问的排名一直在第二到第七之间不停的变动，一天能上下好几回。有变动，就有提高。搜索引擎的计算方法一直是发展的，也将会更加严谨，科学，合理。黑帽手法一直是被搜索殷勤所打击的，黑猫手法发挥的空间也越来越小。所以在网站内避免使用黑帽排名手法，包括关键词堆砌，隐藏关键词等手法，都是不可取的，这样你的网站很容易被搜索引擎拒绝收录。</li></ol><h2 id="二、做好站内静态页面文章更新"><a href="#二、做好站内静态页面文章更新" class="headerlink" title="二、做好站内静态页面文章更新"></a>二、做好站内静态页面文章更新</h2><p>静态页面一直是搜索引擎比较喜欢的，会加速收录，一般做网站的人都喜欢选择静态页面。做好静态页面的文章更新，最好的方法就是原创，当然伪原创也是有效方法。</p><ol><li>如果是伪原创，在页面的头部插入图片，加上alt标签，这个会让搜索引擎认为是原创的内容，提高文章的收录，有利于排名。</li><li>每个静态页面下均加入次导航，做好关键词锚文本指向首页。</li><li>在更新的文章中间，多次加入网站关键词并且适当加粗，加上链接指向首页。</li></ol><p>做好这三个工作，网站静态页面的更新，就可以轻松完成。</p><h2 id="三、友情链接的交换"><a href="#三、友情链接的交换" class="headerlink" title="三、友情链接的交换"></a>三、友情链接的交换</h2><p>交换友链一直是网站排名优化的工作内容之一，不可缺少。一个高权重的友链不但可以带动你的网站的权重，并且对排名有非常大的帮助，有时甚至会直接冲在首页。可以看出，友链是很重要的一个外链所在。一般在交换友链时，我们需要考虑的因素有：</p><ol><li>查看对方的pr值是否比你低。鉴于交换友链的出发点，不会跟比自己pr低的网站去交换友链的。</li><li>查看对方页面的收录情况。一般情况是找收录量大的网站做友情链接。</li><li>查看对方快照更新情况。看对方是否及时更新，还有最近的收录情况。</li><li>查看对方的外链情况。包括友链和外链，友链一般超过30个，就不要再交换了，因为这样意义不大。查看对方外链的收录量，一般选择外链收录多的网站交换。</li><li>查看对方网站是否被处罚过，如果被处罚过，交换友链就没有必要了，因为对方网站可能被屏蔽状态或者没有好的排名。</li><li>找一些权重比较高的友情链接平台，输入网站关键词和连接，既是一个外链，也可以让别人找到你，增加交换友链的可选择性。最好寻找有相关性的网站交换友链。</li></ol><h2 id="四、原创软文的推广"><a href="#四、原创软文的推广" class="headerlink" title="四、原创软文的推广"></a>四、原创软文的推广</h2><p>原创软文推广，一直是最好的外链推广方式，可以再做好外链的同时，还能增加网站的流量及品牌形象。</p><ol><li>软文的内容范围比较广，不一定要写跟网站相关的内容，只要写出来对别人有帮助，大家感兴趣的，适当的在文中加入网站的连接和关键词就行了。</li><li>将软文放在一些知名度高，基本也是权重比较高的网站上发布，这样带来的人气是很高的，推广的效果比较明显。</li><li>每篇软文的关键词要有所区别，加入的数量不要多，可以在结尾的时候加上一个就行了。</li><li>软文的内容广告性质不要表露出来，链接地址出现一次就行。太明显，可能就不能问世。</li><li>软文最好是每天一两篇，这样做提高网站排名是非常有利的，而且能很快看到效果。</li></ol><h2 id="五、大型论坛和问答平台做外链的方法"><a href="#五、大型论坛和问答平台做外链的方法" class="headerlink" title="五、大型论坛和问答平台做外链的方法"></a>五、大型论坛和问答平台做外链的方法</h2><p>很多人在发帖子，会帖子，或者做问答的时候，都会很郁闷的一件事就是，帖子总是被删掉，或者干脆账号被封掉，问答提交上去，一直审核，然后直接无视。如果不去总结或者学习方法，这种工作会变得枯燥乏味。</p><ol><li>发帖内容要跟论坛的主体是相关的，帖子的内容不一定跟你的网站内容相关，但是要跟论坛的主题相关。</li><li>最好是原创内容，如果不是原创，那么请认真的伪原创。</li><li>发帖内容不要是广告，一般广告贴几乎都会被秒杀过滤掉。</li><li>不要带一些敏感字，有带敏感字的，论坛程序会直接过滤。</li></ol><p>做好以上五点，你会惊喜的发现，你的排名正在默默的往前推进，持续地做好以上五点，你会发现，你的同行正在慢慢的退到你的身后。</p>]]></content>
     
@@ -157,17 +157,17 @@
     
     
     
-    <category term="SEO笔记" scheme="https://blog.hwtx.top/categories/SEO%E7%AC%94%E8%AE%B0/"/>
+    <category term="SEO笔记" scheme="https://codeobservatory.cn/categories/SEO%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="seo" scheme="https://blog.hwtx.top/tags/seo/"/>
+    <category term="seo" scheme="https://codeobservatory.cn/tags/seo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo-butterfly 接入腾讯混元大模型自动生成文章摘要(保姆教程)</title>
-    <link href="https://blog.hwtx.top/archives/9dd55dbc.html"/>
-    <id>https://blog.hwtx.top/archives/9dd55dbc.html</id>
+    <link href="https://codeobservatory.cn/archives/9dd55dbc.html"/>
+    <id>https://codeobservatory.cn/archives/9dd55dbc.html</id>
     <published>2025-05-26T07:16:28.000Z</published>
     <updated>2025-05-28T07:33:45.679Z</updated>
     
@@ -182,48 +182,48 @@
     
     
     
-    <category term="博客教程" scheme="https://blog.hwtx.top/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
+    <category term="博客教程" scheme="https://codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="hexo" scheme="https://blog.hwtx.top/tags/hexo/"/>
+    <category term="hexo" scheme="https://codeobservatory.cn/tags/hexo/"/>
     
-    <category term="butterfly" scheme="https://blog.hwtx.top/tags/butterfly/"/>
+    <category term="butterfly" scheme="https://codeobservatory.cn/tags/butterfly/"/>
     
-    <category term="AI摘要生成" scheme="https://blog.hwtx.top/tags/AI%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/"/>
+    <category term="AI摘要生成" scheme="https://codeobservatory.cn/tags/AI%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/"/>
     
   </entry>
   
   <entry>
     <title>【详解】SEM和SEO有什么区别呢?</title>
-    <link href="https://blog.hwtx.top/archives/e3d52469.html"/>
-    <id>https://blog.hwtx.top/archives/e3d52469.html</id>
+    <link href="https://codeobservatory.cn/archives/e3d52469.html"/>
+    <id>https://codeobservatory.cn/archives/e3d52469.html</id>
     <published>2025-05-26T01:14:28.000Z</published>
-    <updated>2025-05-27T08:30:03.400Z</updated>
+    <updated>2025-06-05T06:39:28.797Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>SEM和SEO</strong>是两种基本的数字营销战略，它们之间有许多相似之处，但也存在明显的区别。在这篇文章中，我们将探讨这两种策略之间的区别是什么，以及如何选择适合您业务需求的数字营销策略。</p><p><img src="https://www.hwtx.top/upload/images/2023/4/3cb5e36c30cedc.png" alt="seo VS sem"></p><h2 id="一、SEM和SEO的定义"><a href="#一、SEM和SEO的定义" class="headerlink" title="一、SEM和SEO的定义"></a>一、SEM和SEO的定义</h2><p><code>SEM</code>（搜索引擎营销）和<code>SEO</code>（搜索引擎优化）都是数字营销策略，旨在推广您的品牌和产品，获得更多的客户和销售额。两者都是通过提高在搜索引擎结果页面（SERP）中的可见度来实现的，但它们之间的方法不同。</p><p>定义太抽象，我们看下图，几个主要位置，我用不同颜色的框做了区别。</p><p><img src="https://www.hwtx.top/upload/images/2023/4/eba1a794b66c6bfc.png"></p><p>例如上图中：</p><p>红框：百度品牌专区。（根据品牌关键词搜索量百度官方评估价格，按月收固定费用，普通小品牌的参考价格在一个月十万这样。）</p><p>黄框：百度营销广告，标志为后面的“广告”字样，如下图。</p><p><img src="https://www.hwtx.top/upload/images/2023/4/8aa9f128c62962cc.png"></p><p>通常按照点击竞价付费，在百度营销后台，您可以选择针对哪些关键词进行广告投放，以及为每一次点击支付的费用。参考价格一般每次点击在几块-十几块居多。</p><p>百度刚推出广告的时候，只有这一种，把这个叫做“竞价排名”，行业内因此沿用至今。所以，即使很多行内大牛，跟你说SEM的时候，也就是在说竞价排名。这没啥好争的。</p><p>说起来叫“竞价排名”，实际上这个部分，是可操作性最高的，因为排名位置不完全和单次点击您愿意出的价格一致。有“匹配方式”、“质量度”等复杂细节，所以会玩的和不会玩的，做出来的效果就差了非常多。</p><p>所以我们行业内口头上说SEM，一般就两种意思：</p><p><strong>SEM&#x3D;百度竞价广告+百度信息流广告+百度品牌专区</strong></p><p><strong>SEM&#x3D;百度竞价广告</strong></p><p>真正和客户讨论SEM的时候，通常是说前者，而且会特别问清楚只做百度SEM还是搜狗和360搜索引擎的SEM一起做。实际上，只做百度SEM的客户，毛估估占80%以上。</p><p>日常我们自己人讨论，意思就是后者了。SEM就是<strong>百度竞价排名</strong>。（因为搜索引擎广告相对来说只有这一部分是复杂的。别的部分没什么好讨论的）</p><p>蓝框：这事情本来不复杂，这就是典型的SEO搜索结果。识别方法是，搜索结果后面有个“百度快照“字样</p><p><img src="https://www.hwtx.top/upload/images/2023/4/e83379cad696771a.png"></p><p>但是呢，这右上角多了 官方 的小蓝标的字样。</p><p>所以我们再严谨的说，同时有“百度快照“，“官方”小蓝标的网站，不一定是一个SEO的搜索结果。官方标志的产生有三种可能：</p><ol><li><p>最初，百度会主动为一些大型网站，知名品牌网站，打上“官方”标记。</p></li><li><p>再然后，通过百度资源平台的后台（以前叫百度站长工具），你可以提交自己的注册商标等材料，免费认证自己为官网，打上“官方”标记。</p></li><li><p>最后，百度要赚钱嘛（都懂）。就把这个作为一个业务授权代理公司来卖了。可以在SEO搜索结果中付费置顶公司名、商标名以及相关衍生词，同时打上“官方”标记。价格以这些词的搜索量为主要估价指标，在几千-十几万&#x2F;年之间浮动。普通非著名品牌名，想做这个官网认证，参考价格在一年几万块。</p></li></ol><p>因为这说起来复杂了。为了比较好表达，我们本文中约定，无论有没有“官方”标记，都把带有“百度快照”字样的搜索结果。叫做SEO结果。也就是本文示例中蓝框就是SEO搜索结果。</p><p>绿框：SEO搜索结果中，除了官网以外的其他搜索结果。我们用绿框来表示。</p><p>微信图片_20230407195547.png</p><p>在本文中，我们也把它定义为SEO的一部分。</p><p>也就是蓝框+绿框，这就算做SEO的部分。</p><p>这说起来有又点麻烦了，因为 这条后面，没有“百度快照”标记，怎么也是SEO结果？我只能说，咱们也不能这么教条对吧。</p><p>“百度快照”不是用来标记这是一个SEO结果的专用标记。其实只是提供一个链接，让你看到，上次搜索引擎的抓取程序，抓到的这个页面的快照是什么样子的。以免产生一些分歧。</p><p>所以SEO结果中的百度自家的产品，例如 百度百科、百度贴吧等。都是没有这个“百度快照”字样的。</p><p>灰框：右侧区域的这个灰框，是百度自动匹配出来的一些相关结果。</p><p>根据不同的搜索词，会有不同的展现形式。但是在我了解的范围内，还没有人能在可预测的指定时间和指定预算内，稳定的提升一个限定结果到这个位置。当然，高手很多的，如果有，请联系我，付费合作。</p><h2 id="二、SEM和SEO的区别？"><a href="#二、SEM和SEO的区别？" class="headerlink" title="二、SEM和SEO的区别？"></a>二、SEM和SEO的区别？</h2><p>SEO是一种有机的策略，它通常需要更长的时间，以使您的网站排名更高。它包括有关网站的改进，以使其更容易被搜索引擎索引。SEO的关键是确定正确的高价值关键词，并利用这些关键词使您的内容变得更富有内容和相关性，以使搜索引擎更容易找到您的网站。</p><p>SEM是一种付费的策略，它通常比SEO更快地带来结果，但成本也更高。其目的是通过购买关键词广告来增加您的在线可见度。这些广告通常以受众定位为基础，以确保您的品牌出现在与您特定产品或服务相关的受众的搜索结果中。</p><p>尽管两者之间有明显的区别，但它们也有许多相似之处。它们都需要根据您的目标受众来开发目标关键字，以使您的网站上出现在更广泛的搜索结果中。两者都有助于提高您的品牌的在线可见性，增加流量和销售额，并与您的客户建立更紧密的联系。</p><p>另一个不同点是，SEM可以提供更大的控制度。 SEM广告可以被适时地和非常精确地定位到某个特殊的人群，这意味着您可以非常精细地控制营销资金的支出。而SEO则可能受到搜索引擎算法的影响，需要更长的时间才能看到显著的结果，因此这种策略比SEM更加适合未来的计划。</p><p>在选择适合您业务需求的数字营销策略时，请考虑您的时间和预算。 如果您需要快速的结果并愿意支付更高的成本， 那么SEM可能是更好的选择，如果您的团队预算有限且您想长期投入，SEO则可能是更好的选择。</p><p>总之，SEM和SEO是两种数字营销策略，目的是提高您的在线可见性和销售额。尽管它们的方法存在明显的区别，但它们都有类似的目标和方法，即确定最佳关键词，并将您的品牌展示给更广泛的在线受众。 根据您的预算和时间限制，选择适合您业务需求的数字营销策略。</p>]]></content>
+    <content type="html"><![CDATA[<p><strong>SEM和SEO</strong>是两种基本的数字营销战略，它们之间有许多相似之处，但也存在明显的区别。在这篇文章中，我们将探讨这两种策略之间的区别是什么，以及如何选择适合您业务需求的数字营销策略。</p><p><img src="https://www.codeobservatory.cn/upload/images/2023/4/3cb5e36c30cedc.png" alt="seo VS sem"></p><h2 id="一、SEM和SEO的定义"><a href="#一、SEM和SEO的定义" class="headerlink" title="一、SEM和SEO的定义"></a>一、SEM和SEO的定义</h2><p><code>SEM</code>（搜索引擎营销）和<code>SEO</code>（搜索引擎优化）都是数字营销策略，旨在推广您的品牌和产品，获得更多的客户和销售额。两者都是通过提高在搜索引擎结果页面（SERP）中的可见度来实现的，但它们之间的方法不同。</p><p>定义太抽象，我们看下图，几个主要位置，我用不同颜色的框做了区别。</p><p><img src="https://www.codeobservatory.cn/upload/images/2023/4/eba1a794b66c6bfc.png"></p><p>例如上图中：</p><p>红框：百度品牌专区。（根据品牌关键词搜索量百度官方评估价格，按月收固定费用，普通小品牌的参考价格在一个月十万这样。）</p><p>黄框：百度营销广告，标志为后面的“广告”字样，如下图。</p><p><img src="https://www.codeobservatory.cn/upload/images/2023/4/8aa9f128c62962cc.png"></p><p>通常按照点击竞价付费，在百度营销后台，您可以选择针对哪些关键词进行广告投放，以及为每一次点击支付的费用。参考价格一般每次点击在几块-十几块居多。</p><p>百度刚推出广告的时候，只有这一种，把这个叫做“竞价排名”，行业内因此沿用至今。所以，即使很多行内大牛，跟你说SEM的时候，也就是在说竞价排名。这没啥好争的。</p><p>说起来叫“竞价排名”，实际上这个部分，是可操作性最高的，因为排名位置不完全和单次点击您愿意出的价格一致。有“匹配方式”、“质量度”等复杂细节，所以会玩的和不会玩的，做出来的效果就差了非常多。</p><p>所以我们行业内口头上说SEM，一般就两种意思：</p><p><strong>SEM&#x3D;百度竞价广告+百度信息流广告+百度品牌专区</strong></p><p><strong>SEM&#x3D;百度竞价广告</strong></p><p>真正和客户讨论SEM的时候，通常是说前者，而且会特别问清楚只做百度SEM还是搜狗和360搜索引擎的SEM一起做。实际上，只做百度SEM的客户，毛估估占80%以上。</p><p>日常我们自己人讨论，意思就是后者了。SEM就是<strong>百度竞价排名</strong>。（因为搜索引擎广告相对来说只有这一部分是复杂的。别的部分没什么好讨论的）</p><p>蓝框：这事情本来不复杂，这就是典型的SEO搜索结果。识别方法是，搜索结果后面有个“百度快照“字样</p><p><img src="https://www.codeobservatory.cn/upload/images/2023/4/e83379cad696771a.png"></p><p>但是呢，这右上角多了 官方 的小蓝标的字样。</p><p>所以我们再严谨的说，同时有“百度快照“，“官方”小蓝标的网站，不一定是一个SEO的搜索结果。官方标志的产生有三种可能：</p><ol><li><p>最初，百度会主动为一些大型网站，知名品牌网站，打上“官方”标记。</p></li><li><p>再然后，通过百度资源平台的后台（以前叫百度站长工具），你可以提交自己的注册商标等材料，免费认证自己为官网，打上“官方”标记。</p></li><li><p>最后，百度要赚钱嘛（都懂）。就把这个作为一个业务授权代理公司来卖了。可以在SEO搜索结果中付费置顶公司名、商标名以及相关衍生词，同时打上“官方”标记。价格以这些词的搜索量为主要估价指标，在几千-十几万&#x2F;年之间浮动。普通非著名品牌名，想做这个官网认证，参考价格在一年几万块。</p></li></ol><p>因为这说起来复杂了。为了比较好表达，我们本文中约定，无论有没有“官方”标记，都把带有“百度快照”字样的搜索结果。叫做SEO结果。也就是本文示例中蓝框就是SEO搜索结果。</p><p>绿框：SEO搜索结果中，除了官网以外的其他搜索结果。我们用绿框来表示。</p><p>微信图片_20230407195547.png</p><p>在本文中，我们也把它定义为SEO的一部分。</p><p>也就是蓝框+绿框，这就算做SEO的部分。</p><p>这说起来有又点麻烦了，因为 这条后面，没有“百度快照”标记，怎么也是SEO结果？我只能说，咱们也不能这么教条对吧。</p><p>“百度快照”不是用来标记这是一个SEO结果的专用标记。其实只是提供一个链接，让你看到，上次搜索引擎的抓取程序，抓到的这个页面的快照是什么样子的。以免产生一些分歧。</p><p>所以SEO结果中的百度自家的产品，例如 百度百科、百度贴吧等。都是没有这个“百度快照”字样的。</p><p>灰框：右侧区域的这个灰框，是百度自动匹配出来的一些相关结果。</p><p>根据不同的搜索词，会有不同的展现形式。但是在我了解的范围内，还没有人能在可预测的指定时间和指定预算内，稳定的提升一个限定结果到这个位置。当然，高手很多的，如果有，请联系我，付费合作。</p><h2 id="二、SEM和SEO的区别？"><a href="#二、SEM和SEO的区别？" class="headerlink" title="二、SEM和SEO的区别？"></a>二、SEM和SEO的区别？</h2><p>SEO是一种有机的策略，它通常需要更长的时间，以使您的网站排名更高。它包括有关网站的改进，以使其更容易被搜索引擎索引。SEO的关键是确定正确的高价值关键词，并利用这些关键词使您的内容变得更富有内容和相关性，以使搜索引擎更容易找到您的网站。</p><p>SEM是一种付费的策略，它通常比SEO更快地带来结果，但成本也更高。其目的是通过购买关键词广告来增加您的在线可见度。这些广告通常以受众定位为基础，以确保您的品牌出现在与您特定产品或服务相关的受众的搜索结果中。</p><p>尽管两者之间有明显的区别，但它们也有许多相似之处。它们都需要根据您的目标受众来开发目标关键字，以使您的网站上出现在更广泛的搜索结果中。两者都有助于提高您的品牌的在线可见性，增加流量和销售额，并与您的客户建立更紧密的联系。</p><p>另一个不同点是，SEM可以提供更大的控制度。 SEM广告可以被适时地和非常精确地定位到某个特殊的人群，这意味着您可以非常精细地控制营销资金的支出。而SEO则可能受到搜索引擎算法的影响，需要更长的时间才能看到显著的结果，因此这种策略比SEM更加适合未来的计划。</p><p>在选择适合您业务需求的数字营销策略时，请考虑您的时间和预算。 如果您需要快速的结果并愿意支付更高的成本， 那么SEM可能是更好的选择，如果您的团队预算有限且您想长期投入，SEO则可能是更好的选择。</p><p>总之，SEM和SEO是两种数字营销策略，目的是提高您的在线可见性和销售额。尽管它们的方法存在明显的区别，但它们都有类似的目标和方法，即确定最佳关键词，并将您的品牌展示给更广泛的在线受众。 根据您的预算和时间限制，选择适合您业务需求的数字营销策略。</p>]]></content>
     
     
     <summary type="html">这篇文章详细介绍了SEM和SEO这两种数字营销战略的区别与联系，SEM即搜索引擎营销，是一种付费策略，通过购买关键词广告快速提升网站在搜索引擎结果页面的可见度，适合需要快速见效且预算充足的业务，而SEO即搜索引擎优化，是一种有机策略，通过改进网站内容和结构提高自然排名，适合长期投入且预算有限的业务，两者都旨在提高品牌在线可见性和销售额，但方法、成本和效果显现时间不同，选择时需根据业务需求、时间和预算综合考虑。</summary>
     
     
     
-    <category term="SEO笔记" scheme="https://blog.hwtx.top/categories/SEO%E7%AC%94%E8%AE%B0/"/>
+    <category term="SEO笔记" scheme="https://codeobservatory.cn/categories/SEO%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="seo" scheme="https://blog.hwtx.top/tags/seo/"/>
+    <category term="seo" scheme="https://codeobservatory.cn/tags/seo/"/>
     
-    <category term="sem" scheme="https://blog.hwtx.top/tags/sem/"/>
+    <category term="sem" scheme="https://codeobservatory.cn/tags/sem/"/>
     
   </entry>
   
   <entry>
     <title>SEO搜索引擎排名的影响因素有哪些？</title>
-    <link href="https://blog.hwtx.top/archives/fce81199.html"/>
-    <id>https://blog.hwtx.top/archives/fce81199.html</id>
+    <link href="https://codeobservatory.cn/archives/fce81199.html"/>
+    <id>https://codeobservatory.cn/archives/fce81199.html</id>
     <published>2025-05-26T01:04:57.000Z</published>
-    <updated>2025-05-26T07:12:13.295Z</updated>
+    <updated>2025-06-05T06:39:39.562Z</updated>
     
-    <content type="html"><![CDATA[<p>SEO（Search Engine Optimization，搜索引擎优化）是一门综合性的学科，其核心目的是通过优化网站结构和内容等各方面来提高网站在搜索引擎中的排名和流量。当今社会，搜索引擎已成为人们获取信息的主要途径之一。因此，SEO变得越来越重要。下面我们来介绍一下SEO搜索引擎排名的影响因素有哪些。</p><p><img src="https://www.hwtx.top/upload/images/2023/4/285d3131d932feab.jpg" alt="SEO搜索引擎排名"></p><ol><li><p>网站结构优化</p><p> 网站结构优化是SEO排名的基础，一个清晰的网站架构可让搜索引擎轻松的根据网站内容进行分类和归档。网站结构不仅要简单明了，还需要同搜索引擎的算法相适应，包括URL的优化、网站目录的分类以及网站内部链接的优化等。</p></li><li><p>网站内容优化</p><p> 网站内容是吸引用户的重要因素，同时也是搜索引擎排名的重要考察因素。内容质量的优化包括标题、关键字、图片、视频、文本等等，必须保证内容真实、有价值且满足用户需求，同时要关注内容的重复性和原创性，避免内容被搜索引擎视为垃圾信息。</p></li><li><p>外部链接的数量和质量</p><p> 外部链接的数量和质量也是SEO排名的重要因素之一，经过一定的关键词排名，搜索引擎会根据关键词在网上所获得的链接数和链接的来源质量作为参考，来衡量网站的权威性和可信度。因此，建立良好的外部链接是优化排名不可或缺的一部分。</p></li><li><p>网站访客的数量和留存时间</p><p> 搜索引擎排名算法也会考虑到网站访客数量和访客的留存时间等因素。访客数量是评估一个网站流量和受欢迎程度的关键指标之一。留存时间则代表了访客对网站内容的满意度。因此，增加网站流量和访客留存时间是提高SEO排名的必要步骤。</p></li><li><p>社交网络的影响</p><p> 社交媒体对于SEO排名也有一定的影响。如果网站的内容能够在社交网络上被大量分享和引用，搜索引擎会将其所带来的流量和社会信誉度纳入排名因素之中。因此，建立并与人群互动的社交网络账号是提高SEO排名的一种方法。</p></li></ol><p>综上所述，SEO搜索引擎排名的影响因素是多方面的，在优化过程中需要综合考虑各种关键因素，通过优化其中的数据和指标来提高网站排名和流量。</p>]]></content>
+    <content type="html"><![CDATA[<p>SEO（Search Engine Optimization，搜索引擎优化）是一门综合性的学科，其核心目的是通过优化网站结构和内容等各方面来提高网站在搜索引擎中的排名和流量。当今社会，搜索引擎已成为人们获取信息的主要途径之一。因此，SEO变得越来越重要。下面我们来介绍一下SEO搜索引擎排名的影响因素有哪些。</p><p><img src="https://www.codeobservatory.cn/upload/images/2023/4/285d3131d932feab.jpg" alt="SEO搜索引擎排名"></p><ol><li><p>网站结构优化</p><p> 网站结构优化是SEO排名的基础，一个清晰的网站架构可让搜索引擎轻松的根据网站内容进行分类和归档。网站结构不仅要简单明了，还需要同搜索引擎的算法相适应，包括URL的优化、网站目录的分类以及网站内部链接的优化等。</p></li><li><p>网站内容优化</p><p> 网站内容是吸引用户的重要因素，同时也是搜索引擎排名的重要考察因素。内容质量的优化包括标题、关键字、图片、视频、文本等等，必须保证内容真实、有价值且满足用户需求，同时要关注内容的重复性和原创性，避免内容被搜索引擎视为垃圾信息。</p></li><li><p>外部链接的数量和质量</p><p> 外部链接的数量和质量也是SEO排名的重要因素之一，经过一定的关键词排名，搜索引擎会根据关键词在网上所获得的链接数和链接的来源质量作为参考，来衡量网站的权威性和可信度。因此，建立良好的外部链接是优化排名不可或缺的一部分。</p></li><li><p>网站访客的数量和留存时间</p><p> 搜索引擎排名算法也会考虑到网站访客数量和访客的留存时间等因素。访客数量是评估一个网站流量和受欢迎程度的关键指标之一。留存时间则代表了访客对网站内容的满意度。因此，增加网站流量和访客留存时间是提高SEO排名的必要步骤。</p></li><li><p>社交网络的影响</p><p> 社交媒体对于SEO排名也有一定的影响。如果网站的内容能够在社交网络上被大量分享和引用，搜索引擎会将其所带来的流量和社会信誉度纳入排名因素之中。因此，建立并与人群互动的社交网络账号是提高SEO排名的一种方法。</p></li></ol><p>综上所述，SEO搜索引擎排名的影响因素是多方面的，在优化过程中需要综合考虑各种关键因素，通过优化其中的数据和指标来提高网站排名和流量。</p>]]></content>
     
     
       
@@ -233,17 +233,17 @@
     
     
     
-    <category term="SEO笔记" scheme="https://blog.hwtx.top/categories/SEO%E7%AC%94%E8%AE%B0/"/>
+    <category term="SEO笔记" scheme="https://codeobservatory.cn/categories/SEO%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="seo" scheme="https://blog.hwtx.top/tags/seo/"/>
+    <category term="seo" scheme="https://codeobservatory.cn/tags/seo/"/>
     
   </entry>
   
   <entry>
     <title>seo优化超详细步骤 — hexo_butterfly</title>
-    <link href="https://blog.hwtx.top/archives/42adfbca.html"/>
-    <id>https://blog.hwtx.top/archives/42adfbca.html</id>
+    <link href="https://codeobservatory.cn/archives/42adfbca.html"/>
+    <id>https://codeobservatory.cn/archives/42adfbca.html</id>
     <published>2025-05-24T02:00:21.000Z</published>
     <updated>2025-05-28T06:47:34.080Z</updated>
     
@@ -258,21 +258,21 @@
     
     
     
-    <category term="博客教程" scheme="https://blog.hwtx.top/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
+    <category term="博客教程" scheme="https://codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="seo" scheme="https://blog.hwtx.top/tags/seo/"/>
+    <category term="seo" scheme="https://codeobservatory.cn/tags/seo/"/>
     
-    <category term="hexo" scheme="https://blog.hwtx.top/tags/hexo/"/>
+    <category term="hexo" scheme="https://codeobservatory.cn/tags/hexo/"/>
     
-    <category term="butterfly" scheme="https://blog.hwtx.top/tags/butterfly/"/>
+    <category term="butterfly" scheme="https://codeobservatory.cn/tags/butterfly/"/>
     
   </entry>
   
   <entry>
     <title>Visual Studio2022安装SVN插件</title>
-    <link href="https://blog.hwtx.top/archives/4e81b362.html"/>
-    <id>https://blog.hwtx.top/archives/4e81b362.html</id>
+    <link href="https://codeobservatory.cn/archives/4e81b362.html"/>
+    <id>https://codeobservatory.cn/archives/4e81b362.html</id>
     <published>2024-07-19T02:57:45.000Z</published>
     <updated>2025-06-03T03:09:11.979Z</updated>
     
@@ -289,19 +289,19 @@
     
     
     
-    <category term="技术分享" scheme="https://blog.hwtx.top/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    <category term="技术分享" scheme="https://codeobservatory.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
     
     
-    <category term="vs" scheme="https://blog.hwtx.top/tags/vs/"/>
+    <category term="vs" scheme="https://codeobservatory.cn/tags/vs/"/>
     
-    <category term="svn" scheme="https://blog.hwtx.top/tags/svn/"/>
+    <category term="svn" scheme="https://codeobservatory.cn/tags/svn/"/>
     
   </entry>
   
   <entry>
     <title>IIS7 IIS8 设置将域名不带www跳转到带www上</title>
-    <link href="https://blog.hwtx.top/archives/79c4bde.html"/>
-    <id>https://blog.hwtx.top/archives/79c4bde.html</id>
+    <link href="https://codeobservatory.cn/archives/79c4bde.html"/>
+    <id>https://codeobservatory.cn/archives/79c4bde.html</id>
     <published>2024-03-20T03:11:54.000Z</published>
     <updated>2025-06-03T03:18:44.340Z</updated>
     
@@ -315,21 +315,21 @@
     
     
     
-    <category term="SEO笔记" scheme="https://blog.hwtx.top/categories/SEO%E7%AC%94%E8%AE%B0/"/>
+    <category term="SEO笔记" scheme="https://codeobservatory.cn/categories/SEO%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="seo" scheme="https://blog.hwtx.top/tags/seo/"/>
+    <category term="seo" scheme="https://codeobservatory.cn/tags/seo/"/>
     
-    <category term="IIS" scheme="https://blog.hwtx.top/tags/IIS/"/>
+    <category term="IIS" scheme="https://codeobservatory.cn/tags/IIS/"/>
     
-    <category term="www" scheme="https://blog.hwtx.top/tags/www/"/>
+    <category term="www" scheme="https://codeobservatory.cn/tags/www/"/>
     
   </entry>
   
   <entry>
     <title>百度分享share.js插件</title>
-    <link href="https://blog.hwtx.top/archives/7f5a1792.html"/>
-    <id>https://blog.hwtx.top/archives/7f5a1792.html</id>
+    <link href="https://codeobservatory.cn/archives/7f5a1792.html"/>
+    <id>https://codeobservatory.cn/archives/7f5a1792.html</id>
     <published>2024-03-20T03:00:41.000Z</published>
     <updated>2025-06-03T03:07:33.019Z</updated>
     
@@ -343,17 +343,17 @@
     
     
     
-    <category term="前端开发" scheme="https://blog.hwtx.top/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    <category term="前端开发" scheme="https://codeobservatory.cn/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="share" scheme="https://blog.hwtx.top/tags/share/"/>
+    <category term="share" scheme="https://codeobservatory.cn/tags/share/"/>
     
   </entry>
   
   <entry>
     <title>利用腾讯元器，将公众号变身为强大的.NET AI智能体</title>
-    <link href="https://blog.hwtx.top/archives/2543ce4e.html"/>
-    <id>https://blog.hwtx.top/archives/2543ce4e.html</id>
+    <link href="https://codeobservatory.cn/archives/2543ce4e.html"/>
+    <id>https://codeobservatory.cn/archives/2543ce4e.html</id>
     <published>2024-03-20T02:44:23.000Z</published>
     <updated>2025-06-03T02:55:26.351Z</updated>
     
@@ -367,17 +367,17 @@
     
     
     
-    <category term="技术分享" scheme="https://blog.hwtx.top/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    <category term="技术分享" scheme="https://codeobservatory.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
     
     
-    <category term="AI" scheme="https://blog.hwtx.top/tags/AI/"/>
+    <category term="AI" scheme="https://codeobservatory.cn/tags/AI/"/>
     
   </entry>
   
   <entry>
     <title>五个常用的.NET数据库迁移框架,你用过哪个?</title>
-    <link href="https://blog.hwtx.top/archives/9ede2f17.html"/>
-    <id>https://blog.hwtx.top/archives/9ede2f17.html</id>
+    <link href="https://codeobservatory.cn/archives/9ede2f17.html"/>
+    <id>https://codeobservatory.cn/archives/9ede2f17.html</id>
     <published>2024-03-20T02:06:36.000Z</published>
     <updated>2025-05-29T02:13:41.994Z</updated>
     
@@ -392,19 +392,19 @@
     
     
     
-    <category term="后端开发" scheme="https://blog.hwtx.top/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    <category term="后端开发" scheme="https://codeobservatory.cn/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term=".net" scheme="https://blog.hwtx.top/tags/net/"/>
+    <category term=".net" scheme="https://codeobservatory.cn/tags/net/"/>
     
-    <category term="迁移框架" scheme="https://blog.hwtx.top/tags/%E8%BF%81%E7%A7%BB%E6%A1%86%E6%9E%B6/"/>
+    <category term="迁移框架" scheme="https://codeobservatory.cn/tags/%E8%BF%81%E7%A7%BB%E6%A1%86%E6%9E%B6/"/>
     
   </entry>
   
   <entry>
     <title>如何搭建自己个人博客？我的个人博客</title>
-    <link href="https://blog.hwtx.top/archives/5dbf5225.html"/>
-    <id>https://blog.hwtx.top/archives/5dbf5225.html</id>
+    <link href="https://codeobservatory.cn/archives/5dbf5225.html"/>
+    <id>https://codeobservatory.cn/archives/5dbf5225.html</id>
     <published>2024-03-20T01:28:23.000Z</published>
     <updated>2025-05-28T07:31:43.006Z</updated>
     
@@ -418,17 +418,17 @@
     
     
     
-    <category term="博客教程" scheme="https://blog.hwtx.top/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
+    <category term="博客教程" scheme="https://codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="个人博客" scheme="https://blog.hwtx.top/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <category term="个人博客" scheme="https://codeobservatory.cn/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
   <entry>
     <title>Windows server 2019服务器安装IIS步骤教程</title>
-    <link href="https://blog.hwtx.top/archives/4f7ca37c.html"/>
-    <id>https://blog.hwtx.top/archives/4f7ca37c.html</id>
+    <link href="https://codeobservatory.cn/archives/4f7ca37c.html"/>
+    <id>https://codeobservatory.cn/archives/4f7ca37c.html</id>
     <published>2022-04-03T02:24:31.000Z</published>
     <updated>2025-06-03T02:55:23.489Z</updated>
     
@@ -439,12 +439,12 @@
     
     
     
-    <category term="技术分享" scheme="https://blog.hwtx.top/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    <category term="技术分享" scheme="https://codeobservatory.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
     
     
-    <category term="IIS" scheme="https://blog.hwtx.top/tags/IIS/"/>
+    <category term="IIS" scheme="https://codeobservatory.cn/tags/IIS/"/>
     
-    <category term="服务器" scheme="https://blog.hwtx.top/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="https://codeobservatory.cn/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
