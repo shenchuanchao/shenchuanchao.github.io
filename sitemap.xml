@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.codeobservatory.cn/archives/d9f9c7be.html</loc>
+    
+    <lastmod>2025-06-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.codeobservatory.cn/link/index.html</loc>
     
     <lastmod>2025-06-06</lastmod>
@@ -39,15 +48,6 @@
   
   <url>
     <loc>https://www.codeobservatory.cn/archives/321b85ec.html</loc>
-    
-    <lastmod>2025-06-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.codeobservatory.cn/archives/d9f9c7be.html</loc>
     
     <lastmod>2025-06-05</lastmod>
     
