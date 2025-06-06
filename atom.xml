@@ -3,11 +3,11 @@
   <title>码农观测站</title>
   
   <subtitle>欢迎进入码农观测站，分享编程学习的乐趣</subtitle>
-  <link href="https://codeobservatory.cn/atom.xml" rel="self"/>
+  <link href="https://www.codeobservatory.cn/atom.xml" rel="self"/>
   
-  <link href="https://codeobservatory.cn/"/>
+  <link href="https://www.codeobservatory.cn/"/>
   <updated>2025-06-06T02:52:46.283Z</updated>
-  <id>https://codeobservatory.cn/</id>
+  <id>https://www.codeobservatory.cn/</id>
   
   <author>
     <name>码农刚子</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>五年深漂画了个圆：从龙岗出租屋出发，又回到龙岗出租屋</title>
-    <link href="https://codeobservatory.cn/archives/240abd01.html"/>
-    <id>https://codeobservatory.cn/archives/240abd01.html</id>
+    <link href="https://www.codeobservatory.cn/archives/240abd01.html"/>
+    <id>https://www.codeobservatory.cn/archives/240abd01.html</id>
     <published>2025-06-06T01:48:28.000Z</published>
     <updated>2025-06-06T02:52:46.283Z</updated>
     
@@ -30,21 +30,21 @@
     
     
     
-    <category term="生活随笔" scheme="https://codeobservatory.cn/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/"/>
+    <category term="生活随笔" scheme="https://www.codeobservatory.cn/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="随笔" scheme="https://codeobservatory.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="https://www.codeobservatory.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
-    <category term="深圳" scheme="https://codeobservatory.cn/tags/%E6%B7%B1%E5%9C%B3/"/>
+    <category term="深圳" scheme="https://www.codeobservatory.cn/tags/%E6%B7%B1%E5%9C%B3/"/>
     
-    <category term="心路历程" scheme="https://codeobservatory.cn/tags/%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/"/>
+    <category term="心路历程" scheme="https://www.codeobservatory.cn/tags/%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>如何给Hexo-butterfly主题博客在复制时添加版权声明</title>
-    <link href="https://codeobservatory.cn/archives/321b85ec.html"/>
-    <id>https://codeobservatory.cn/archives/321b85ec.html</id>
+    <link href="https://www.codeobservatory.cn/archives/321b85ec.html"/>
+    <id>https://www.codeobservatory.cn/archives/321b85ec.html</id>
     <published>2025-06-03T09:00:40.000Z</published>
     <updated>2025-06-05T06:40:12.311Z</updated>
     
@@ -59,21 +59,21 @@
     
     
     
-    <category term="博客教程" scheme="https://codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
+    <category term="博客教程" scheme="https://www.codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="hexo" scheme="https://codeobservatory.cn/tags/hexo/"/>
+    <category term="hexo" scheme="https://www.codeobservatory.cn/tags/hexo/"/>
     
-    <category term="butterfly" scheme="https://codeobservatory.cn/tags/butterfly/"/>
+    <category term="butterfly" scheme="https://www.codeobservatory.cn/tags/butterfly/"/>
     
-    <category term="版权声明" scheme="https://codeobservatory.cn/tags/%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E/"/>
+    <category term="版权声明" scheme="https://www.codeobservatory.cn/tags/%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E/"/>
     
   </entry>
   
   <entry>
     <title>使用C#实现23种常见的设计模式</title>
-    <link href="https://codeobservatory.cn/archives/d8d7f62c.html"/>
-    <id>https://codeobservatory.cn/archives/d8d7f62c.html</id>
+    <link href="https://www.codeobservatory.cn/archives/d8d7f62c.html"/>
+    <id>https://www.codeobservatory.cn/archives/d8d7f62c.html</id>
     <published>2025-05-29T01:53:50.000Z</published>
     <updated>2025-05-29T02:02:10.422Z</updated>
     
@@ -84,19 +84,19 @@
     
     
     
-    <category term="后端开发" scheme="https://codeobservatory.cn/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    <category term="后端开发" scheme="https://www.codeobservatory.cn/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="C#" scheme="https://codeobservatory.cn/tags/C/"/>
+    <category term="C#" scheme="https://www.codeobservatory.cn/tags/C/"/>
     
-    <category term="设计模式" scheme="https://codeobservatory.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <category term="设计模式" scheme="https://www.codeobservatory.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title>SQL SERVER数据库跨服务器查询</title>
-    <link href="https://codeobservatory.cn/archives/a1b7d00f.html"/>
-    <id>https://codeobservatory.cn/archives/a1b7d00f.html</id>
+    <link href="https://www.codeobservatory.cn/archives/a1b7d00f.html"/>
+    <id>https://www.codeobservatory.cn/archives/a1b7d00f.html</id>
     <published>2025-05-29T01:39:27.000Z</published>
     <updated>2025-05-29T01:48:45.249Z</updated>
     
@@ -111,19 +111,19 @@
     
     
     
-    <category term="数据库" scheme="https://codeobservatory.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <category term="数据库" scheme="https://www.codeobservatory.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-    <category term="sql" scheme="https://codeobservatory.cn/tags/sql/"/>
+    <category term="sql" scheme="https://www.codeobservatory.cn/tags/sql/"/>
     
-    <category term="数据库" scheme="https://codeobservatory.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <category term="数据库" scheme="https://www.codeobservatory.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
   <entry>
     <title>Hexo-butterfly文章顶部添加波浪效果</title>
-    <link href="https://codeobservatory.cn/archives/2aebdcfd.html"/>
-    <id>https://codeobservatory.cn/archives/2aebdcfd.html</id>
+    <link href="https://www.codeobservatory.cn/archives/2aebdcfd.html"/>
+    <id>https://www.codeobservatory.cn/archives/2aebdcfd.html</id>
     <published>2025-05-28T08:44:31.000Z</published>
     <updated>2025-05-28T08:54:59.743Z</updated>
     
@@ -134,21 +134,21 @@
     
     
     
-    <category term="博客教程" scheme="https://codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
+    <category term="博客教程" scheme="https://www.codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="hexo" scheme="https://codeobservatory.cn/tags/hexo/"/>
+    <category term="hexo" scheme="https://www.codeobservatory.cn/tags/hexo/"/>
     
-    <category term="butterfly" scheme="https://codeobservatory.cn/tags/butterfly/"/>
+    <category term="butterfly" scheme="https://www.codeobservatory.cn/tags/butterfly/"/>
     
-    <category term="波浪" scheme="https://codeobservatory.cn/tags/%E6%B3%A2%E6%B5%AA/"/>
+    <category term="波浪" scheme="https://www.codeobservatory.cn/tags/%E6%B3%A2%E6%B5%AA/"/>
     
   </entry>
   
   <entry>
     <title>Hexo-butterfly友情链接页面优化</title>
-    <link href="https://codeobservatory.cn/archives/29606f1.html"/>
-    <id>https://codeobservatory.cn/archives/29606f1.html</id>
+    <link href="https://www.codeobservatory.cn/archives/29606f1.html"/>
+    <id>https://www.codeobservatory.cn/archives/29606f1.html</id>
     <published>2025-05-28T07:36:24.000Z</published>
     <updated>2025-05-28T08:44:08.991Z</updated>
     
@@ -159,19 +159,19 @@
     
     
     
-    <category term="博客教程" scheme="https://codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
+    <category term="博客教程" scheme="https://www.codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="hexo" scheme="https://codeobservatory.cn/tags/hexo/"/>
+    <category term="hexo" scheme="https://www.codeobservatory.cn/tags/hexo/"/>
     
-    <category term="butterfly" scheme="https://codeobservatory.cn/tags/butterfly/"/>
+    <category term="butterfly" scheme="https://www.codeobservatory.cn/tags/butterfly/"/>
     
   </entry>
   
   <entry>
     <title>五大方法提高网站排名</title>
-    <link href="https://codeobservatory.cn/archives/d9f9c7be.html"/>
-    <id>https://codeobservatory.cn/archives/d9f9c7be.html</id>
+    <link href="https://www.codeobservatory.cn/archives/d9f9c7be.html"/>
+    <id>https://www.codeobservatory.cn/archives/d9f9c7be.html</id>
     <published>2025-05-27T07:49:14.000Z</published>
     <updated>2025-06-05T06:39:50.561Z</updated>
     
@@ -182,17 +182,17 @@
     
     
     
-    <category term="SEO笔记" scheme="https://codeobservatory.cn/categories/SEO%E7%AC%94%E8%AE%B0/"/>
+    <category term="SEO笔记" scheme="https://www.codeobservatory.cn/categories/SEO%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="seo" scheme="https://codeobservatory.cn/tags/seo/"/>
+    <category term="seo" scheme="https://www.codeobservatory.cn/tags/seo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo-butterfly 接入腾讯混元大模型自动生成文章摘要(保姆教程)</title>
-    <link href="https://codeobservatory.cn/archives/9dd55dbc.html"/>
-    <id>https://codeobservatory.cn/archives/9dd55dbc.html</id>
+    <link href="https://www.codeobservatory.cn/archives/9dd55dbc.html"/>
+    <id>https://www.codeobservatory.cn/archives/9dd55dbc.html</id>
     <published>2025-05-26T07:16:28.000Z</published>
     <updated>2025-05-28T07:33:45.679Z</updated>
     
@@ -207,21 +207,21 @@
     
     
     
-    <category term="博客教程" scheme="https://codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
+    <category term="博客教程" scheme="https://www.codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="hexo" scheme="https://codeobservatory.cn/tags/hexo/"/>
+    <category term="hexo" scheme="https://www.codeobservatory.cn/tags/hexo/"/>
     
-    <category term="butterfly" scheme="https://codeobservatory.cn/tags/butterfly/"/>
+    <category term="butterfly" scheme="https://www.codeobservatory.cn/tags/butterfly/"/>
     
-    <category term="AI摘要生成" scheme="https://codeobservatory.cn/tags/AI%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/"/>
+    <category term="AI摘要生成" scheme="https://www.codeobservatory.cn/tags/AI%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/"/>
     
   </entry>
   
   <entry>
     <title>【详解】SEM和SEO有什么区别呢?</title>
-    <link href="https://codeobservatory.cn/archives/e3d52469.html"/>
-    <id>https://codeobservatory.cn/archives/e3d52469.html</id>
+    <link href="https://www.codeobservatory.cn/archives/e3d52469.html"/>
+    <id>https://www.codeobservatory.cn/archives/e3d52469.html</id>
     <published>2025-05-26T01:14:28.000Z</published>
     <updated>2025-06-05T06:39:28.797Z</updated>
     
@@ -232,19 +232,19 @@
     
     
     
-    <category term="SEO笔记" scheme="https://codeobservatory.cn/categories/SEO%E7%AC%94%E8%AE%B0/"/>
+    <category term="SEO笔记" scheme="https://www.codeobservatory.cn/categories/SEO%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="seo" scheme="https://codeobservatory.cn/tags/seo/"/>
+    <category term="seo" scheme="https://www.codeobservatory.cn/tags/seo/"/>
     
-    <category term="sem" scheme="https://codeobservatory.cn/tags/sem/"/>
+    <category term="sem" scheme="https://www.codeobservatory.cn/tags/sem/"/>
     
   </entry>
   
   <entry>
     <title>SEO搜索引擎排名的影响因素有哪些？</title>
-    <link href="https://codeobservatory.cn/archives/fce81199.html"/>
-    <id>https://codeobservatory.cn/archives/fce81199.html</id>
+    <link href="https://www.codeobservatory.cn/archives/fce81199.html"/>
+    <id>https://www.codeobservatory.cn/archives/fce81199.html</id>
     <published>2025-05-26T01:04:57.000Z</published>
     <updated>2025-06-05T06:39:39.562Z</updated>
     
@@ -258,17 +258,17 @@
     
     
     
-    <category term="SEO笔记" scheme="https://codeobservatory.cn/categories/SEO%E7%AC%94%E8%AE%B0/"/>
+    <category term="SEO笔记" scheme="https://www.codeobservatory.cn/categories/SEO%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="seo" scheme="https://codeobservatory.cn/tags/seo/"/>
+    <category term="seo" scheme="https://www.codeobservatory.cn/tags/seo/"/>
     
   </entry>
   
   <entry>
     <title>seo优化超详细步骤 — hexo_butterfly</title>
-    <link href="https://codeobservatory.cn/archives/42adfbca.html"/>
-    <id>https://codeobservatory.cn/archives/42adfbca.html</id>
+    <link href="https://www.codeobservatory.cn/archives/42adfbca.html"/>
+    <id>https://www.codeobservatory.cn/archives/42adfbca.html</id>
     <published>2025-05-24T02:00:21.000Z</published>
     <updated>2025-05-28T06:47:34.080Z</updated>
     
@@ -283,21 +283,21 @@
     
     
     
-    <category term="博客教程" scheme="https://codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
+    <category term="博客教程" scheme="https://www.codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="seo" scheme="https://codeobservatory.cn/tags/seo/"/>
+    <category term="seo" scheme="https://www.codeobservatory.cn/tags/seo/"/>
     
-    <category term="hexo" scheme="https://codeobservatory.cn/tags/hexo/"/>
+    <category term="hexo" scheme="https://www.codeobservatory.cn/tags/hexo/"/>
     
-    <category term="butterfly" scheme="https://codeobservatory.cn/tags/butterfly/"/>
+    <category term="butterfly" scheme="https://www.codeobservatory.cn/tags/butterfly/"/>
     
   </entry>
   
   <entry>
     <title>Visual Studio2022安装SVN插件</title>
-    <link href="https://codeobservatory.cn/archives/4e81b362.html"/>
-    <id>https://codeobservatory.cn/archives/4e81b362.html</id>
+    <link href="https://www.codeobservatory.cn/archives/4e81b362.html"/>
+    <id>https://www.codeobservatory.cn/archives/4e81b362.html</id>
     <published>2024-07-19T02:57:45.000Z</published>
     <updated>2025-06-03T03:09:11.979Z</updated>
     
@@ -314,19 +314,19 @@
     
     
     
-    <category term="技术分享" scheme="https://codeobservatory.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    <category term="技术分享" scheme="https://www.codeobservatory.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
     
     
-    <category term="vs" scheme="https://codeobservatory.cn/tags/vs/"/>
+    <category term="vs" scheme="https://www.codeobservatory.cn/tags/vs/"/>
     
-    <category term="svn" scheme="https://codeobservatory.cn/tags/svn/"/>
+    <category term="svn" scheme="https://www.codeobservatory.cn/tags/svn/"/>
     
   </entry>
   
   <entry>
     <title>IIS7 IIS8 设置将域名不带www跳转到带www上</title>
-    <link href="https://codeobservatory.cn/archives/79c4bde.html"/>
-    <id>https://codeobservatory.cn/archives/79c4bde.html</id>
+    <link href="https://www.codeobservatory.cn/archives/79c4bde.html"/>
+    <id>https://www.codeobservatory.cn/archives/79c4bde.html</id>
     <published>2024-03-20T03:11:54.000Z</published>
     <updated>2025-06-03T03:18:44.340Z</updated>
     
@@ -340,21 +340,21 @@
     
     
     
-    <category term="SEO笔记" scheme="https://codeobservatory.cn/categories/SEO%E7%AC%94%E8%AE%B0/"/>
+    <category term="SEO笔记" scheme="https://www.codeobservatory.cn/categories/SEO%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="seo" scheme="https://codeobservatory.cn/tags/seo/"/>
+    <category term="seo" scheme="https://www.codeobservatory.cn/tags/seo/"/>
     
-    <category term="IIS" scheme="https://codeobservatory.cn/tags/IIS/"/>
+    <category term="IIS" scheme="https://www.codeobservatory.cn/tags/IIS/"/>
     
-    <category term="www" scheme="https://codeobservatory.cn/tags/www/"/>
+    <category term="www" scheme="https://www.codeobservatory.cn/tags/www/"/>
     
   </entry>
   
   <entry>
     <title>百度分享share.js插件</title>
-    <link href="https://codeobservatory.cn/archives/7f5a1792.html"/>
-    <id>https://codeobservatory.cn/archives/7f5a1792.html</id>
+    <link href="https://www.codeobservatory.cn/archives/7f5a1792.html"/>
+    <id>https://www.codeobservatory.cn/archives/7f5a1792.html</id>
     <published>2024-03-20T03:00:41.000Z</published>
     <updated>2025-06-03T03:07:33.019Z</updated>
     
@@ -368,17 +368,17 @@
     
     
     
-    <category term="前端开发" scheme="https://codeobservatory.cn/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    <category term="前端开发" scheme="https://www.codeobservatory.cn/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="share" scheme="https://codeobservatory.cn/tags/share/"/>
+    <category term="share" scheme="https://www.codeobservatory.cn/tags/share/"/>
     
   </entry>
   
   <entry>
     <title>利用腾讯元器，将公众号变身为强大的.NET AI智能体</title>
-    <link href="https://codeobservatory.cn/archives/2543ce4e.html"/>
-    <id>https://codeobservatory.cn/archives/2543ce4e.html</id>
+    <link href="https://www.codeobservatory.cn/archives/2543ce4e.html"/>
+    <id>https://www.codeobservatory.cn/archives/2543ce4e.html</id>
     <published>2024-03-20T02:44:23.000Z</published>
     <updated>2025-06-03T02:55:26.351Z</updated>
     
@@ -392,17 +392,17 @@
     
     
     
-    <category term="技术分享" scheme="https://codeobservatory.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    <category term="技术分享" scheme="https://www.codeobservatory.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
     
     
-    <category term="AI" scheme="https://codeobservatory.cn/tags/AI/"/>
+    <category term="AI" scheme="https://www.codeobservatory.cn/tags/AI/"/>
     
   </entry>
   
   <entry>
     <title>五个常用的.NET数据库迁移框架,你用过哪个?</title>
-    <link href="https://codeobservatory.cn/archives/9ede2f17.html"/>
-    <id>https://codeobservatory.cn/archives/9ede2f17.html</id>
+    <link href="https://www.codeobservatory.cn/archives/9ede2f17.html"/>
+    <id>https://www.codeobservatory.cn/archives/9ede2f17.html</id>
     <published>2024-03-20T02:06:36.000Z</published>
     <updated>2025-05-29T02:13:41.994Z</updated>
     
@@ -417,19 +417,19 @@
     
     
     
-    <category term="后端开发" scheme="https://codeobservatory.cn/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    <category term="后端开发" scheme="https://www.codeobservatory.cn/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term=".net" scheme="https://codeobservatory.cn/tags/net/"/>
+    <category term=".net" scheme="https://www.codeobservatory.cn/tags/net/"/>
     
-    <category term="迁移框架" scheme="https://codeobservatory.cn/tags/%E8%BF%81%E7%A7%BB%E6%A1%86%E6%9E%B6/"/>
+    <category term="迁移框架" scheme="https://www.codeobservatory.cn/tags/%E8%BF%81%E7%A7%BB%E6%A1%86%E6%9E%B6/"/>
     
   </entry>
   
   <entry>
     <title>如何搭建自己个人博客？我的个人博客</title>
-    <link href="https://codeobservatory.cn/archives/5dbf5225.html"/>
-    <id>https://codeobservatory.cn/archives/5dbf5225.html</id>
+    <link href="https://www.codeobservatory.cn/archives/5dbf5225.html"/>
+    <id>https://www.codeobservatory.cn/archives/5dbf5225.html</id>
     <published>2024-03-20T01:28:23.000Z</published>
     <updated>2025-05-28T07:31:43.006Z</updated>
     
@@ -443,17 +443,17 @@
     
     
     
-    <category term="博客教程" scheme="https://codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
+    <category term="博客教程" scheme="https://www.codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="个人博客" scheme="https://codeobservatory.cn/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <category term="个人博客" scheme="https://www.codeobservatory.cn/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
   <entry>
     <title>Windows server 2019服务器安装IIS步骤教程</title>
-    <link href="https://codeobservatory.cn/archives/4f7ca37c.html"/>
-    <id>https://codeobservatory.cn/archives/4f7ca37c.html</id>
+    <link href="https://www.codeobservatory.cn/archives/4f7ca37c.html"/>
+    <id>https://www.codeobservatory.cn/archives/4f7ca37c.html</id>
     <published>2022-04-03T02:24:31.000Z</published>
     <updated>2025-06-03T02:55:23.489Z</updated>
     
@@ -464,12 +464,12 @@
     
     
     
-    <category term="技术分享" scheme="https://codeobservatory.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    <category term="技术分享" scheme="https://www.codeobservatory.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
     
     
-    <category term="IIS" scheme="https://codeobservatory.cn/tags/IIS/"/>
+    <category term="IIS" scheme="https://www.codeobservatory.cn/tags/IIS/"/>
     
-    <category term="服务器" scheme="https://codeobservatory.cn/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="https://www.codeobservatory.cn/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
