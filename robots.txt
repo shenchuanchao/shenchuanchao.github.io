@@ -2,5 +2,5 @@ User-agent: *
 Allow: /archives
 Disallow: /
 
-Sitemap: https://CodeObservatory.cn/baidusitemap.xml
-Sitemap: https://CodeObservatory.cn/sitemap.xml
+Sitemap: https://www.CodeObservatory.cn/baidusitemap.xml
+Sitemap: https://www.CodeObservatory.cn/sitemap.xml
