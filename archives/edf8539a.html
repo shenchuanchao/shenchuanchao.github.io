@@ -1,0 +1,329 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>网页图片异步加载 | 码农观测站</title><meta name="author" content="码农刚子"><meta name="copyright" content="码农观测站"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="这篇文章主要介绍了网页图片异步加载的原理、实现方式及其实际应用效果，强调了其在提升网页加载速度和用户体验方面的重要性。文章首先解释了异步加载的基本原理，即在不影响页面其他内容加载的情况下，在后台进行图片加载。接着，详细探讨了使用JavaScript实现图片懒加载的方法，包括监听滚动事件和使用&#96;Intersection Observer API&#96;来判断图片是否进入视口，并动态改变图片的src属性。此">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网页图片异步加载">
+<meta property="og:url" content="https://www.codeobservatory.cn/archives/edf8539a.html">
+<meta property="og:site_name" content="码农观测站">
+<meta property="og:description" content="这篇文章主要介绍了网页图片异步加载的原理、实现方式及其实际应用效果，强调了其在提升网页加载速度和用户体验方面的重要性。文章首先解释了异步加载的基本原理，即在不影响页面其他内容加载的情况下，在后台进行图片加载。接着，详细探讨了使用JavaScript实现图片懒加载的方法，包括监听滚动事件和使用&#96;Intersection Observer API&#96;来判断图片是否进入视口，并动态改变图片的src属性。此">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.codeobservatory.cn/archives-img.webp">
+<meta property="article:published_time" content="2024-05-27T09:14:41.000Z">
+<meta property="article:modified_time" content="2025-06-06T09:24:44.084Z">
+<meta property="article:author" content="码农刚子">
+<meta property="article:tag" content="异步">
+<meta property="article:tag" content="图片加载">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.codeobservatory.cn/archives-img.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "网页图片异步加载",
+  "url": "https://www.codeobservatory.cn/archives/edf8539a.html",
+  "image": "https://images.codeobservatory.cn/archives-img.webp",
+  "datePublished": "2024-05-27T09:14:41.000Z",
+  "dateModified": "2025-06-06T09:24:44.084Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "码农刚子",
+      "url": "https://www.codeobservatory.cn/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://www.codeobservatory.cn/archives/edf8539a.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="codeva-FIUUG5m1ys"/><link rel="stylesheet" href="/css/index.css?v=5.3.5"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":425,"highlightFullpage":true,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '网页图片异步加载',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/modify.css"><link rel="stylesheet" href="/css/rightMenu.css"><script defer src="/js/baidu_sub.js"></script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="码农观测站" type="application/atom+xml">
+</head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css"/><script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://images.codeobservatory.cn/archives-img.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">码农观测站</span></a><a class="nav-page-title" href="/"><span class="site-name">网页图片异步加载</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">网页图片异步加载</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-27T09:14:41.000Z" title="发表于 2024-05-27 17:14:41">2024-05-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-06-06T09:24:44.084Z" title="更新于 2025-06-06 17:24:44">2025-06-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div class="ai-summary"><div class="ai-explanation" style="display: block;" data-summary="这里是码农观测站，这篇文章主要介绍了网页图片异步加载的原理、实现方式及其实际应用效果，强调了其在提升网页加载速度和用户体验方面的重要性。文章首先解释了异步加载的基本原理，即在不影响页面其他内容加载的情况下，在后台进行图片加载。接着，详细探讨了使用JavaScript实现图片懒加载的方法，包括监听滚动事件和使用`Intersection Observer API`来判断图片是否进入视口，并动态改变图片的src属性。此外，还介绍了其他优化技术，如使用CDN加速、图片压缩和优化、选择合适的图片格式等。文章通过实例代码展示了如何实现懒加载，并讨论了异步加载在实际应用中的显著效果，如提升页面加载速度、减轻服务器负担、提高页面响应性和交互性。最后，文章指出虽然异步加载有诸多优势，但在某些需要快速展示图片的场景中，可能需要使用同步加载，强调了根据具体需求选择合适技术的重要性。">正在加载···</div><div class="ai-title"> <div class="ai-title-left"> <i class="fa-brands fa-slack"></i><div class="ai-title-text">AI摘要</div></div><div class="ai-tag" id="ai-tag">HunYuan-Lite</div></div></div><p>在当今数字化时代，网页加载速度对于用户体验至关重要。其中，图片作为网页内容的重要组成部分，其加载方式对于网页性能有着显著影响。异步加载作为一种优化手段，能够有效提升网页图片的加载速度和用户体验。本文将深入探讨网页图片异步加载的原理、实现方式以及实际应用效果。</p>
+<p>首先，我们需要了解网页图片异步加载的基本原理。异步加载是指在不影响页面其他内容加载的情况下，将图片的加载过程放在后台进行。当浏览器解析到图片标签时，不会立即下载图片，而是将图片请求放入队列中，待其他资源加载完毕后再进行图片的加载。这种方式可以有效避免由于图片加载导致的页面阻塞和延迟，从而提升页面的整体加载速度。</p>
+<p>实现网页图片异步加载的方式有多种，其中比较常用的是使用JavaScript进行图片懒加载。懒加载的核心思想是延迟图片的加载时间，只有当图片出现在视口范围内时才开始加载。具体实现时，可以通过监听滚动事件或<code>Intersection Observer API</code>来判断图片是否进入视口，然后动态地改变图片的src属性或进行图片的加载。此外，还有一些第三方库如<code>lozad.js</code>、<code>vue-lazyload</code>等提供了更简便的懒加载实现方式，可以方便地集成到项目中。</p>
+<p>除了懒加载外，还有其他一些技术可以实现网页图片异步加载。例如，使用CDN加速图片的加载速度；对图片进行压缩和优化，减少图片的大小和加载时间；利用图片格式转换技术，选择更适合的图片格式以减小文件大小等。这些技术可以与其他异步加载方式相结合，进一步提升网页图片加载的性能。</p>
+<p><strong>实例</strong>：</p>
+<p>获取视窗的高度和宽度：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> _viewPortHeight = <span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientHeight</span>, <span class="variable language_">window</span>.<span class="property">innerHeight</span> || <span class="number">0</span>),</span><br><span class="line">    _viewPortWidth = <span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientWidth</span>, <span class="variable language_">window</span>.<span class="property">innerWidth</span> || <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>是否处于垂直范围</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isOnVerticalViewPort</span>(<span class="params">ele</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> rect = ele.<span class="title function_">getBoundingClientRect</span>(); <span class="comment">// 获取距离视窗的位置信息</span></span><br><span class="line">    <span class="keyword">return</span> rect.<span class="property">top</span> &gt; <span class="number">0</span> &amp;&amp; rect.<span class="property">top</span> &lt;= _viewPortHeight;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>是否处于水平范围</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isOnHorizontalViewPort</span>(<span class="params">ele</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> rect = ele.<span class="title function_">getBoundingClientRect</span>();</span><br><span class="line">        <span class="keyword">return</span> rect.<span class="property">left</span> &gt; <span class="number">0</span> &amp;&amp; rect.<span class="property">left</span> &lt;= _viewPortWidth;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>有了这核心代码，我们只需要在滚动事件触发后，去动态的判断img元素了, 判断的示例代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">load</span>(<span class="params">images</span>) &#123;   </span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; images.<span class="property">length</span>; i++) &#123;</span><br><span class="line">         <span class="keyword">var</span> img = images[i];</span><br><span class="line">         <span class="keyword">if</span> (<span class="title function_">isOnVerticalViewPort</span>(img) &amp;&amp; <span class="title function_">isOnHorizontalViewPort</span>(img)) &#123;</span><br><span class="line">                     <span class="keyword">var</span> url = img.<span class="title function_">getAttribute</span>(<span class="string">&#x27;lz-src&#x27;</span>); <span class="comment">// 获取图片资源的地址</span></span><br><span class="line">            img.<span class="title function_">setAttribute</span>(<span class="string">&quot;src&quot;</span>, url);</span><br><span class="line">            img.<span class="property">isload</span> = <span class="literal">true</span>; <span class="comment">// 加载过后的图片设置加载标记，以免重复加载</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在html页面中的img元素的引用：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">lz-src</span>=<span class="string">&quot;/images/2024/5/5391b771eb1f31df.png&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过给img元素添加<code>lz-src</code>标记，告诉异步脚本，这个元素需要异步加载图片。</p>
+<p>监听滚动事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> images = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;img[&#x27;</span> + lz-src + <span class="string">&#x27;]&#x27;</span>); <span class="comment">// 按标记获取图片元素</span></span><br><span class="line">    <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;scroll&quot;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;        <span class="title function_">load</span>(images);</span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>在实际应用中，网页图片异步加载能够带来显著的效果。首先，它能够提升页面的加载速度，减少用户等待时间，从而提升用户体验。其次，异步加载能够减轻服务器的负担，降低带宽成本。由于图片加载被分散到不同的时间段进行，服务器的并发请求压力会相应减小，有利于提升网站的整体性能和稳定性。此外，异步加载还能够提高页面的响应性和交互性，使得用户在浏览网页时能够更流畅地进行操作和浏览。</p>
+<p>然而，需要注意的是，虽然异步加载带来了诸多优势，但并非所有情况都适用。在一些需要快速展示图片的场景中，如新闻、电商等网站的首页或详情页，可能更倾向于使用同步加载以确保图片的及时呈现。因此，在选择是否使用异步加载时，需要根据具体需求和场景进行权衡和选择。</p>
+<p>综上所述，网页图片异步加载是一种有效的优化手段，能够提升网页加载速度和用户体验。通过了解异步加载的原理和实现方式，我们可以根据实际需求选择合适的技术进行应用。同时，我们也需要关注异步加载可能带来的问题，并采取相应的措施进行解决。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.CodeObservatory.cn">码农刚子</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.codeobservatory.cn/archives/edf8539a.html">https://www.codeobservatory.cn/archives/edf8539a.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.CodeObservatory.cn" target="_blank">码农观测站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%82%E6%AD%A5/">异步</a><a class="post-meta__tags" href="/tags/%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD/">图片加载</a></div><div class="post-share"><div class="social-share" data-image="https://images.codeobservatory.cn/archives-img.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc@1.1.4/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc@1.1.4/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/archives/102371b7.html" title="小白也能成IT大神？程序员十大自学编程网站！"><img class="cover" src="https://images.codeobservatory.cn/hexo/202506/06/bdcee336471ae085.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">小白也能成IT大神？程序员十大自学编程网站！</div></div><div class="info-2"><div class="info-item-1">这篇文章介绍了十个适合程序员自学的编程网站，包括极客学院、慕课网、菜鸟教程、编程狮、网易云课堂、腾讯课堂、W3school、Udacity、B站和我要自学网，这些网站提供了丰富的IT技术视频课程和文字教程，适合不同水平的学习者，无论是初学者还是高手都能在这里找到适合自己的学习资源，帮助他们在IT互联网行业中不断提升自己，实现职业发展。</div></div></div></a><a class="pagination-related" href="/archives/4e81b362.html" title="Visual Studio2022安装SVN插件"><img class="cover" src="https://images.codeobservatory.cn/archives-img.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Visual Studio2022安装SVN插件</div></div><div class="info-2"><div class="info-item-1">前言 需要电脑中装有SVN并能正常使用。 具体步骤 1.下载插件VisualSVN  下载链接:https://www.visualsvn.com/visualsvn/download/ 1721399581790.jpg 2.安装 双击打开下载的vsix文件一路安装即可。 注意：下载后安装时要确保VS关闭，否则无法配置。 1721399456280.jpg 3.安装成功后打开Visual...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><script>function setClipboardText(event) {
+    let clipboardData = event.clipboardData || window.clipboardData;
+    if (!clipboardData) { return; }
+    event.preventDefault();
+    let text = window.getSelection().toString();
+    if (text) {
+        event.preventDefault();
+        var copyright = '\n\n--------------------------------------------'
+        + '\n版权声明：本文为作者原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。'
+        + '\n作者: 码农刚子'
+        + '\n邮箱: wxscc@foxmail.com'
+        + '\n原文链接: ' + window.location.href;
+        clipboardData.setData('text/plain', text + copyright);
+    }
+}
+var contents = document.getElementById("article-container");
+if(contents){
+  contents.addEventListener('copy',function(e){
+      setClipboardText(e);
+  });
+}</script><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">码农刚子</div><div class="author-info-description">技术分享，编程学习</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/shenchuanchao"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临小站，这里是我日常工作和学习中收集和整理的总结，希望能对你有所帮助：）<br><br>本站的内容经过个人加工总结而来，也参考了网友们分享的资料，如有侵权，请第一时间联系我，我将及时进行修改或删除😊<br><br>欢迎关注我的微信公众号<br><img src="https://images.codeobservatory.cn/hexo/index/qrcode_gzh_csharp.jpg" width="96%"/></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/240abd01.html" title="五年深漂画了个圆：从龙岗出租屋出发，又回到龙岗出租屋"><img src="https://images.codeobservatory.cn/archives-img.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="五年深漂画了个圆：从龙岗出租屋出发，又回到龙岗出租屋"/></a><div class="content"><a class="title" href="/archives/240abd01.html" title="五年深漂画了个圆：从龙岗出租屋出发，又回到龙岗出租屋">五年深漂画了个圆：从龙岗出租屋出发，又回到龙岗出租屋</a><time datetime="2025-06-06T01:48:28.000Z" title="发表于 2025-06-06 09:48:28">2025-06-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/321b85ec.html" title="如何给Hexo-butterfly主题博客在复制时添加版权声明"><img src="https://images.codeobservatory.cn/archives-img.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何给Hexo-butterfly主题博客在复制时添加版权声明"/></a><div class="content"><a class="title" href="/archives/321b85ec.html" title="如何给Hexo-butterfly主题博客在复制时添加版权声明">如何给Hexo-butterfly主题博客在复制时添加版权声明</a><time datetime="2025-06-03T09:00:40.000Z" title="发表于 2025-06-03 17:00:40">2025-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/d8d7f62c.html" title="使用C#实现23种常见的设计模式"><img src="https://images.codeobservatory.cn/archives-img.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用C#实现23种常见的设计模式"/></a><div class="content"><a class="title" href="/archives/d8d7f62c.html" title="使用C#实现23种常见的设计模式">使用C#实现23种常见的设计模式</a><time datetime="2025-05-29T01:53:50.000Z" title="发表于 2025-05-29 09:53:50">2025-05-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/a1b7d00f.html" title="SQL SERVER数据库跨服务器查询"><img src="https://images.codeobservatory.cn/archives-img.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SQL SERVER数据库跨服务器查询"/></a><div class="content"><a class="title" href="/archives/a1b7d00f.html" title="SQL SERVER数据库跨服务器查询">SQL SERVER数据库跨服务器查询</a><time datetime="2025-05-29T01:39:27.000Z" title="发表于 2025-05-29 09:39:27">2025-05-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/2aebdcfd.html" title="Hexo-butterfly文章顶部添加波浪效果"><img src="https://images.codeobservatory.cn/archives-img.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo-butterfly文章顶部添加波浪效果"/></a><div class="content"><a class="title" href="/archives/2aebdcfd.html" title="Hexo-butterfly文章顶部添加波浪效果">Hexo-butterfly文章顶部添加波浪效果</a><time datetime="2025-05-28T08:44:31.000Z" title="发表于 2025-05-28 16:44:31">2025-05-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 <i id="heartbeat" class="fa fa-heart"></i> By 码农观测站</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a href="https://beian.miit.gov.cn" rel="external nofollow noreferrer" target="_blank">粤ICP备2021102567号</a><br> 本网站由&nbsp;<a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://images.codeobservatory.cn/upyun-logo.png" style="vertical-align:middle;height:30px;padding-bottom:3px" data-ll-status="loading" class="entered loading"></a> &nbsp;提供CDN加速/云存储服务</div></div></footer></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="fa-solid fa-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="fa-solid fa-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="fa-solid fa-arrow-rotate-right"></i></div><div class="rightMenu-item" id="menu-home"><i class="fa-solid fa-house"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" href="/archives/"><i class="fa-solid fa-archive"></i><span>文章归档</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="fa-solid fa-folder-open"></i><span>文章分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="fa-solid fa-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuNormal"><div class="rightMenu-item" id="menu-translate"><i class="fa-solid fa-earth-asia"></i><span>繁简切换</span></div><div class="rightMenu-item" id="menu-darkmode"><i class="fa-solid fa-moon"></i><span>切换模式</span></div><div class="rightMenu-item" id="menu-fullscreenmode"><i class="fa-solid fa-expand"></i><span>全屏模式</span></div></div></div><div id="rightmenu-mask"></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.3.5"></script><script src="/js/main.js?v=5.3.5"></script><script src="/js/tw_cn.js?v=5.3.5"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const initValine = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyValine = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const valineConfig = {
+      el: '#vcomment',
+      appId: 'zZNdfVwAkr5KXR73OabZMVtY-gzGzoHsz',
+      appKey: 'GXEx9xDciGUwXxu4am5mk5g8',
+      avatar: 'monsterid',
+      serverURLs: 'https://zzndfvwa.lc-cn-n1-shared.com',
+      emojiMaps: "",
+      visitor: true,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || window.location.pathname
+    }
+    new Valine(valineConfig)
+  }
+
+  const loadValine = async (el, path) => {
+    if (typeof Valine === 'function') {
+      initValine(el, path)
+    } else {
+      await btf.getScript('https://unpkg.com/valine@1.5.3/dist/Valine.min.js')
+      initValine(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Valine' === 'Valine'
+      ? window.shuoshuoComment = { loadComment: loadValine }
+      : window.loadOtherComment = loadValine
+    return
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script src="/js/rightMenu.js"></script><script src="/js/ai-summary.js"></script><div class="aplayer no-destroy" data-id="60198" data-server="netease" data-type="playlist" data-mini="true" data-listfolded="true" data-fixed="true" data-autoplay="false"> </div><script defer="defer" id="ribbon" src="https://unpkg.com/butterfly-extsrc@1.1.4/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://unpkg.com/butterfly-extsrc@1.1.4/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://unpkg.com/butterfly-extsrc@1.1.4/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://unpkg.com/butterfly-extsrc@1.1.4/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://unpkg.com/pjax@0.2.8/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      true 
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.3.5"></script></div></div></body></html>

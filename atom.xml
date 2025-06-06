@@ -295,6 +295,27 @@
   </entry>
   
   <entry>
+    <title>C#中十种线程启动方式及其适用场景、优缺点分析</title>
+    <link href="https://www.codeobservatory.cn/archives/74b7ef26.html"/>
+    <id>https://www.codeobservatory.cn/archives/74b7ef26.html</id>
+    <published>2024-07-24T08:59:35.000Z</published>
+    <updated>2025-06-06T09:14:12.313Z</updated>
+    
+    <content type="html"><![CDATA[<p>C#提供了多种开启线程的方式，每种方式都有其独特的使用场景、优点和缺点。以下是C#中十种常见的开启线程的方式，以及它们各自的使用场景、优点和缺点：</p><h2 id="1-Thread类"><a href="#1-Thread类" class="headerlink" title="1.Thread类"></a>1.Thread类</h2><ul><li><p><strong>使用场景</strong>：快速启动执行简单任务。</p></li><li><p><strong>优点</strong>：简单易用。提供了直接控制线程的方法，如<code>Start、Suspend、Resume、Abort</code>等。</p></li><li><p><strong>缺点</strong>：功能较少，不适合复杂的线程管理；直接管理线程可能导致资源利用率不高或死锁等问题。</p></li></ul><h2 id="2-Task并行库"><a href="#2-Task并行库" class="headerlink" title="2.Task并行库"></a>2.Task并行库</h2><ul><li><p><strong>使用场景</strong>：需要更好的错误处理和任务管理。</p></li><li><p><strong>优点</strong>：提供了丰富的API，如<code>Task.Run、Task.WhenAll、Task.WhenAny</code>等，易于集成和使用；支持更复杂的并发模式，如取消、超时和错误处理。</p></li><li><p><strong>缺点</strong>：学习曲线较陡峭，需要掌握异步编程的概念。</p></li></ul><h2 id="3-BackgroundWorker组件"><a href="#3-BackgroundWorker组件" class="headerlink" title="3.BackgroundWorker组件"></a>3.BackgroundWorker组件</h2><ul><li><p><strong>使用场景</strong>：GUI应用中需要在后台执行任务，同时需要报告进度或处理异常。</p></li><li><p><strong>优点</strong>：支持进度更新和取消操作；自动将工作线程上的异常封送到UI线程，便于处理。</p></li><li><p><strong>缺点</strong>：较老的技术，可能在未来的.NET版本中逐渐淘汰；功能相对有限，不如Task并行库灵活。</p></li></ul><h2 id="4-ThreadPool"><a href="#4-ThreadPool" class="headerlink" title="4.ThreadPool"></a>4.ThreadPool</h2><ul><li><p><strong>使用场景</strong>：需要高效利用线程池资源，执行大量短时间的任务。</p></li><li><p><strong>优点</strong>：减少了线程创建和销毁的开销；提高了系统的响应性和吞吐量。</p></li><li><p><strong>缺点</strong>：控制度较低，不适合长时间运行的任务；可能因为线程池资源耗尽而导致任务等待。</p></li></ul><h2 id="5-Timer类"><a href="#5-Timer类" class="headerlink" title="5.Timer类"></a>5.Timer类</h2><ul><li><p><strong>使用场景</strong>：需要周期性执行任务。</p></li><li><p><strong>优点</strong>：简单实现周期性任务；可以在指定的时间间隔后执行回调方法。</p></li><li><p><strong>缺点</strong>：精度受限于系统计时器；长时间运行可能会导致资源消耗过多。</p></li></ul><h2 id="6-async和await"><a href="#6-async和await" class="headerlink" title="6.async和await"></a>6.async和await</h2><ul><li><p><strong>使用场景</strong>：需要简化异步代码，提高代码的可读性和可维护性。</p></li><li><p><strong>优点</strong>：代码更易读易维护；简化了异步编程的复杂性。</p></li><li><p><strong>缺点</strong>：需要.NET 4.5或更高版本；可能会导致死锁，特别是在GUI应用中。</p></li></ul><h2 id="7-Parallel类"><a href="#7-Parallel类" class="headerlink" title="7.Parallel类"></a>7.Parallel类</h2><ul><li><p><strong>使用场景</strong>：需要对数据集合进行并行处理，以提高性能。</p></li><li><p><strong>优点</strong>：简化了并行代码编写。提供了丰富的并行操作API，如<code>Parallel.For、Parallel.ForEach、Parallel.Sum</code>等。</p></li><li><p><strong>缺点</strong>：可能增加线程管理开销；需要考虑数据划分和合并的问题。</p></li></ul><h2 id="8-ThreadLocal"><a href="#8-ThreadLocal" class="headerlink" title="8.ThreadLocal"></a>8.ThreadLocal</h2><ul><li><p><strong>使用场景</strong>：需要线程安全的局部数据存储。</p></li><li><p><strong>优点</strong>：线程安全，避免数据竞争；提供了独立的数据副本给每个线程。</p></li><li><p><strong>缺点</strong>：管理不当可能导致资源泄露；需要手动清理不再需要的数据副本。</p></li></ul><h2 id="9-Lazy"><a href="#9-Lazy" class="headerlink" title="9.Lazy"></a>9.Lazy</h2><ul><li><p><strong>使用场景</strong>：需要延迟初始化对象，以节省资源或处理耗时的初始化任务。</p></li><li><p><strong>优点</strong>：延迟初始化，节省资源；提高了应用的启动速度。</p></li><li><p><strong>缺点</strong>：首次访问时可能引入延迟；需要考虑线程安全问题（尽管Lazy<T>本身是线程安全的）。</T></p></li></ul><h2 id="10-PLINQ"><a href="#10-PLINQ" class="headerlink" title="10.PLINQ"></a>10.PLINQ</h2><ul><li><p><strong>使用场景</strong>：对大数据集进行LINQ查询，并希望利用多核处理器提高查询效率。</p></li><li><p><strong>优点</strong>：利用多核处理器提高查询效率；简化了并行查询的编写。</p></li><li><p><strong>缺点</strong>：并行执行可能增加线程管理开销；需要考虑数据分区和聚合的策略。</p></li></ul><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>C#提供了多种开启线程的方式，每种方式都有其特定的使用场景和优缺点。开发者在选择时应根据实际需求、性能要求和可维护性等因素进行综合考虑。</p>]]></content>
+    
+    
+    <summary type="html">提供了丰富的API，如Task.Run、Task.WhenAll、Task.WhenAny等，易于集成和使用；C#提供了多种开启线程的方式，每种方式都有其独特的使用场景、优点和缺点。提供了丰富的并行操作API，如Parallel.For、Parallel.ForEach、Parallel.Sum等。</summary>
+    
+    
+    
+    <category term="后端开发" scheme="https://www.codeobservatory.cn/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="C#" scheme="https://www.codeobservatory.cn/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Visual Studio2022安装SVN插件</title>
     <link href="https://www.codeobservatory.cn/archives/4e81b362.html"/>
     <id>https://www.codeobservatory.cn/archives/4e81b362.html</id>
@@ -320,6 +341,54 @@
     <category term="vs" scheme="https://www.codeobservatory.cn/tags/vs/"/>
     
     <category term="svn" scheme="https://www.codeobservatory.cn/tags/svn/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网页图片异步加载</title>
+    <link href="https://www.codeobservatory.cn/archives/edf8539a.html"/>
+    <id>https://www.codeobservatory.cn/archives/edf8539a.html</id>
+    <published>2024-05-27T09:14:41.000Z</published>
+    <updated>2025-06-06T09:24:44.084Z</updated>
+    
+    <content type="html"><![CDATA[<p>在当今数字化时代，网页加载速度对于用户体验至关重要。其中，图片作为网页内容的重要组成部分，其加载方式对于网页性能有着显著影响。异步加载作为一种优化手段，能够有效提升网页图片的加载速度和用户体验。本文将深入探讨网页图片异步加载的原理、实现方式以及实际应用效果。</p><p>首先，我们需要了解网页图片异步加载的基本原理。异步加载是指在不影响页面其他内容加载的情况下，将图片的加载过程放在后台进行。当浏览器解析到图片标签时，不会立即下载图片，而是将图片请求放入队列中，待其他资源加载完毕后再进行图片的加载。这种方式可以有效避免由于图片加载导致的页面阻塞和延迟，从而提升页面的整体加载速度。</p><p>实现网页图片异步加载的方式有多种，其中比较常用的是使用JavaScript进行图片懒加载。懒加载的核心思想是延迟图片的加载时间，只有当图片出现在视口范围内时才开始加载。具体实现时，可以通过监听滚动事件或<code>Intersection Observer API</code>来判断图片是否进入视口，然后动态地改变图片的src属性或进行图片的加载。此外，还有一些第三方库如<code>lozad.js</code>、<code>vue-lazyload</code>等提供了更简便的懒加载实现方式，可以方便地集成到项目中。</p><p>除了懒加载外，还有其他一些技术可以实现网页图片异步加载。例如，使用CDN加速图片的加载速度；对图片进行压缩和优化，减少图片的大小和加载时间；利用图片格式转换技术，选择更适合的图片格式以减小文件大小等。这些技术可以与其他异步加载方式相结合，进一步提升网页图片加载的性能。</p><p><strong>实例</strong>：</p><p>获取视窗的高度和宽度：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> _viewPortHeight = <span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientHeight</span>, <span class="variable language_">window</span>.<span class="property">innerHeight</span> || <span class="number">0</span>),</span><br><span class="line">    _viewPortWidth = <span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientWidth</span>, <span class="variable language_">window</span>.<span class="property">innerWidth</span> || <span class="number">0</span>);</span><br></pre></td></tr></table></figure><p>是否处于垂直范围</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isOnVerticalViewPort</span>(<span class="params">ele</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> rect = ele.<span class="title function_">getBoundingClientRect</span>(); <span class="comment">// 获取距离视窗的位置信息</span></span><br><span class="line">    <span class="keyword">return</span> rect.<span class="property">top</span> &gt; <span class="number">0</span> &amp;&amp; rect.<span class="property">top</span> &lt;= _viewPortHeight;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>是否处于水平范围</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isOnHorizontalViewPort</span>(<span class="params">ele</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> rect = ele.<span class="title function_">getBoundingClientRect</span>();</span><br><span class="line">        <span class="keyword">return</span> rect.<span class="property">left</span> &gt; <span class="number">0</span> &amp;&amp; rect.<span class="property">left</span> &lt;= _viewPortWidth;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>有了这核心代码，我们只需要在滚动事件触发后，去动态的判断img元素了, 判断的示例代码如下：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">load</span>(<span class="params">images</span>) &#123;   </span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; images.<span class="property">length</span>; i++) &#123;</span><br><span class="line">         <span class="keyword">var</span> img = images[i];</span><br><span class="line">         <span class="keyword">if</span> (<span class="title function_">isOnVerticalViewPort</span>(img) &amp;&amp; <span class="title function_">isOnHorizontalViewPort</span>(img)) &#123;</span><br><span class="line">                     <span class="keyword">var</span> url = img.<span class="title function_">getAttribute</span>(<span class="string">&#x27;lz-src&#x27;</span>); <span class="comment">// 获取图片资源的地址</span></span><br><span class="line">            img.<span class="title function_">setAttribute</span>(<span class="string">&quot;src&quot;</span>, url);</span><br><span class="line">            img.<span class="property">isload</span> = <span class="literal">true</span>; <span class="comment">// 加载过后的图片设置加载标记，以免重复加载</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在html页面中的img元素的引用：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">lz-src</span>=<span class="string">&quot;/images/2024/5/5391b771eb1f31df.png&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure><p>通过给img元素添加<code>lz-src</code>标记，告诉异步脚本，这个元素需要异步加载图片。</p><p>监听滚动事件</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> images = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;img[&#x27;</span> + lz-src + <span class="string">&#x27;]&#x27;</span>); <span class="comment">// 按标记获取图片元素</span></span><br><span class="line">    <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;scroll&quot;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;        <span class="title function_">load</span>(images);</span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure><p>在实际应用中，网页图片异步加载能够带来显著的效果。首先，它能够提升页面的加载速度，减少用户等待时间，从而提升用户体验。其次，异步加载能够减轻服务器的负担，降低带宽成本。由于图片加载被分散到不同的时间段进行，服务器的并发请求压力会相应减小，有利于提升网站的整体性能和稳定性。此外，异步加载还能够提高页面的响应性和交互性，使得用户在浏览网页时能够更流畅地进行操作和浏览。</p><p>然而，需要注意的是，虽然异步加载带来了诸多优势，但并非所有情况都适用。在一些需要快速展示图片的场景中，如新闻、电商等网站的首页或详情页，可能更倾向于使用同步加载以确保图片的及时呈现。因此，在选择是否使用异步加载时，需要根据具体需求和场景进行权衡和选择。</p><p>综上所述，网页图片异步加载是一种有效的优化手段，能够提升网页加载速度和用户体验。通过了解异步加载的原理和实现方式，我们可以根据实际需求选择合适的技术进行应用。同时，我们也需要关注异步加载可能带来的问题，并采取相应的措施进行解决。</p>]]></content>
+    
+    
+    <summary type="html">这篇文章主要介绍了网页图片异步加载的原理、实现方式及其实际应用效果，强调了其在提升网页加载速度和用户体验方面的重要性。文章首先解释了异步加载的基本原理，即在不影响页面其他内容加载的情况下，在后台进行图片加载。接着，详细探讨了使用JavaScript实现图片懒加载的方法，包括监听滚动事件和使用`Intersection Observer API`来判断图片是否进入视口，并动态改变图片的src属性。此外，还介绍了其他优化技术，如使用CDN加速、图片压缩和优化、选择合适的图片格式等。文章通过实例代码展示了如何实现懒加载，并讨论了异步加载在实际应用中的显著效果，如提升页面加载速度、减轻服务器负担、提高页面响应性和交互性。最后，文章指出虽然异步加载有诸多优势，但在某些需要快速展示图片的场景中，可能需要使用同步加载，强调了根据具体需求选择合适技术的重要性。</summary>
+    
+    
+    
+    <category term="前端开发" scheme="https://www.codeobservatory.cn/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="异步" scheme="https://www.codeobservatory.cn/tags/%E5%BC%82%E6%AD%A5/"/>
+    
+    <category term="图片加载" scheme="https://www.codeobservatory.cn/tags/%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小白也能成IT大神？程序员十大自学编程网站！</title>
+    <link href="https://www.codeobservatory.cn/archives/102371b7.html"/>
+    <id>https://www.codeobservatory.cn/archives/102371b7.html</id>
+    <published>2024-03-20T09:25:32.000Z</published>
+    <updated>2025-06-06T09:42:11.439Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>众所周知，IT互联网行业是高薪行业，如果你还处于职业方向的迷茫期，不如就来免费学习一些IT知识吧，高手们也可以在这里不断的充实自己。</p></blockquote><h2 id="1、极客学院"><a href="#1、极客学院" class="headerlink" title="1、极客学院"></a>1、极客学院</h2><p>网址：<a href="https://www.jikexueyuan.com/">https://www.jikexueyuan.com</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/30c2ff2ac1dae095.png" alt="极客学院"></p><p>极客学院，中国专业的IT职业在线教育平台，上面有海量的IT教学视频，可以搜索或根据知识体系寻找想要的技术课程，只要课程上面没有VIP字样，就是免费的</p><h2 id="2、慕课网"><a href="#2、慕课网" class="headerlink" title="2、慕课网"></a>2、慕课网</h2><p>网址：<a href="https://www.imooc.com/">https://www.imooc.com</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/d63dde977cf3f335.png" alt="慕课网"></p><p>慕课网号称是程序员的梦工厂，上面有非常的多IT专业技术视频课程，进入网站后，直接点击导航中的免费课，里面的所有技术视频都可以免费学习，不过要先手机注册哦。</p><h2 id="3、菜鸟教程"><a href="#3、菜鸟教程" class="headerlink" title="3、菜鸟教程"></a>3、菜鸟教程</h2><p>网址：<a href="https://www.runoob.com/">https://www.runoob.com</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/31529c514e7cf600.png" alt="菜鸟教程"></p><p>菜鸟教程是适合小白学习IT技术的专业网站，上面对各种编程语言的基础知识点梳理的非常详细，虽然不是视频资源网站，但却非常适合系统学习IT知识点，想入门的小伙伴们可…</p><h2 id="4、编程狮"><a href="#4、编程狮" class="headerlink" title="4、编程狮"></a>4、编程狮</h2><p>网址：<a href="https://www.w3cschool.cn/">https://www.w3cschool.cn</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/5a695bfe3f7d0ecd.png" alt="编程狮"></p><p>编程狮是专业的IT知识学习平台，上面有既有文字教程也有视频教程，适合系统学习IT专业技术，基础的小伙伴们，可以多看看这个网站</p><h2 id="5、网易云课堂"><a href="#5、网易云课堂" class="headerlink" title="5、网易云课堂"></a>5、网易云课堂</h2><p>网址：<a href="https://study.163.com/">https://study.163.com</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/bf54c2f66965007e.png" alt="网易云课堂"></p><p>网易云课堂与腾讯课堂相似，是专业的职业教育平台，上面大量的IT互联网热门课程，Python、编程、开发、大数据、AI、运营、营销等应有尽有，免费的课程也非常的多。</p><h2 id="6、腾讯课堂"><a href="#6、腾讯课堂" class="headerlink" title="6、腾讯课堂"></a>6、腾讯课堂</h2><p>网址：<a href="https://ke.qq.com/">https://ke.qq.com</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/98678aaf1ca130c6.png" alt="腾讯课堂"></p><p>腾讯课堂是腾讯推出的专业职业培训在线教育平台，其中也有很多IT互联网热门课程，可以免费报名学习自己想学的课程，只要用QQ号登录，就能观看了。除了IT课程外，还有非常多其它职业课程，在这里想学什么就学什么。</p><h2 id="7、W3school"><a href="#7、W3school" class="headerlink" title="7、W3school"></a>7、W3school</h2><p>网址：<a href="https://www.w3school.com.cn/">https://www.w3school.com.cn</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/309b513543310206.png" alt="W3school"></p><p>全球最大的中文Web技术教程，在这里，你可以找到网站建设教程，从基础的HTML到XHTML，到进阶的XHL、SQL、数据库、多媒体和WAP。</p><h2 id="8、Udacity"><a href="#8、Udacity" class="headerlink" title="8、Udacity"></a>8、Udacity</h2><p>网址：<a href="https://www.udacity.com/">https://www.udacity.com</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/bdcee336471ae085.png" alt="Udacity"></p><p>职业编程的不二之选，提供微学位</p><h2 id="9、B站"><a href="#9、B站" class="headerlink" title="9、B站"></a>9、B站</h2><p>网址：<a href="https://www.bilibili.com/">https://www.bilibili.com</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/28c6c35dc6468c47.png" alt="B站"></p><p>B站。这个网站原本的定位是一个二次元动漫类的网站，可是走着走着，越走越偏，B站自己也万万没想到自己会变成一个学习类的网站。</p><p>对于程序员而言，这里有海量的编程类的学习资料。不管是什么类型的编程语言，编程技术，你几乎都可以在这里找到对应的视频教程。而且最重要的是，视频播放的时候，不会有任何烦人的广告，几乎不会受到任何打扰。</p><h2 id="10、我要自学网"><a href="#10、我要自学网" class="headerlink" title="10、我要自学网"></a>10、我要自学网</h2><p>网址：<a href="https://www.51zxw.net/">https://www.51zxw.net</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/1a6ce6678d1c6072.png" alt="我要自学网"></p><p>自学免费教程资源分享网站，学习电脑技术，涉及网页设计、程序设计、编程、大数据、软件开发等海量课程，还有PS、AE等海量软件教程。</p>]]></content>
+    
+    
+    <summary type="html">这篇文章介绍了十个适合程序员自学的编程网站，包括极客学院、慕课网、菜鸟教程、编程狮、网易云课堂、腾讯课堂、W3school、Udacity、B站和我要自学网，这些网站提供了丰富的IT技术视频课程和文字教程，适合不同水平的学习者，无论是初学者还是高手都能在这里找到适合自己的学习资源，帮助他们在IT互联网行业中不断提升自己，实现职业发展。</summary>
+    
+    
+    
+    <category term="技术分享" scheme="https://www.codeobservatory.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="编程网站" scheme="https://www.codeobservatory.cn/tags/%E7%BC%96%E7%A8%8B%E7%BD%91%E7%AB%99/"/>
+    
+    <category term="IT" scheme="https://www.codeobservatory.cn/tags/IT/"/>
+    
+    <category term="程序员" scheme="https://www.codeobservatory.cn/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
     
   </entry>
   
@@ -447,29 +516,6 @@
     
     
     <category term="个人博客" scheme="https://www.codeobservatory.cn/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows server 2019服务器安装IIS步骤教程</title>
-    <link href="https://www.codeobservatory.cn/archives/4f7ca37c.html"/>
-    <id>https://www.codeobservatory.cn/archives/4f7ca37c.html</id>
-    <published>2022-04-03T02:24:31.000Z</published>
-    <updated>2025-06-03T02:55:23.489Z</updated>
-    
-    <content type="html"><![CDATA[<p>1、电脑桌面，点击左下角Windows图标</p><p>image.png</p><p>2、点击【服务器管理器】</p><p>image.png</p><p>3、服务器管理器的仪表板，点击【添加角色和功能】</p><p>image.png</p><p>4、点击【下一步】</p><p>image.png</p><p>5、选择【基于角色或基于功能的安装】，再点击【下一步】</p><p>image.png</p><p>6、选择【从服务器池中选择服务器】，然后选择服务器，再点击【下一步】</p><p>image.png</p><p>7、选择【Web服务器(IIS)】</p><p>image.png</p><p>8、选择【安全性】</p><p>dea3bff5ded4494d609c0f64994f0247_.png</p><p>9、选择【常见http功能】</p><p>f287b2fe9540b2423b661db93ed3aec9_.png</p><p>10、选择【性能】和【运行状况和诊断】</p><p>52132812e4a4e3cf9684db50cae2357d_.png</p><p>11、选择【应用程序开发】</p><p>98975a7ce5d0cfa66051515002c5e10c_.png</p><p>12、选择【FTP服务器】和【管理工具】，然后点击【下一步】</p><p>74912d303c05ab54620b9476dd8b7647_.png</p><p>13、勾选好了之后点击【安装】</p><p>c0a1042593eccf1ceb82a39255e2f45c_.png</p><p>14、等待安装，安装成功之后，点击【关闭】就可以了。</p><p>dfd9db33cebf8731925206730b652d91_.png</p><p>15、如上图所示已经安装成功了，现在打开iis管理器就能看到已安装的功能了。</p>]]></content>
-    
-    
-    <summary type="html">这篇文章详细介绍了在Windows Server 2019上安装IIS的步骤教程，从打开服务器管理器开始，依次选择添加角色和功能、基于角色或功能的安装、选择服务器、勾选Web服务器IIS及其相关组件如安全性、常见HTTP功能、性能、运行状况和诊断、应用程序开发、FTP服务器和管理工具，最后完成安装并打开IIS管理器查看已安装的功能，整个过程清晰明了，帮助用户快速上手IIS的安装与配置。</summary>
-    
-    
-    
-    <category term="技术分享" scheme="https://www.codeobservatory.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-    
-    <category term="IIS" scheme="https://www.codeobservatory.cn/tags/IIS/"/>
-    
-    <category term="服务器" scheme="https://www.codeobservatory.cn/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
