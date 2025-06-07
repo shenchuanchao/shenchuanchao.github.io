@@ -6,7 +6,7 @@
   <link href="https://www.codeobservatory.cn/atom.xml" rel="self"/>
   
   <link href="https://www.codeobservatory.cn/"/>
-  <updated>2025-06-07T02:01:33.210Z</updated>
+  <updated>2025-06-06T02:52:46.283Z</updated>
   <id>https://www.codeobservatory.cn/</id>
   
   <author>
@@ -15,32 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>C# 集合（Collection）</title>
-    <link href="https://www.codeobservatory.cn/archives/9285d836.html"/>
-    <id>https://www.codeobservatory.cn/archives/9285d836.html</id>
-    <published>2025-06-07T01:51:27.000Z</published>
-    <updated>2025-06-07T02:01:33.210Z</updated>
-    
-    <content type="html"><![CDATA[<p>集合（<code>Collection</code>）类是专门用于数据存储和检索的类。这些类提供了对栈（<code>stack</code>）、队列（<code>queue</code>）、列表（<code>list</code>）和哈希表（<code>hash table</code>）的支持。大多数集合类实现了相同的接口。</p><p>集合（Collection）类服务于不同的目的，如为元素动态分配内存，基于索引访问列表项等等。这些类创建 Object 类的对象的集合。在 C# 中，Object 类是所有数据类型的基类。</p><p>各种集合类和它们的用法<br>下面是各种常用的 <code>System.Collection</code> 命名空间的类。</p><table><thead><tr><th>类</th><th>描述和用法</th></tr></thead><tbody><tr><td>动态数组（ArrayList）</td><td>它代表了可被单独索引的对象的有序集合。<br>它基本上可以替代一个数组。但是，与数组不同的是，您可以使用索引在指定的位置添加和移除项目，动态数组会自动重新调整它的大小。它也允许在列表中进行动态内存分配、增加、搜索、排序各项。</td></tr><tr><td>哈希表（Hashtable）</td><td>它使用键来访问集合中的元素。<br>当您使用键访问元素时，则使用哈希表，而且您可以识别一个有用的键值。哈希表中的每一项都有一个键&#x2F;值对。键用于访问集合中的项目。</td></tr><tr><td>排序列表（SortedList）</td><td>它可以使用键和索引来访问列表中的项。<br>排序列表是数组和哈希表的组合。它包含一个可使用键或索引访问各项的列表。如果您使用索引访问各项，则它是一个动态数组（ArrayList），如果您使用键访问各项，则它是一个哈希表（Hashtable）。集合中的各项总是按键值排序。</td></tr><tr><td>堆栈（Stack）</td><td>它代表了一个后进先出的对象集合。<br>当您需要对各项进行后进先出的访问时，则使用堆栈。当您在列表中添加一项，称为推入元素，当您从列表中移除一项时，称为弹出元素。</td></tr><tr><td>队列（Queue）</td><td>它代表了一个先进先出的对象集合。<br>当您需要对各项进行先进先出的访问时，则使用队列。当您在列表中添加一项，称为入队，当您从列表中移除一项时，称为出队。</td></tr><tr><td>点阵列（BitArray）</td><td>它代表了一个使用值 1 和 0 来表示的二进制数组。<br>当您需要存储位，但是事先不知道位数时，则使用点阵列。您可以使用整型索引从点阵列集合中访问各项，索引从零开始。</td></tr></tbody></table>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;集合（&lt;code&gt;Collection&lt;/code&gt;）类是专门用于数据存储和检索的类。这些类提供了对栈（&lt;code&gt;stack&lt;/code&gt;）、队列（&lt;code&gt;queue&lt;/code&gt;）、列表（&lt;code&gt;list&lt;/code&gt;）和哈希表（&lt;code&gt;hash table</summary>
-      
-    
-    
-    
-    <category term="后端开发" scheme="https://www.codeobservatory.cn/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-    
-    <category term="C#" scheme="https://www.codeobservatory.cn/tags/C/"/>
-    
-    <category term="集合" scheme="https://www.codeobservatory.cn/tags/%E9%9B%86%E5%90%88/"/>
-    
-  </entry>
   
   <entry>
     <title>五年深漂画了个圆：从龙岗出租屋出发，又回到龙岗出租屋</title>
@@ -390,6 +364,32 @@
     <category term="异步" scheme="https://www.codeobservatory.cn/tags/%E5%BC%82%E6%AD%A5/"/>
     
     <category term="图片加载" scheme="https://www.codeobservatory.cn/tags/%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C# 集合（Collection）</title>
+    <link href="https://www.codeobservatory.cn/archives/9285d836.html"/>
+    <id>https://www.codeobservatory.cn/archives/9285d836.html</id>
+    <published>2024-03-21T01:51:27.000Z</published>
+    <updated>2025-06-07T02:04:01.162Z</updated>
+    
+    <content type="html"><![CDATA[<p>集合（<code>Collection</code>）类是专门用于数据存储和检索的类。这些类提供了对栈（<code>stack</code>）、队列（<code>queue</code>）、列表（<code>list</code>）和哈希表（<code>hash table</code>）的支持。大多数集合类实现了相同的接口。</p><p>集合（Collection）类服务于不同的目的，如为元素动态分配内存，基于索引访问列表项等等。这些类创建 Object 类的对象的集合。在 C# 中，Object 类是所有数据类型的基类。</p><p>各种集合类和它们的用法<br>下面是各种常用的 <code>System.Collection</code> 命名空间的类。</p><table><thead><tr><th>类</th><th>描述和用法</th></tr></thead><tbody><tr><td>动态数组（ArrayList）</td><td>它代表了可被单独索引的对象的有序集合。<br>它基本上可以替代一个数组。但是，与数组不同的是，您可以使用索引在指定的位置添加和移除项目，动态数组会自动重新调整它的大小。它也允许在列表中进行动态内存分配、增加、搜索、排序各项。</td></tr><tr><td>哈希表（Hashtable）</td><td>它使用键来访问集合中的元素。<br>当您使用键访问元素时，则使用哈希表，而且您可以识别一个有用的键值。哈希表中的每一项都有一个键&#x2F;值对。键用于访问集合中的项目。</td></tr><tr><td>排序列表（SortedList）</td><td>它可以使用键和索引来访问列表中的项。<br>排序列表是数组和哈希表的组合。它包含一个可使用键或索引访问各项的列表。如果您使用索引访问各项，则它是一个动态数组（ArrayList），如果您使用键访问各项，则它是一个哈希表（Hashtable）。集合中的各项总是按键值排序。</td></tr><tr><td>堆栈（Stack）</td><td>它代表了一个后进先出的对象集合。<br>当您需要对各项进行后进先出的访问时，则使用堆栈。当您在列表中添加一项，称为推入元素，当您从列表中移除一项时，称为弹出元素。</td></tr><tr><td>队列（Queue）</td><td>它代表了一个先进先出的对象集合。<br>当您需要对各项进行先进先出的访问时，则使用队列。当您在列表中添加一项，称为入队，当您从列表中移除一项时，称为出队。</td></tr><tr><td>点阵列（BitArray）</td><td>它代表了一个使用值 1 和 0 来表示的二进制数组。<br>当您需要存储位，但是事先不知道位数时，则使用点阵列。您可以使用整型索引从点阵列集合中访问各项，索引从零开始。</td></tr></tbody></table>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;集合（&lt;code&gt;Collection&lt;/code&gt;）类是专门用于数据存储和检索的类。这些类提供了对栈（&lt;code&gt;stack&lt;/code&gt;）、队列（&lt;code&gt;queue&lt;/code&gt;）、列表（&lt;code&gt;list&lt;/code&gt;）和哈希表（&lt;code&gt;hash table</summary>
+      
+    
+    
+    
+    <category term="后端开发" scheme="https://www.codeobservatory.cn/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="C#" scheme="https://www.codeobservatory.cn/tags/C/"/>
+    
+    <category term="集合" scheme="https://www.codeobservatory.cn/tags/%E9%9B%86%E5%90%88/"/>
     
   </entry>
   
