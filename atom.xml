@@ -6,7 +6,7 @@
   <link href="https://www.codeobservatory.cn/atom.xml" rel="self"/>
   
   <link href="https://www.codeobservatory.cn/"/>
-  <updated>2025-06-06T02:52:46.283Z</updated>
+  <updated>2025-06-07T02:01:33.210Z</updated>
   <id>https://www.codeobservatory.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C# 集合（Collection）</title>
+    <link href="https://www.codeobservatory.cn/archives/9285d836.html"/>
+    <id>https://www.codeobservatory.cn/archives/9285d836.html</id>
+    <published>2025-06-07T01:51:27.000Z</published>
+    <updated>2025-06-07T02:01:33.210Z</updated>
+    
+    <content type="html"><![CDATA[<p>集合（<code>Collection</code>）类是专门用于数据存储和检索的类。这些类提供了对栈（<code>stack</code>）、队列（<code>queue</code>）、列表（<code>list</code>）和哈希表（<code>hash table</code>）的支持。大多数集合类实现了相同的接口。</p><p>集合（Collection）类服务于不同的目的，如为元素动态分配内存，基于索引访问列表项等等。这些类创建 Object 类的对象的集合。在 C# 中，Object 类是所有数据类型的基类。</p><p>各种集合类和它们的用法<br>下面是各种常用的 <code>System.Collection</code> 命名空间的类。</p><table><thead><tr><th>类</th><th>描述和用法</th></tr></thead><tbody><tr><td>动态数组（ArrayList）</td><td>它代表了可被单独索引的对象的有序集合。<br>它基本上可以替代一个数组。但是，与数组不同的是，您可以使用索引在指定的位置添加和移除项目，动态数组会自动重新调整它的大小。它也允许在列表中进行动态内存分配、增加、搜索、排序各项。</td></tr><tr><td>哈希表（Hashtable）</td><td>它使用键来访问集合中的元素。<br>当您使用键访问元素时，则使用哈希表，而且您可以识别一个有用的键值。哈希表中的每一项都有一个键&#x2F;值对。键用于访问集合中的项目。</td></tr><tr><td>排序列表（SortedList）</td><td>它可以使用键和索引来访问列表中的项。<br>排序列表是数组和哈希表的组合。它包含一个可使用键或索引访问各项的列表。如果您使用索引访问各项，则它是一个动态数组（ArrayList），如果您使用键访问各项，则它是一个哈希表（Hashtable）。集合中的各项总是按键值排序。</td></tr><tr><td>堆栈（Stack）</td><td>它代表了一个后进先出的对象集合。<br>当您需要对各项进行后进先出的访问时，则使用堆栈。当您在列表中添加一项，称为推入元素，当您从列表中移除一项时，称为弹出元素。</td></tr><tr><td>队列（Queue）</td><td>它代表了一个先进先出的对象集合。<br>当您需要对各项进行先进先出的访问时，则使用队列。当您在列表中添加一项，称为入队，当您从列表中移除一项时，称为出队。</td></tr><tr><td>点阵列（BitArray）</td><td>它代表了一个使用值 1 和 0 来表示的二进制数组。<br>当您需要存储位，但是事先不知道位数时，则使用点阵列。您可以使用整型索引从点阵列集合中访问各项，索引从零开始。</td></tr></tbody></table>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;集合（&lt;code&gt;Collection&lt;/code&gt;）类是专门用于数据存储和检索的类。这些类提供了对栈（&lt;code&gt;stack&lt;/code&gt;）、队列（&lt;code&gt;queue&lt;/code&gt;）、列表（&lt;code&gt;list&lt;/code&gt;）和哈希表（&lt;code&gt;hash table</summary>
+      
+    
+    
+    
+    <category term="后端开发" scheme="https://www.codeobservatory.cn/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="C#" scheme="https://www.codeobservatory.cn/tags/C/"/>
+    
+    <category term="集合" scheme="https://www.codeobservatory.cn/tags/%E9%9B%86%E5%90%88/"/>
+    
+  </entry>
   
   <entry>
     <title>五年深漂画了个圆：从龙岗出租屋出发，又回到龙岗出租屋</title>
@@ -368,6 +394,36 @@
   </entry>
   
   <entry>
+    <title>掌握C#编程语言和10个基本技巧.NET框架</title>
+    <link href="https://www.codeobservatory.cn/archives/d2306485.html"/>
+    <id>https://www.codeobservatory.cn/archives/d2306485.html</id>
+    <published>2024-03-21T01:44:20.000Z</published>
+    <updated>2025-06-07T01:50:08.202Z</updated>
+    
+    <content type="html"><![CDATA[<p>C# 是一种通用的、面向对象的编程语言，它是 Microsoft 开发的一种编程语言，广泛用于开发.NET 应用程序。掌握 C# 和利用它的基本技巧对于开发人员来说非常重要。本文将介绍十个基本技巧，帮助你更好地掌握 C# 和利用它来开发.NET 框架。 </p><ol><li><p>使用命名空间：命名空间是 C# 中组织代码的一种方式。通过使用命名空间，你可以将相关的代码组织在一起，提高代码的可读性和维护性。 </p></li><li><p>理解变量和数据类型：在 C# 中，变量是用来存储数据的容器，而数据类型决定了变量可以存储的数据的种类。 </p></li><li><p>掌握条件语句和循环语句：条件语句和循环语句是控制程序执行流程的重要工具。通过掌握条件语句和循环语句，你可以编写出更灵活和高效的程序。 </p></li><li><p>使用面向对象编程：C# 是一种面向对象的编程语言，它支持封装、继承和多态等面向对象的特性。通过使用面向对象编程，你可以将复杂的问题分解成简单的对象，并通过对象之间的相互调用来解决问题。 </p></li><li><p>使用异常处理：异常是程序在运行过程中出现的错误或意外情况。通过使用异常处理，你可以对程序中可能出现的异常进行捕获和处理，保证程序的健壮性和可靠性。 </p></li><li><p>熟悉常用的.NET 框架类库：.NET 框架提供了丰富的类库，包括用于处理字符串、日期时间、文件操作等的类。熟悉并合理使用这些类库可以提高开发效率。 </p></li><li><p>使用 LINQ 进行数据查询：LINQ（Language Integrated Query）是 C# 中的一种查询语言，它提供了一种直观、简洁的方式来查询和操作数据。 </p></li><li><p>利用委托和事件：委托和事件是 C# 中用来处理事件和回调函数的机制。通过使用委托和事件，你可以更好地处理异步操作和事件触发。 </p></li><li><p>使用 Lambda 表达式：Lambda 表达式是 C# 中一种简洁的函数定义方式，它可以用来定义匿名函数和简化代码。 </p></li><li><p>善用调试工具：C# 提供了强大的调试工具，如 Visual Studio 调试器，通过善用这些工具，你可以更好地定位和解决程序中的问题。</p></li></ol><p>通过学习和掌握这些基本技巧，你将能够更好地利用 C# 并开发出高质量的.NET 应用程序。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;C# 是一种通用的、面向对象的编程语言，它是 Microsoft 开发的一种编程语言，广泛用于开发.NET 应用程序。掌握 C# 和利用它的基本技巧对于开发人员来说非常重要。本文将介绍十个基本技巧，帮助你更好地掌握 C# 和利用它来开发.NET 框架。 &lt;/p&gt;
+&lt;ol&gt;
+</summary>
+      
+    
+    
+    
+    <category term="后端开发" scheme="https://www.codeobservatory.cn/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="C#" scheme="https://www.codeobservatory.cn/tags/C/"/>
+    
+    <category term="编程" scheme="https://www.codeobservatory.cn/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+    <category term=".NET框架" scheme="https://www.codeobservatory.cn/tags/NET%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>小白也能成IT大神？程序员十大自学编程网站！</title>
     <link href="https://www.codeobservatory.cn/archives/102371b7.html"/>
     <id>https://www.codeobservatory.cn/archives/102371b7.html</id>
@@ -465,57 +521,6 @@
     
     
     <category term="AI" scheme="https://www.codeobservatory.cn/tags/AI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>五个常用的.NET数据库迁移框架,你用过哪个?</title>
-    <link href="https://www.codeobservatory.cn/archives/9ede2f17.html"/>
-    <id>https://www.codeobservatory.cn/archives/9ede2f17.html</id>
-    <published>2024-03-20T02:06:36.000Z</published>
-    <updated>2025-05-29T02:13:41.994Z</updated>
-    
-    <content type="html"><![CDATA[<p>在.NET开发中，可以使用多种数据库迁移框架来帮助我们管理数据库模式的变更和版本控制。以下是一些常用的.NET数据库迁移框架：</p><h2 id="1、Entity-Framework-Migrations："><a href="#1、Entity-Framework-Migrations：" class="headerlink" title="1、Entity Framework Migrations："></a>1、Entity Framework Migrations：</h2><p>Entity Framework是.NET的一个对象关系映射（ORM）框架，它提供了官方的迁移支持。通过使用Migrations，您可以自动化数据库模式的版本控制和更新，以与代码更改保持同步。具体实现方法：<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MDEwMTE1Mw==&mid=2247485364&idx=1&sn=6d968455681676147ce70a1762248ffb&chksm=ce2ac8faf95d41ec4270b379f3cb5219d3283017fd277fa34c22635610689efba3c260fff043&token=1356968128&lang=zh_CN#rd">Entity Framework实现数据迁移的方法</a></p><h2 id="2、DNXDB："><a href="#2、DNXDB：" class="headerlink" title="2、DNXDB："></a>2、DNXDB：</h2><p>DNXDB是一个轻量级、开源的数据库迁移框架，支持多种数据库，包括SQL Server、MySQL和PostgreSQL等。它允许您通过使用简单的YAML文件来定义迁移脚本，并提供了自动化迁移和回滚的功能。</p><h2 id="3、FluentMigrator："><a href="#3、FluentMigrator：" class="headerlink" title="3、FluentMigrator："></a>3、FluentMigrator：</h2><p>FluentMigrator是一个开源的数据库迁移框架，它提供了一种简单而流畅的语法来编写迁移脚本。它支持多种数据库，包括SQL Server、MySQL、PostgreSQL和SQLite等。</p><h2 id="4、MyBatis-NET："><a href="#4、MyBatis-NET：" class="headerlink" title="4、MyBatis.NET："></a>4、MyBatis.NET：</h2><p>MyBatis是Java中流行的ORM框架，但也有.NET版本。MyBatis.NET提供了类似于Entity Framework的迁移支持，但使用的是SQL脚本而不是代码迁移。</p><h2 id="5、SQL-Server-Management-Studio-SSMS-："><a href="#5、SQL-Server-Management-Studio-SSMS-：" class="headerlink" title="5、SQL Server Management Studio (SSMS)："></a>5、SQL Server Management Studio (SSMS)：</h2><p>虽然SSMS不是严格意义上的迁移框架，但它是一个强大的工具，可以帮助您管理和操作SQL Server数据库，包括数据库的备份、恢复、升级和迁移等操作。</p><p>这些框架各有优缺点，您可以根据自己的项目需求和技术背景选择适合您的框架。请注意，在选择框架之前，建议您仔细阅读文档、了解社区支持和社区反馈，以确保您选择了合适的工具。</p><h2 id="优缺点："><a href="#优缺点：" class="headerlink" title="优缺点："></a>优缺点：</h2><p>Entity Framework Migrations：</p><ul><li>优点：是.NET开发中常用的ORM框架，与代码的集成度高，可以自动跟踪和同步数据库模式的变更。</li><li>缺点：对于大型数据库和复杂查询，性能可能不如直接使用SQL。</li></ul><p>DNXDB：</p><ul><li>优点：轻量级、开源，支持多种数据库，可以通过简单的YAML文件来定义迁移脚本。</li><li>缺点：相对于其他框架，DNXDB的社区支持和文档可能不够丰富。</li></ul><p>FluentMigrator：</p><ul><li>优点：提供简单流畅的语法来编写迁移脚本，支持多种数据库。</li><li>缺点：对于复杂的大型数据库，性能可能不如直接使用SQL。</li></ul><p>MyBatis.NET：</p><ul><li>优点：类似于Java中的MyBatis框架，提供SQL脚本的迁移支持。</li><li>缺点：相对于其他框架，MyBatis.NET的社区支持和文档可能不够丰富。</li></ul><p>SQL Server Management Studio (SSMS)：</p><ul><li>优点：是一个强大的SQL Server管理工具，可以帮助您管理和操作数据库，包括备份、恢复、升级和迁移等操作。</li><li>缺点：不是严格意义上的迁移框架，对于复杂的大型数据库，性能可能不如直接使用SQL。</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;在.NET开发中，可以使用多种数据库迁移框架来帮助我们管理数据库模式的变更和版本控制。以下是一些常用的.NET数据库迁移框架：&lt;/p&gt;
-&lt;h2 id=&quot;1、Entity-Framework-Migrations：&quot;&gt;&lt;a href=&quot;#1、Entity-Framework-</summary>
-      
-    
-    
-    
-    <category term="后端开发" scheme="https://www.codeobservatory.cn/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-    
-    <category term=".net" scheme="https://www.codeobservatory.cn/tags/net/"/>
-    
-    <category term="迁移框架" scheme="https://www.codeobservatory.cn/tags/%E8%BF%81%E7%A7%BB%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何搭建自己个人博客？我的个人博客</title>
-    <link href="https://www.codeobservatory.cn/archives/5dbf5225.html"/>
-    <id>https://www.codeobservatory.cn/archives/5dbf5225.html</id>
-    <published>2024-03-20T01:28:23.000Z</published>
-    <updated>2025-05-28T07:31:43.006Z</updated>
-    
-    <content type="html"><![CDATA[<p>经过好几天的鼓捣，我的<a href="https://www.codeobservatory.cn/">个人博客</a>终于搭建完成了。为了提高网站安全性我把http协议升级成了https的, 带有传输加密的协议能保证传输的安全而且可以防止篡改网站的网页；网站的访问速度也不能慢！为此我有花费了一些时间配置了CDN，现在通过<a href="http://www.veihcao.net/">www.veihcao.net</a> 地址访问我的博客是加速的，因为CDN不能配置直接二级域名因此通过veihcao.net 地址访问是不加速的。</p><p>我给我的个人博客起了个温馨的名字——微超之家博客，在技术日新月异的今天，很多人的博客不是放水就是抄袭，这样的博客写的再多也是无用功的，只是在浪费时间罢了，说到底这是缺乏博客精神的表现。我建博客的目的是为了给广大编程爱好者、程序员分享专业的编程知识，和一群编程爱好者学习软件编程、网络编程、数据库、建站技术、网络知识技术。来到我的网站就像回到了程序员的家一样，所以我的博客名字就叫”微超之家”。</p><p><img src="/images/e0a13286dc6c5cf.png" alt="个人博客首页"></p><p>唠叨了这么多，今天给大家说下自建博客的一些过程吧，毕竟自己有个站点是很cool的事情！</p><p>建站大概有这几个方面：购买服务器、购买域名、备案、部署、配置网站服务.</p><p>对于个人博客，在访问量不高的情况下一个1核2G的就够了，学生在阿里云、百度云、腾讯云购买这样的服务器很便宜，有学生优惠。关于服务器这方面比较重要的是安全性，我有个朋友前段时间也搭建了个人博客，因为安全性做的不好数据库被入侵中了勒索病毒，无奈重建博客，这都是安全性没有得到重视造成结果。提高安全性的办事一般可以关闭不使用的端口，使用更安全的协议连接访问服务器，如https、ssh秘钥，网站如果前后台分离可以分开部署，然后使用不同的域名访问，另外，密码也是个重点，要避免使用过于简单的。</p><p>关于域名，尽量申请简单好记的就行了，域名申请后的一个重点就是备案了，这个时间通常比较慢，少则一两周，多则一两月，因此只有服务器和域名都有后直接去备案，备案每个省里都不一样，具体可以参考相关政策和要求。我是在阿里云上备案，在手机app上进行的，总体还是比较方便的。备案过程需要一堆填个人信息和网站的一些资料，如：身份证、网站名称、网站类型、网站介绍等等。信息中不能出现错别字，网站名字不能包含“新闻”，“政府”，“博客”等等总之比较繁琐，网站介绍中也不能包含一些关键词，如果不符合条件会被打回来重填这也是我在整个博客搭建过程中吐槽最多的。</p><p>部署需要熟悉Windows操作，然后根据具体博客技术栈选择相应的服务即可，如果是.net开发的博客通常使用(Windows+IIS+SQLSERVER+HTML)架构，如果是Java后端开发的通常Nginx+Tomcat+Mysql部署，如果服务器只有少量服务那就没必要用docker了。虽然说Apache对PHP支持的比较好，但是这些年来因为性能问题用的越来越少，而新秀Nginx因支持的并发高后和资源利用率更高而后来居上，目前Nginx也能代理PHP，所以推荐把Apache换成Nginx作为静态资源服务器，我小组的官网就是用Nginx代理的PHP目前使用无问题。市面上的服务器软件有很多，部署方式也有很多，通常个人网站采用这两种结构相对来说比较不错。</p><p>部署完网站，剩下的就是提高安全性和访问体验。网站访问协议有http和https，建议都用https，前面已经提到这样的网站比较安全，用户访问体验比较好，毕竟没人喜欢访问的时候有安全提示，另外，使用https协议访问的网站在搜索引擎中排名会更靠前收录的几率更大。提高网站体验的一个重点是网站访问速度，将网站缓存到CDN就是一种加速网站访问的方式，在使用对象存储OSS时也能用CDN进行加速，加速的文件传输速度，网站体验会更好。</p><p>程序员应该都有自建网站想法，有的话就去尝试吧，会有不一样的收获，祝你早日成功建站。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;经过好几天的鼓捣，我的&lt;a href=&quot;https://www.codeobservatory.cn/&quot;&gt;个人博客&lt;/a&gt;终于搭建完成了。为了提高网站安全性我把http协议升级成了https的, 带有传输加密的协议能保证传输的安全而且可以防止篡改网站的网页；网站的访问速度也</summary>
-      
-    
-    
-    
-    <category term="博客教程" scheme="https://www.codeobservatory.cn/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="个人博客" scheme="https://www.codeobservatory.cn/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
