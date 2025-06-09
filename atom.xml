@@ -368,6 +368,150 @@
   </entry>
   
   <entry>
+    <title>推荐5款美观实用的WinForm开源UI库</title>
+    <link href="https://www.codeobservatory.cn/archives/b214051.html"/>
+    <id>https://www.codeobservatory.cn/archives/b214051.html</id>
+    <published>2024-03-22T00:51:46.000Z</published>
+    <updated>2025-06-09T01:10:19.941Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1、NanUI"><a href="#1、NanUI" class="headerlink" title="1、NanUI"></a>1、NanUI</h2><p><img src="https://images.codeobservatory.cn/hexo/202506/09/36b3d9dbb2f0cb03.png"></p><p>NanUI 界面组件是一个开放源代码的 .NET &#x2F; .NET Core 窗体应用程序（WinForms）界面组件。她适用于希望使用 HTML5&#x2F;CSS3 等前端技术来构建 Windows 窗体应用程序用户界面的 .NET&#x2F;.NET Core 开发人员。</p><p>NanUI 的渲染引擎 WinFormium 基于谷歌可嵌入的浏览器框架 Chromium Embedded Framework，因此用户可以使用各种前端技术 HTML5&#x2F;CSS3&#x2F;JavaScript 和框架 React&#x2F;Vue&#x2F;Angular&#x2F;Blazor 设计和开发.NET 桌面应用程序的用户界面。</p><p>同时，WinFormium 特有的 JavaScript Bridge 可以方便简洁地实现浏览器端与 .NET 之间的通信和数据交换。</p><p>使用 NanUI 界面框架将为传统的 WinForm 应用程序的用户界面设计和开发工作带来无限种可能！</p><p>开源链接：<a href="https://gitee.com/linxuanchen/NanUI">https://gitee.com/linxuanchen/NanUI</a></p><h2 id="2、SunnyUI"><a href="#2、SunnyUI" class="headerlink" title="2、SunnyUI"></a>2、SunnyUI</h2><p><img src="https://images.codeobservatory.cn/hexo/202506/09/3e607198b8938521.png"></p><p>SunnyUI.Net是基于 C# 和 .Net WinForm 的开源控件库、工具类库、扩展类库、多页面开发框架。</p><p><img src="https://images.codeobservatory.cn/hexo/202506/09/8d7e524a4d503a03.png"></p><p>基于 framework4.0，原生控件开发，参考 Element、DotNetBar 主题风格，包含 Button、Panel、TextBox、CheckBox、RadioButton、TabControl、NavBar、DataGridView在内的常用控件超过 40 个，满足常规开发需求，每个控件都精雕细琢，注重细节。</p><p>开源链接：<a href="https://gitee.com/yhuse/SunnyUI">https://gitee.com/yhuse/SunnyUI</a></p><h2 id="3、HZHControls"><a href="#3、HZHControls" class="headerlink" title="3、HZHControls"></a>3、HZHControls</h2><p><img src="https://images.codeobservatory.cn/hexo/202506/09/b246cda085f3962c.png"></p><p>c#winform自定义控件，对触屏具有更好的操作支持，项目是基于framework4.0，完全原生控件开发，没有使用任何第三方控件，你可以放心的用在你的项目中。</p><p>开源链接：<a href="https://gitee.com/kwwwvagaa/net_winform_custom_control">https://gitee.com/kwwwvagaa/net_winform_custom_control</a></p><h2 id="4、EASkins"><a href="#4、EASkins" class="headerlink" title="4、EASkins"></a>4、EASkins</h2><p><img src="https://images.codeobservatory.cn/hexo/202506/09/1005114fbdff72c.png"></p><p>开源链接：<a href="https://gitee.com/airscrat/EASkins">https://gitee.com/airscrat/EASkins</a></p><h2 id="5、MaterialSkin"><a href="#5、MaterialSkin" class="headerlink" title="5、MaterialSkin"></a>5、MaterialSkin</h2><p><img src="https://images.codeobservatory.cn/hexo/202506/09/8124a2755cef57a3.png"></p><p>将.NET WinForms，C＃或主题化为Google的Material Design。</p><p>开源链接：<a href="https://github.com/IgnaceMaes/MaterialSkin">https://github.com/IgnaceMaes/MaterialSkin</a></p><blockquote><p>如果你还知道更牛x的winform开源UI库，欢迎推荐！</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1、NanUI&quot;&gt;&lt;a href=&quot;#1、NanUI&quot; class=&quot;headerlink&quot; title=&quot;1、NanUI&quot;&gt;&lt;/a&gt;1、NanUI&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://images.codeobservatory.cn/hexo/2</summary>
+      
+    
+    
+    
+    <category term="前端开发" scheme="https://www.codeobservatory.cn/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="WinForm" scheme="https://www.codeobservatory.cn/tags/WinForm/"/>
+    
+    <category term="开源" scheme="https://www.codeobservatory.cn/tags/%E5%BC%80%E6%BA%90/"/>
+    
+    <category term="UI" scheme="https://www.codeobservatory.cn/tags/UI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#中最有价值的10个语法糖一览：提升代码效率和可读性</title>
+    <link href="https://www.codeobservatory.cn/archives/6a6e70d7.html"/>
+    <id>https://www.codeobservatory.cn/archives/6a6e70d7.html</id>
+    <published>2024-03-22T00:47:25.000Z</published>
+    <updated>2025-06-09T00:50:39.553Z</updated>
+    
+    <content type="html"><![CDATA[<p>C# 语言中有很多语法糖，它们可以使代码更易读、更简洁，甚至在某些情况下提高性能。以下列出的是其中的10个最有价值的：</p><p>1、<strong>空合并运算符(??)</strong>：当一个值类型变量未被初始化时，使用空合并运算符可以为其提供一个默认值，而不是引发异常。例如：var name &#x3D; inputName ?? “DefaultName”;。</p><p>2、<strong>自动属性</strong>：通过自动属性，可以简洁地定义类中的属性，无需显式地写出 get 和 set 方法。例如：public string Name { get; set; }。</p><p>3、<strong>lambda表达式</strong>：lambda 表达式可以方便地创建匿名函数，使得代码更简洁、可读性更高。例如：var list &#x3D; people.Where(p &#x3D;&gt; p.Age &gt; 18);。</p><p>4、<strong>LINQ</strong>：LINQ 是 C# 中的一种查询语法，允许你在内存中操作数据，并且其语法与 SQL 非常相似。例如：var query &#x3D; from person in people where person.Age &gt; 18 select person;。</p><p>5、<strong>自动实现接口</strong>：当类实现一个接口时，如果类中已经有了接口中所有方法的实现，那么可以省略接口方法的声明，编译器会自动将其视为实现了接口。例如：public class MyClass : IMyInterface { &#x2F;* implementation *&#x2F; }。</p><p>6、<strong>对象和数组初始器</strong>：对象初始器和数组初始器允许你在创建对象或数组时直接为其成员或元素赋值。例如：var car &#x3D; new Car { Name &#x3D; “Ford”, Year &#x3D; 2000 }; 或 var array &#x3D; new int[] { 1, 2, 3 };。</p><p>7、<strong>可空类型</strong>：可空类型允许你使用空值表示某些值可能不存在。例如，string? name &#x3D; null;。</p><p>8、<strong>索引初始值设定项</strong>：这个语法糖允许你在数组或集合初始化时直接设置元素的索引。例如：var array &#x3D; new int[5] { [2] &#x3D; 2, [4] &#x3D; 4 };。</p><p>9、<strong>字符串插值</strong>：字符串插值允许你将变量或表达式的值直接插入到字符串中。例如：var name &#x3D; “John”; var message &#x3D; $”Hello, {name}!”;。</p><p>10、<strong>switch表达式</strong>：C# 8.0引入的 switch 表达式，提供了更灵活的多条件选择机制，而且语法糖味道十足。例如：</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = <span class="keyword">await</span> userInput.MatchAsync(    </span><br><span class="line"><span class="string">&quot;option1&quot;</span> =&gt; Task.FromResult(<span class="string">&quot;result1&quot;</span>),    </span><br><span class="line"><span class="string">&quot;option2&quot;</span> =&gt; Task.FromResult(<span class="string">&quot;result2&quot;</span>),    </span><br><span class="line"><span class="literal">default</span> =&gt; Task.FromException(<span class="keyword">new</span> Exception(<span class="string">&quot;Invalid option&quot;</span>))</span><br><span class="line">);</span><br></pre></td></tr></table></figure><p>这些只是 C# 提供的一些语法糖的例子，还有很多其他的语法糖可以让你的代码更加简洁、易读和高效。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;C# 语言中有很多语法糖，它们可以使代码更易读、更简洁，甚至在某些情况下提高性能。以下列出的是其中的10个最有价值的：&lt;/p&gt;
+&lt;p&gt;1、&lt;strong&gt;空合并运算符(??)&lt;/strong&gt;：当一个值类型变量未被初始化时，使用空合并运算符可以为其提供一个默认值，而不是引发</summary>
+      
+    
+    
+    
+    <category term="后端开发" scheme="https://www.codeobservatory.cn/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="C#" scheme="https://www.codeobservatory.cn/tags/C/"/>
+    
+    <category term="语法糖" scheme="https://www.codeobservatory.cn/tags/%E8%AF%AD%E6%B3%95%E7%B3%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#中使用AES算法实现软件加密</title>
+    <link href="https://www.codeobservatory.cn/archives/fe5ee63c.html"/>
+    <id>https://www.codeobservatory.cn/archives/fe5ee63c.html</id>
+    <published>2024-03-22T00:44:17.000Z</published>
+    <updated>2025-06-09T00:46:44.829Z</updated>
+    
+    <content type="html"><![CDATA[<p>在C#中实现软件加密可以通过多种方式来完成。以下是一种常见的方法，使用加密算法（如AES或RSA）来加密你的软件代码或关键数据。</p><p>以下是一个简单的示例，使用AES算法来加密和解密字符串：</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.IO;</span><br><span class="line"><span class="keyword">using</span> System.Security.Cryptography;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AesExample</span>&#123;    </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>()</span>    </span><br><span class="line">&#123;        </span><br><span class="line"><span class="keyword">try</span>        </span><br><span class="line">&#123;            </span><br><span class="line"><span class="comment">// 原始数据            </span></span><br><span class="line"><span class="built_in">string</span> original = <span class="string">&quot;这是需要加密的原始数据&quot;</span>;            </span><br><span class="line">Console.WriteLine(<span class="string">&quot;Original: &quot;</span> + original);</span><br><span class="line">            <span class="comment">// 创建一个随机的密钥和初始化向量            </span></span><br><span class="line">            <span class="keyword">using</span> (Aes myAes = Aes.Create())            </span><br><span class="line">            &#123;                </span><br><span class="line">            <span class="built_in">byte</span>[] encrypted = EncryptStringToBytes_Aes(original, myAes.Key, myAes.IV);                </span><br><span class="line">            <span class="built_in">string</span> roundtrip = DecryptStringFromBytes_Aes(encrypted, myAes.Key, myAes.IV);</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Encrypted: &quot;</span> + BitConverter.ToString(encrypted));                </span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Decrypted: &quot;</span> + roundtrip);            </span><br><span class="line">                &#125;        </span><br><span class="line">                &#125;        </span><br><span class="line">                <span class="keyword">catch</span> (Exception e)        </span><br><span class="line">                &#123;            </span><br><span class="line">                Console.WriteLine(<span class="string">&quot;Error: &#123;0&#125;&quot;</span>, e.Message);        </span><br><span class="line">                &#125;    </span><br><span class="line">                &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="built_in">byte</span>[] <span class="title">EncryptStringToBytes_Aes</span>(<span class="params"><span class="built_in">string</span> plainText, <span class="built_in">byte</span>[] Key, <span class="built_in">byte</span>[] IV</span>)</span>    </span><br><span class="line">    &#123;        </span><br><span class="line">    <span class="built_in">byte</span>[] encrypted;        </span><br><span class="line">    <span class="keyword">using</span> (Aes aesAlg = Aes.Create())        </span><br><span class="line">    &#123;            </span><br><span class="line">    aesAlg.Key = Key;            </span><br><span class="line">    aesAlg.IV = IV;            </span><br><span class="line">    ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);            </span><br><span class="line">    <span class="keyword">using</span> (MemoryStream msEncrypt = <span class="keyword">new</span> MemoryStream())            </span><br><span class="line">    &#123;                </span><br><span class="line">    <span class="keyword">using</span> (CryptoStream csEncrypt = <span class="keyword">new</span> CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))                </span><br><span class="line">    &#123;                    </span><br><span class="line">    <span class="keyword">using</span> (StreamWriter swEncrypt = <span class="keyword">new</span> StreamWriter(csEncrypt))                    </span><br><span class="line">    &#123;                        </span><br><span class="line">    swEncrypt.Write(plainText);                    </span><br><span class="line">    &#125;                    </span><br><span class="line">    encrypted = msEncrypt.ToArray();                </span><br><span class="line">    &#125;            </span><br><span class="line">    &#125;        </span><br><span class="line">    &#125;        </span><br><span class="line">    <span class="keyword">return</span> encrypted;    </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="built_in">string</span> <span class="title">DecryptStringFromBytes_Aes</span>(<span class="params"><span class="built_in">byte</span>[] cipherText, <span class="built_in">byte</span>[] Key, <span class="built_in">byte</span>[] IV</span>)</span>    </span><br><span class="line">    &#123;        </span><br><span class="line">    <span class="built_in">string</span> plaintext = <span class="literal">null</span>;        </span><br><span class="line">    <span class="keyword">using</span> (Aes aesAlg = Aes.Create())        </span><br><span class="line">    &#123;            </span><br><span class="line">    aesAlg.Key = Key;            </span><br><span class="line">    aesAlg.IV = IV;            </span><br><span class="line">    ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);            </span><br><span class="line">    <span class="keyword">using</span> (MemoryStream msDecrypt = <span class="keyword">new</span> MemoryStream(cipherText))            </span><br><span class="line">    &#123;                </span><br><span class="line">    <span class="keyword">using</span> (CryptoStream csDecrypt = <span class="keyword">new</span> CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))                </span><br><span class="line">    &#123;                    </span><br><span class="line">    <span class="keyword">using</span> (StreamReader srDecrypt = <span class="keyword">new</span> StreamReader(csDecrypt))                    </span><br><span class="line">    &#123;                        </span><br><span class="line">    plaintext = srDecrypt.ReadToEnd();                    </span><br><span class="line">    &#125;                </span><br><span class="line">    &#125;            </span><br><span class="line">    &#125;        </span><br><span class="line">    &#125;        </span><br><span class="line">    <span class="keyword">return</span> plaintext;    </span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>这个例子只是为了说明加密和解密的过程。在实际应用中，你需要保管好你的密钥和初始化向量，以便在解密时使用。另外，这个例子中的密钥和初始化向量是随机生成的，实际应用中你可能需要一个安全的密钥和IV生成方式。同时，AES算法也有多种模式和填充方式，你可能需要根据实际需求来选择合适的模式和填充方式。此外，如果你需要对文件进行加密，那么你需要处理文件的读写和内存管理，这比处理字符串要复杂一些。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在C#中实现软件加密可以通过多种方式来完成。以下是一种常见的方法，使用加密算法（如AES或RSA）来加密你的软件代码或关键数据。&lt;/p&gt;
+&lt;p&gt;以下是一个简单的示例，使用AES算法来加密和解密字符串：&lt;/p&gt;
+&lt;figure class=&quot;highlight csharp&quot;</summary>
+      
+    
+    
+    
+    <category term="后端开发" scheme="https://www.codeobservatory.cn/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="C#" scheme="https://www.codeobservatory.cn/tags/C/"/>
+    
+    <category term="AES" scheme="https://www.codeobservatory.cn/tags/AES/"/>
+    
+    <category term="算法" scheme="https://www.codeobservatory.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="加密" scheme="https://www.codeobservatory.cn/tags/%E5%8A%A0%E5%AF%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#程序崩溃的排查与修复</title>
+    <link href="https://www.codeobservatory.cn/archives/cef60bd8.html"/>
+    <id>https://www.codeobservatory.cn/archives/cef60bd8.html</id>
+    <published>2024-03-22T00:39:24.000Z</published>
+    <updated>2025-06-09T00:43:41.446Z</updated>
+    
+    <content type="html"><![CDATA[<p>在C#应用程序中，软件崩溃可能由多种原因造成，例如代码Bug、内存泄漏、无限递归、IO异常等。下面是一些排查C#软件崩溃的基本步骤：</p><p><strong>1. 查看错误信息</strong></p><p>当程序崩溃时，通常会在控制台或日志文件中输出错误信息。仔细查看错误信息，了解导致崩溃的原因。</p><p><strong>2. 调试程序</strong></p><p>可以使用调试器来跟踪程序的执行过程，以便找到导致崩溃的代码。可以在程序中添加断点，逐行执行代码并观察变量的值，以确定是否存在异常。</p><p><strong>3. 使用异常处理</strong></p><p>在程序中添加异常处理逻辑，以便捕获和处理错误。例如，在可能抛出异常的代码块周围添加try-catch语句，并在catch块中处理异常情况。</p><p><strong>4. 检查内存泄漏</strong></p><p>如果程序崩溃是由于内存泄漏引起的，可以使用内存分析工具来检测内存泄漏的原因。例如，可以使用.NET的内存分析工具（如dotMemory）来检测内存泄漏。</p><p><strong>5. 检查I&#x2F;O操作</strong></p><p>I&#x2F;O操作可能会出现各种问题，如超时、文件未找到、权限等问题。如果应用程序崩溃与I&#x2F;O操作相关，则需要仔细检查I&#x2F;O操作并确保它们正确处理异常情况。</p><p><strong>6. 查看事件日志</strong></p><p>可以查看Windows事件日志或应用程序日志，以了解有关程序崩溃的更多详细信息。事件日志通常会提供有关崩溃原因的更多上下文信息。</p><p><strong>7. 检查第三方库</strong></p><p>如果程序使用了第三方库，请确保使用的库版本与程序兼容，并且没有已知的崩溃问题。</p><p><strong>8. 更新程序和库</strong></p><p>如果程序或使用的库有更新可用，请尝试更新到最新版本，以查看是否解决了崩溃问题。</p><p><strong>9. 检查硬件问题</strong></p><p>如果程序崩溃是由于硬件问题引起的，例如内存不足或磁盘空间不足等，请检查硬件是否正常运行。</p><p><strong>10. 重新设计程序</strong></p><p>如果程序崩溃是由于设计问题引起的，例如存在逻辑错误或数据结构不正确等，可能需要重新设计程序的一部分。</p><p>总之，需要根据具体情况采取相应的排查和解决方案。在处理C#软件崩溃时，需要耐心细致地进行排查和解决。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在C#应用程序中，软件崩溃可能由多种原因造成，例如代码Bug、内存泄漏、无限递归、IO异常等。下面是一些排查C#软件崩溃的基本步骤：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 查看错误信息&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;当程序崩溃时，通常会在控制台或日志文件中输出错误信息。仔细</summary>
+      
+    
+    
+    
+    <category term="后端开发" scheme="https://www.codeobservatory.cn/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="C#" scheme="https://www.codeobservatory.cn/tags/C/"/>
+    
+    <category term="程序" scheme="https://www.codeobservatory.cn/tags/%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C# Dump</title>
+    <link href="https://www.codeobservatory.cn/archives/e75ede1b.html"/>
+    <id>https://www.codeobservatory.cn/archives/e75ede1b.html</id>
+    <published>2024-03-22T00:27:11.000Z</published>
+    <updated>2025-06-09T00:38:19.376Z</updated>
+    
+    <content type="html"><![CDATA[<p>dump，相信大家都不陌生吧！</p><p>那它到底是什么呢？干什么用的呢？如何使用呢？</p><p>接下来让我们一起看看吧。</p><p>dump 文件是进程的内存镜像，可以看作是程序运行状态的快照。它主要用于在出现问题时，保存进程的状态，方便后期进行分析和调试。对于驱动程序编写人员来说，dump 文件尤为重要，因为它可以用来调试驱动程序。</p><p>同时，dump 文件也常用于数据备份和恢复，例如在 Oracle 和 SQL 数据库中，dump 文件可以用来导出数据并实现后期的导入。</p><p>总的来说，dump 文件是一种重要的调试和分析工具，在程序出现问题时，可以通过它来获取进程的内存信息，帮助找出问题所在。</p><p>1、如何生成 dump 文件：在C#中生成dump文件通常有两种方法：</p><ul><li>使用 Visual Studio 的“Debug”菜单：在 Visual Studio 中，您可以通过选择“Debug”菜单，然后选择“Windows”下的“Mini-Dump”来生成 dump 文件。在弹出的对话框中，您可以选择生成 minidump 或 full dump 文件，还可以选择是否包括异常信息等。</li><li>使用异常处理程序（try&#x2F;catch）：在代码中使用 try&#x2F;catch 块来捕获异常，并在 catch 块中生成 dump 文件。以下是一个示例代码：</li></ul><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>  </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="comment">// 代码...  </span></span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">catch</span> (Exception ex)  </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="comment">// 生成 dump 文件...  </span></span><br><span class="line">    MiniDumpWriteDump(Process.GetCurrentProcess().Handle, Process.GetCurrentProcess().Id, <span class="string">&quot;dump.dmp&quot;</span>, MiniDumpNormal, <span class="literal">null</span>, ex.ToString(), <span class="literal">false</span>);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在上面的代码中，使用了 MiniDumpWriteDump 函数来生成 dump 文件。该函数的第一个参数是进程句柄，第二个参数是进程 ID，第三个参数是 dump 文件的路径和名称，第四个参数是 dump 文件的类型（这里使用了 MiniDumpNormal），第五个参数是异常信息（这里使用了 ex.ToString() 来将异常信息转换为字符串），第六个参数是是否压缩 dump 文件（这里使用了 false），最后一个参数是是否生成 full dump（这里使用了 false）。</p><p>请注意，为了使用 MiniDumpWriteDump 函数，您需要引用 System.Diagnostics 命名空间。此外，生成的 dump 文件将存储在当前工作目录下。</p><p>2、如何打开和分析 dump 文件：dump 文件需要使用专门的工具来打开和分析，例如 Windows 下的 WinDbg 工具或 Visual Studio 中的调试器等。通过分析 dump 文件，可以查看程序崩溃时的调用堆栈、线程状态、内存使用情况等信息，帮助定位问题。</p><p>3、dump 文件的格式：dump 文件的格式可能因操作系统和工具的不同而有所不同。例如，在 Windows 系统中，常见的 dump 文件格式包括 minidump、full dump、kernel dump 等。了解不同格式的 dump 文件有助于更好地进行调试和分析。</p><p>4、如何优化 dump 文件的大小：在某些情况下，dump 文件可能会非常大，导致存储和分析的困难。为了优化 dump 文件的大小，可以采取一些措施，例如只保存必要的内存区域、压缩 dump 文件等。</p><p>5、dump 文件的安全性：由于 dump 文件中包含了程序的内存信息，因此可能存在一些安全隐患。例如，攻击者可能会尝试通过分析 dump 文件来获取敏感信息或利用漏洞。因此，在处理 dump 文件时需要注意安全性问题，例如对 dump 文件进行加密或限制访问权限等。</p><p>以上是关于 dump 文件的一些分享，希望对您有所帮助。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;dump，相信大家都不陌生吧！&lt;/p&gt;
+&lt;p&gt;那它到底是什么呢？干什么用的呢？如何使用呢？&lt;/p&gt;
+&lt;p&gt;接下来让我们一起看看吧。&lt;/p&gt;
+&lt;p&gt;dump 文件是进程的内存镜像，可以看作是程序运行状态的快照。它主要用于在出现问题时，保存进程的状态，方便后期进行分析和调试。对</summary>
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://www.codeobservatory.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="C#" scheme="https://www.codeobservatory.cn/tags/C/"/>
+    
+    <category term="Dump" scheme="https://www.codeobservatory.cn/tags/Dump/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C# 集合（Collection）</title>
     <link href="https://www.codeobservatory.cn/archives/9285d836.html"/>
     <id>https://www.codeobservatory.cn/archives/9285d836.html</id>
@@ -390,137 +534,6 @@
     <category term="C#" scheme="https://www.codeobservatory.cn/tags/C/"/>
     
     <category term="集合" scheme="https://www.codeobservatory.cn/tags/%E9%9B%86%E5%90%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>掌握C#编程语言和10个基本技巧.NET框架</title>
-    <link href="https://www.codeobservatory.cn/archives/d2306485.html"/>
-    <id>https://www.codeobservatory.cn/archives/d2306485.html</id>
-    <published>2024-03-21T01:44:20.000Z</published>
-    <updated>2025-06-07T01:50:08.202Z</updated>
-    
-    <content type="html"><![CDATA[<p>C# 是一种通用的、面向对象的编程语言，它是 Microsoft 开发的一种编程语言，广泛用于开发.NET 应用程序。掌握 C# 和利用它的基本技巧对于开发人员来说非常重要。本文将介绍十个基本技巧，帮助你更好地掌握 C# 和利用它来开发.NET 框架。 </p><ol><li><p>使用命名空间：命名空间是 C# 中组织代码的一种方式。通过使用命名空间，你可以将相关的代码组织在一起，提高代码的可读性和维护性。 </p></li><li><p>理解变量和数据类型：在 C# 中，变量是用来存储数据的容器，而数据类型决定了变量可以存储的数据的种类。 </p></li><li><p>掌握条件语句和循环语句：条件语句和循环语句是控制程序执行流程的重要工具。通过掌握条件语句和循环语句，你可以编写出更灵活和高效的程序。 </p></li><li><p>使用面向对象编程：C# 是一种面向对象的编程语言，它支持封装、继承和多态等面向对象的特性。通过使用面向对象编程，你可以将复杂的问题分解成简单的对象，并通过对象之间的相互调用来解决问题。 </p></li><li><p>使用异常处理：异常是程序在运行过程中出现的错误或意外情况。通过使用异常处理，你可以对程序中可能出现的异常进行捕获和处理，保证程序的健壮性和可靠性。 </p></li><li><p>熟悉常用的.NET 框架类库：.NET 框架提供了丰富的类库，包括用于处理字符串、日期时间、文件操作等的类。熟悉并合理使用这些类库可以提高开发效率。 </p></li><li><p>使用 LINQ 进行数据查询：LINQ（Language Integrated Query）是 C# 中的一种查询语言，它提供了一种直观、简洁的方式来查询和操作数据。 </p></li><li><p>利用委托和事件：委托和事件是 C# 中用来处理事件和回调函数的机制。通过使用委托和事件，你可以更好地处理异步操作和事件触发。 </p></li><li><p>使用 Lambda 表达式：Lambda 表达式是 C# 中一种简洁的函数定义方式，它可以用来定义匿名函数和简化代码。 </p></li><li><p>善用调试工具：C# 提供了强大的调试工具，如 Visual Studio 调试器，通过善用这些工具，你可以更好地定位和解决程序中的问题。</p></li></ol><p>通过学习和掌握这些基本技巧，你将能够更好地利用 C# 并开发出高质量的.NET 应用程序。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;C# 是一种通用的、面向对象的编程语言，它是 Microsoft 开发的一种编程语言，广泛用于开发.NET 应用程序。掌握 C# 和利用它的基本技巧对于开发人员来说非常重要。本文将介绍十个基本技巧，帮助你更好地掌握 C# 和利用它来开发.NET 框架。 &lt;/p&gt;
-&lt;ol&gt;
-</summary>
-      
-    
-    
-    
-    <category term="后端开发" scheme="https://www.codeobservatory.cn/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-    
-    <category term="C#" scheme="https://www.codeobservatory.cn/tags/C/"/>
-    
-    <category term="编程" scheme="https://www.codeobservatory.cn/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-    <category term=".NET框架" scheme="https://www.codeobservatory.cn/tags/NET%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小白也能成IT大神？程序员十大自学编程网站！</title>
-    <link href="https://www.codeobservatory.cn/archives/102371b7.html"/>
-    <id>https://www.codeobservatory.cn/archives/102371b7.html</id>
-    <published>2024-03-20T09:25:32.000Z</published>
-    <updated>2025-06-06T09:42:11.439Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>众所周知，IT互联网行业是高薪行业，如果你还处于职业方向的迷茫期，不如就来免费学习一些IT知识吧，高手们也可以在这里不断的充实自己。</p></blockquote><h2 id="1、极客学院"><a href="#1、极客学院" class="headerlink" title="1、极客学院"></a>1、极客学院</h2><p>网址：<a href="https://www.jikexueyuan.com/">https://www.jikexueyuan.com</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/30c2ff2ac1dae095.png" alt="极客学院"></p><p>极客学院，中国专业的IT职业在线教育平台，上面有海量的IT教学视频，可以搜索或根据知识体系寻找想要的技术课程，只要课程上面没有VIP字样，就是免费的</p><h2 id="2、慕课网"><a href="#2、慕课网" class="headerlink" title="2、慕课网"></a>2、慕课网</h2><p>网址：<a href="https://www.imooc.com/">https://www.imooc.com</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/d63dde977cf3f335.png" alt="慕课网"></p><p>慕课网号称是程序员的梦工厂，上面有非常的多IT专业技术视频课程，进入网站后，直接点击导航中的免费课，里面的所有技术视频都可以免费学习，不过要先手机注册哦。</p><h2 id="3、菜鸟教程"><a href="#3、菜鸟教程" class="headerlink" title="3、菜鸟教程"></a>3、菜鸟教程</h2><p>网址：<a href="https://www.runoob.com/">https://www.runoob.com</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/31529c514e7cf600.png" alt="菜鸟教程"></p><p>菜鸟教程是适合小白学习IT技术的专业网站，上面对各种编程语言的基础知识点梳理的非常详细，虽然不是视频资源网站，但却非常适合系统学习IT知识点，想入门的小伙伴们可…</p><h2 id="4、编程狮"><a href="#4、编程狮" class="headerlink" title="4、编程狮"></a>4、编程狮</h2><p>网址：<a href="https://www.w3cschool.cn/">https://www.w3cschool.cn</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/5a695bfe3f7d0ecd.png" alt="编程狮"></p><p>编程狮是专业的IT知识学习平台，上面有既有文字教程也有视频教程，适合系统学习IT专业技术，基础的小伙伴们，可以多看看这个网站</p><h2 id="5、网易云课堂"><a href="#5、网易云课堂" class="headerlink" title="5、网易云课堂"></a>5、网易云课堂</h2><p>网址：<a href="https://study.163.com/">https://study.163.com</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/bf54c2f66965007e.png" alt="网易云课堂"></p><p>网易云课堂与腾讯课堂相似，是专业的职业教育平台，上面大量的IT互联网热门课程，Python、编程、开发、大数据、AI、运营、营销等应有尽有，免费的课程也非常的多。</p><h2 id="6、腾讯课堂"><a href="#6、腾讯课堂" class="headerlink" title="6、腾讯课堂"></a>6、腾讯课堂</h2><p>网址：<a href="https://ke.qq.com/">https://ke.qq.com</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/98678aaf1ca130c6.png" alt="腾讯课堂"></p><p>腾讯课堂是腾讯推出的专业职业培训在线教育平台，其中也有很多IT互联网热门课程，可以免费报名学习自己想学的课程，只要用QQ号登录，就能观看了。除了IT课程外，还有非常多其它职业课程，在这里想学什么就学什么。</p><h2 id="7、W3school"><a href="#7、W3school" class="headerlink" title="7、W3school"></a>7、W3school</h2><p>网址：<a href="https://www.w3school.com.cn/">https://www.w3school.com.cn</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/309b513543310206.png" alt="W3school"></p><p>全球最大的中文Web技术教程，在这里，你可以找到网站建设教程，从基础的HTML到XHTML，到进阶的XHL、SQL、数据库、多媒体和WAP。</p><h2 id="8、Udacity"><a href="#8、Udacity" class="headerlink" title="8、Udacity"></a>8、Udacity</h2><p>网址：<a href="https://www.udacity.com/">https://www.udacity.com</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/bdcee336471ae085.png" alt="Udacity"></p><p>职业编程的不二之选，提供微学位</p><h2 id="9、B站"><a href="#9、B站" class="headerlink" title="9、B站"></a>9、B站</h2><p>网址：<a href="https://www.bilibili.com/">https://www.bilibili.com</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/28c6c35dc6468c47.png" alt="B站"></p><p>B站。这个网站原本的定位是一个二次元动漫类的网站，可是走着走着，越走越偏，B站自己也万万没想到自己会变成一个学习类的网站。</p><p>对于程序员而言，这里有海量的编程类的学习资料。不管是什么类型的编程语言，编程技术，你几乎都可以在这里找到对应的视频教程。而且最重要的是，视频播放的时候，不会有任何烦人的广告，几乎不会受到任何打扰。</p><h2 id="10、我要自学网"><a href="#10、我要自学网" class="headerlink" title="10、我要自学网"></a>10、我要自学网</h2><p>网址：<a href="https://www.51zxw.net/">https://www.51zxw.net</a><br><img src="https://images.codeobservatory.cn/hexo/202506/06/1a6ce6678d1c6072.png" alt="我要自学网"></p><p>自学免费教程资源分享网站，学习电脑技术，涉及网页设计、程序设计、编程、大数据、软件开发等海量课程，还有PS、AE等海量软件教程。</p>]]></content>
-    
-    
-    <summary type="html">这篇文章介绍了十个适合程序员自学的编程网站，包括极客学院、慕课网、菜鸟教程、编程狮、网易云课堂、腾讯课堂、W3school、Udacity、B站和我要自学网，这些网站提供了丰富的IT技术视频课程和文字教程，适合不同水平的学习者，无论是初学者还是高手都能在这里找到适合自己的学习资源，帮助他们在IT互联网行业中不断提升自己，实现职业发展。</summary>
-    
-    
-    
-    <category term="技术分享" scheme="https://www.codeobservatory.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-    
-    <category term="编程网站" scheme="https://www.codeobservatory.cn/tags/%E7%BC%96%E7%A8%8B%E7%BD%91%E7%AB%99/"/>
-    
-    <category term="IT" scheme="https://www.codeobservatory.cn/tags/IT/"/>
-    
-    <category term="程序员" scheme="https://www.codeobservatory.cn/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IIS7 IIS8 设置将域名不带www跳转到带www上</title>
-    <link href="https://www.codeobservatory.cn/archives/79c4bde.html"/>
-    <id>https://www.codeobservatory.cn/archives/79c4bde.html</id>
-    <published>2024-03-20T03:11:54.000Z</published>
-    <updated>2025-06-03T03:18:44.340Z</updated>
-    
-    <content type="html"><![CDATA[<p>很多时候为了统一网站入口，需要将不带www的主域名解析到带www的域名记录下，当客户访问不带www的域名网址的时候自动跳转到带www的域名，在IIS Web服务器中可以通过URL重写模块来实现此功能，只需要做301永久重定向即可将实现不带www请求链接自动跳转www主机域名。</p><p>（1）首先一步是带www主机域名和不带www的主机域名解析需要能够顺利访问，涉及到域名解析平台的相关域名解析操作以及IIS网站部署操作，保证2个域名都可正常访问。建议在IIS中一个网站绑定多个主机域名的方式，绑定后效果如下图。<br>相关设置教程可参考：IIS网站如何同时解析带www和不带www的域名。</p><p>微信图片_20231211221819.png</p><p>（2）进入IIS管理界面，选中对应的网站，然后在右侧功能区域选中【URL重写】，如果没有此URL重写模块Microsoft URL Rewrite Module。建议先下载模块安装到IIS中。</p><p>URL重写模块32位系统：<a href="http://download.microsoft.com/download/4/9/C/49CD28DB-4AA6-4A51-9437-AA001221F606/rewrite_x86_zh-CN.msi">http://download.microsoft.com/download/4/9/C/49CD28DB-4AA6-4A51-9437-AA001221F606/rewrite_x86_zh-CN.msi</a><br>URL重写模块64位系统：<a href="http://download.microsoft.com/download/4/E/7/4E7ECE9A-DF55-4F90-A354-B497072BDE0A/rewrite_x64_zh-CN.msi">http://download.microsoft.com/download/4/E/7/4E7ECE9A-DF55-4F90-A354-B497072BDE0A/rewrite_x64_zh-CN.msi</a></p><p>微信图片_20231211221947.png</p><p>（3）进入【URL重写】管理界面前，先在.htaccess在线生成输入要www域名。在此网站上提供的【www域名重定向】功能中生成相应的代码。</p><p>3be7284bc66e457217f2412e57fac5e4.png</p><p>（4）复制步骤3页面生成的代码，如下所示</p><p>6697f7968266176c6744d2499ffdc8c9.png</p><p>（5）继续回到步骤2中的【URL重写】模块，进入【URL重写】界面后，点击右侧的【导入规则】。</p><p>543d4dd99db66409f8d43f4a734f77b8.png</p><p>（6）进入【导入规则】页面后，将第4步骤复制的代码黏贴到【重写规则】的输入框中，然后单击右上角的【应用】。</p><p>660e9bc8b1787c3bde14f97689f1ada2.png</p><p>（7）然后重启IIS中的网站，配置生效，此时不带www的网址将自动跳转到www上。</p><p>（8）如果出了上述的实现要求外，还需要添加http请求自动跳转https安全连接的话，可再次设置URL重写规则来实现(前提是已经配置好了带SSL证书的https安全连接网站)</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;很多时候为了统一网站入口，需要将不带www的主域名解析到带www的域名记录下，当客户访问不带www的域名网址的时候自动跳转到带www的域名，在IIS Web服务器中可以通过URL重写模块来实现此功能，只需要做301永久重定向即可将实现不带www请求链接自动跳转www主机域名</summary>
-      
-    
-    
-    
-    <category term="SEO笔记" scheme="https://www.codeobservatory.cn/categories/SEO%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="seo" scheme="https://www.codeobservatory.cn/tags/seo/"/>
-    
-    <category term="IIS" scheme="https://www.codeobservatory.cn/tags/IIS/"/>
-    
-    <category term="www" scheme="https://www.codeobservatory.cn/tags/www/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>百度分享share.js插件</title>
-    <link href="https://www.codeobservatory.cn/archives/7f5a1792.html"/>
-    <id>https://www.codeobservatory.cn/archives/7f5a1792.html</id>
-    <published>2024-03-20T03:00:41.000Z</published>
-    <updated>2025-06-03T03:07:33.019Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//百度分享</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">_bd_share_config</span> = &#123;</span><br><span class="line">   common : &#123;</span><br><span class="line">       bdText : <span class="string">&#x27;分享标题&#x27;</span>,</span><br><span class="line">       bdDesc : <span class="string">&#x27;分享描述&#x27;</span>,</span><br><span class="line">       bdUrl : <span class="string">&#x27;分享链接&#x27;</span>,</span><br><span class="line">       bdPic : <span class="string">&#x27;分享图片&#x27;</span></span><br><span class="line"></span><br><span class="line">   &#125;,</span><br><span class="line">   share : [&#123;</span><br><span class="line">       <span class="string">&quot;bdSize&quot;</span> : <span class="number">22</span></span><br><span class="line">   &#125;],</span><br><span class="line">   image : [&#123;</span><br><span class="line">       viewType : <span class="string">&#x27;list&#x27;</span>,</span><br><span class="line">       viewPos : <span class="string">&#x27;top&#x27;</span>,</span><br><span class="line">       viewColor : <span class="string">&#x27;black&#x27;</span>,</span><br><span class="line">       viewSize : <span class="string">&#x27;22&#x27;</span>,</span><br><span class="line">       viewList : [<span class="string">&#x27;qzone&#x27;</span>,<span class="string">&#x27;tsina&#x27;</span>,<span class="string">&#x27;huaban&#x27;</span>,<span class="string">&#x27;tqq&#x27;</span>,<span class="string">&#x27;renren&#x27;</span>]</span><br><span class="line">   &#125;],</span><br><span class="line">   selectShare : [&#123;</span><br><span class="line">       <span class="string">&quot;bdselectMiniList&quot;</span> : [<span class="string">&#x27;qzone&#x27;</span>,<span class="string">&#x27;tqq&#x27;</span>,<span class="string">&#x27;kaixin001&#x27;</span>,<span class="string">&#x27;bdxc&#x27;</span>,<span class="string">&#x27;tqf&#x27;</span>]</span><br><span class="line">   &#125;]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//分享按钮组织点击</span></span><br><span class="line"><span class="title function_">with</span>(<span class="variable language_">document</span>)<span class="number">0</span>[(<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;head&#x27;</span>)[<span class="number">0</span>]||body).<span class="title function_">appendChild</span>(<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>)).<span class="property">src</span>=<span class="string">&#x27;http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=&#x27;</span>+~(-<span class="keyword">new</span> <span class="title class_">Date</span>()/<span class="number">36e5</span>)];</span><br></pre></td></tr></table></figure><blockquote><p>特别注意：</p></blockquote><p>站点自从开启 https 之后 ，百度分享就不能用了！但是又寻找不到类似百度分享的替代品。</p><p>怎么办呢？要如何解决 百度分享不支持https的问题呢，</p><p>跟着博主动动手，让你百度分享仍然能在https下使用 ~</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span </summary>
-      
-    
-    
-    
-    <category term="前端开发" scheme="https://www.codeobservatory.cn/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-    
-    <category term="share" scheme="https://www.codeobservatory.cn/tags/share/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>利用腾讯元器，将公众号变身为强大的.NET AI智能体</title>
-    <link href="https://www.codeobservatory.cn/archives/2543ce4e.html"/>
-    <id>https://www.codeobservatory.cn/archives/2543ce4e.html</id>
-    <published>2024-03-20T02:44:23.000Z</published>
-    <updated>2025-06-03T02:55:26.351Z</updated>
-    
-    <content type="html"><![CDATA[<p>经常有粉丝朋友在公众号后台私信提问，因为个人平时比较少看公众号后台的私信所以没法及时回复。最近发现腾讯推出了一个可以创建和使用各种智能体的平台（帮助小白也能快速使用AI）：腾讯元器，正好自己每天也在公众号更新.NET相关的文章，有着较为丰富.NET相关的知识库，因此今天我将利用腾讯元器，将我的公众号变身为一个强大的.NET AI智能体，造福我的.NET粉丝朋友们。</p><p>登录腾讯元器</p><p>登录地址：<a href="https://yuanqi.tencent.com/">https://yuanqi.tencent.com</a></p><p>创建智能体</p><p>图片</p><p>基础设定</p><p>图片</p><p>名称</p><p>CSharp小沈子</p><p>简介</p><p>你是一位专注于.net领域的AI智能体，掌握全面的.net技术栈和知识点。能够帮助.NET开发者快速解答各类技术难题。</p><p>详细设定</p><ul><li><p>你的名字是CSharp小沈子，专门帮助用户解决与C#编程语言相关的问题。</p></li><li><p>你拥有丰富的C#编程知识，能够解答从基础语法到高级算法的各种问题。</p></li><li><p>你可以提供代码示例、调试建议和最佳实践，帮助用户提高编程技能。</p></li><li><p>你会用简洁明了的语言解释复杂的概念，确保用户能够轻松理解。</p></li></ul><p>图片</p><p>开场白</p><p>您好，我是CSharp小沈子，专注于.NET领域。无论您遇到什么.NET技术难题，我都能为您提供快速准确的解答。</p><p>图片</p><p>预置引导问题等设置，都可以通过AI自动生成</p><p>图片</p><p>添加知识库</p><p>图片</p><p>图片</p><p>选择公众号文章，输入名称、描述，然后授权自己的 公众号，点击保存并添加</p><p>图片</p><p>如下图这样就已经添加成功了</p><p>图片</p><p>发布智能体</p><p>接下来就可以直接发布了</p><p>图片</p><p>图片</p><p>发布好之后我们回到主页，点击顶部的知识库，可看到刚刚授权的公众号，可以查看其中的文章内容</p><p>图片</p><p>图片</p><p>图片</p><p>再回到智能体，我们可以看到已经发布成功了。接下来就可以体验了</p><p>图片</p><p>使用方式有：腾讯元宝、腾讯元器、微信公众号-订阅号 三种方式。</p><p>图片</p><p>图片</p><p>感兴趣的小伙伴们也可以去试试~</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;经常有粉丝朋友在公众号后台私信提问，因为个人平时比较少看公众号后台的私信所以没法及时回复。最近发现腾讯推出了一个可以创建和使用各种智能体的平台（帮助小白也能快速使用AI）：腾讯元器，正好自己每天也在公众号更新.NET相关的文章，有着较为丰富.NET相关的知识库，因此今天我将</summary>
-      
-    
-    
-    
-    <category term="技术分享" scheme="https://www.codeobservatory.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-    
-    <category term="AI" scheme="https://www.codeobservatory.cn/tags/AI/"/>
     
   </entry>
   
