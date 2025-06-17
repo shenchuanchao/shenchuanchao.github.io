@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>码农观测站</title>
   
-  <subtitle>欢迎进入码农观测站，分享编程学习的乐趣</subtitle>
+  <subtitle>编程学习与技术分享，前端后端全栈成长之路</subtitle>
   <link href="https://www.codeobservatory.cn/atom.xml" rel="self"/>
   
   <link href="https://www.codeobservatory.cn/"/>
