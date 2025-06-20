@@ -188,6 +188,11 @@
                 top: 40px;
                 right: 40px;
                 padding: 7px 25px;
+                background: linear-gradient(to right, #26d0ce 0%, #9fafae 100%);
+            }
+            a.browse-btn.refresh{
+                right:150px;
+                text-decoration: none;
             }
             .file-input {
                 display: none;
@@ -562,6 +567,7 @@
         <div class="content">
             <div class="upload-section">
                 <h2 class="section-title"><i class="fas fa-cloud-upload-alt"></i> 上传图片</h2>
+                <a href="/" class="browse-btn refresh" target="_blank" title="码农观测站">首页</a>
                 <button class="browse-btn refresh" onclick="window.location.reload();">刷新</button>
                 <div class="upload-area" id="uploadArea">
                     <i class="fas fa-images"></i>
@@ -643,7 +649,7 @@
         </div>
 
         <footer>
-            <p>自定义图片压缩工具 &copy; 2025 | 支持实时预览和下载</p>
+            <p>免费在线图片压缩工具 &copy; 2025 | <a href="https://www.codeobservatory.cn" target="_blank" title="码农观测站">码农观测站</a></p>
         </footer>
     </div>
 
