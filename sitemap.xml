@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.codeobservatory.cn/archives/7198a9db.html</loc>
+    
+    <lastmod>2025-07-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.codeobservatory.cn/archives/72eceb8.html</loc>
+    
+    <lastmod>2025-07-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.codeobservatory.cn/archives/b3bde0f.html</loc>
     
     <lastmod>2025-07-22</lastmod>
@@ -21,15 +39,6 @@
   
   <url>
     <loc>https://www.codeobservatory.cn/archives/e4c33417.html</loc>
-    
-    <lastmod>2025-07-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.codeobservatory.cn/archives/72eceb8.html</loc>
     
     <lastmod>2025-07-22</lastmod>
     
@@ -1056,6 +1065,13 @@
   
   <url>
     <loc>https://www.codeobservatory.cn/tags/json/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.codeobservatory.cn/tags/404%E9%A1%B5%E9%9D%A2/</loc>
     <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
