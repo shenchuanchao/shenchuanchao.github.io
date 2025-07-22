@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.codeobservatory.cn/archives/2355d2b3.html</loc>
+    
+    <lastmod>2025-07-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.codeobservatory.cn/archives/fe9c6897.html</loc>
+    
+    <lastmod>2025-07-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.codeobservatory.cn/archives/fb8e2ad0.html</loc>
+    
+    <lastmod>2025-07-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.codeobservatory.cn/archives/7198a9db.html</loc>
     
     <lastmod>2025-07-22</lastmod>
@@ -1072,6 +1099,55 @@
   
   <url>
     <loc>https://www.codeobservatory.cn/tags/404%E9%A1%B5%E9%9D%A2/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.codeobservatory.cn/tags/PayPal/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.codeobservatory.cn/tags/%E5%9C%A8%E7%BA%BF%E6%94%AF%E4%BB%98/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.codeobservatory.cn/tags/asp-net/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.codeobservatory.cn/tags/web%E5%BC%80%E5%8F%91/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.codeobservatory.cn/tags/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.codeobservatory.cn/tags/%E5%BC%80%E6%BA%90%E6%A1%86%E6%9E%B6/</loc>
+    <lastmod>2025-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.codeobservatory.cn/tags/%E6%A0%87%E7%AD%BE/</loc>
     <lastmod>2025-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

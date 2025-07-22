@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>javascript中怎么找父级标签和子级标签 | 码农观测站</title><meta name="author" content="码农刚子"><meta name="copyright" content="码农观测站"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、JS中查找父标签的方法：1、利用parentNode属性，语法“子元素对象.parentNode”； 2、借助Jquery中的parent()或parents()方法，语法“子元素对象.parent()”或“子元素对象.parents()”。  找父元素节点的方法有： 1、原生方法–parentNode属性 parentNode 属性可返回某节点的父节点。 1元素.parentNode &#x2F;&#x2F;返">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript中怎么找父级标签和子级标签">
+<meta property="og:url" content="https://www.codeobservatory.cn/archives/fe9c6897.html">
+<meta property="og:site_name" content="码农观测站">
+<meta property="og:description" content="一、JS中查找父标签的方法：1、利用parentNode属性，语法“子元素对象.parentNode”； 2、借助Jquery中的parent()或parents()方法，语法“子元素对象.parent()”或“子元素对象.parents()”。  找父元素节点的方法有： 1、原生方法–parentNode属性 parentNode 属性可返回某节点的父节点。 1元素.parentNode &#x2F;&#x2F;返">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.codeobservatory.cn/hexo/202507/22/d68cae22a57819b517.jpg">
+<meta property="article:published_time" content="2025-07-22T05:53:43.000Z">
+<meta property="article:modified_time" content="2025-07-22T06:01:29.394Z">
+<meta property="article:author" content="码农刚子">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="标签">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.codeobservatory.cn/hexo/202507/22/d68cae22a57819b517.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "javascript中怎么找父级标签和子级标签",
+  "url": "https://www.codeobservatory.cn/archives/fe9c6897.html",
+  "image": "https://images.codeobservatory.cn/hexo/202507/22/d68cae22a57819b517.jpg",
+  "datePublished": "2025-07-22T05:53:43.000Z",
+  "dateModified": "2025-07-22T06:01:29.394Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "码农刚子",
+      "url": "https://www.codeobservatory.cn/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://www.codeobservatory.cn/archives/fe9c6897.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="codeva-FIUUG5m1ys"/><link rel="stylesheet" href="/css/index.css?v=5.3.5"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fe12caafa8e3492eabebc58cf4dd2fa0";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":425,"highlightFullpage":true,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'javascript中怎么找父级标签和子级标签',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/modify.css"><link rel="stylesheet" href="/css/rightMenu.css"><script defer src="/js/baidu_sub.js"></script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="码农观测站" type="application/atom+xml">
+</head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css"/><script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-tools"></i><span> 工具箱</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/tools/image-compress.html"><i class="fa-fw fas fa-compress-alt"></i><span> 图片压缩</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://images.codeobservatory.cn/hexo/202507/22/d68cae22a57819b517.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">码农观测站</span></a><a class="nav-page-title" href="/"><span class="site-name">javascript中怎么找父级标签和子级标签</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-tools"></i><span> 工具箱</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/tools/image-compress.html"><i class="fa-fw fas fa-compress-alt"></i><span> 图片压缩</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">javascript中怎么找父级标签和子级标签</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-07-22T05:53:43.000Z" title="发表于 2025-07-22 13:53:43">2025-07-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-22T06:01:29.394Z" title="更新于 2025-07-22 14:01:29">2025-07-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">654</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"> <div id="post"><article class="container post-content" id="article-container"><div class="ai-summary"><div class="ai-explanation" style="display: block;" data-summary="这里是码农观测站，这篇文章主要介绍了在JavaScript中查找父级标签和子级标签的多种方法，包括原生JavaScript和jQuery两种方式，原生方法查找父级标签可以使用parentNode属性获取直接父节点，也可以通过连续使用parentNode获取更上层的父节点，而jQuery则提供了parent()方法获取直接父节点和parents()方法获取所有祖先节点，查找子级标签时原生JavaScript使用childNodes属性获取所有子节点，jQuery则提供children()方法获取直接子节点和child()方法，文章还通过具体代码示例展示了如何使用这些方法获取特定层级的父元素和子元素，包括获取div下的span和a标签等常见操作，帮助开发者解决在程序开发中遇到的DOM节点查找问题。">正在加载···</div><div class="ai-title"> <div class="ai-title-left"> <i class="fa-brands fa-slack"></i><div class="ai-title-text">AI摘要</div></div><div class="ai-tag" id="ai-tag">HunYuan-Lite</div></div></div><h2 id="一、JS中查找父标签的方法："><a href="#一、JS中查找父标签的方法：" class="headerlink" title="一、JS中查找父标签的方法："></a>一、JS中查找父标签的方法：</h2><p>1、利用parentNode属性，语法“子元素对象.parentNode”；</p>
+<p>2、借助Jquery中的parent()或parents()方法，语法“子元素对象.parent()”或“子元素对象.parents()”。</p>
+<p><img src="https://images.codeobservatory.cn/hexo/202507/22/d68cae22a57819b517.jpg" alt="javascript中怎么找父级标签和子级标签"></p>
+<p>找父元素节点的方法有：</p>
+<p>1、原生方法–parentNode属性</p>
+<p>parentNode 属性可返回某节点的父节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">元素.<span class="property">parentNode</span> <span class="comment">//返回元素的第一个父节点</span></span><br></pre></td></tr></table></figure>
+
+<p>2、Jquery方法(记得导包)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">元素.<span class="title function_">parent</span>() 返回元素的第一个父节点</span><br><span class="line">元素.<span class="title function_">parents</span>() 返回一个包含元素所有父节点的数组</span><br></pre></td></tr></table></figure>
+
+<p>下面有个例子:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">&quot;a&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;jquery-2.1.1.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//原生的方法</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;a&#x27;</span>).<span class="property">parentNode</span> <span class="comment">//得到&lt;span&gt;节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//也可以这么玩</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;a&#x27;</span>).<span class="property">parentNode</span>.<span class="property">parentNode</span> <span class="comment">//得到&lt;div&gt;节点</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//Jquery的方法  记得导包哦</span></span></span><br><span class="line"><span class="language-javascript">    $(<span class="string">&#x27;#a&#x27;</span>).<span class="title function_">parent</span>();<span class="comment">//得到&lt;span&gt;节点</span></span></span><br><span class="line"><span class="language-javascript">    $(<span class="string">&#x27;#a&#x27;</span>).<span class="title function_">parent</span>().<span class="title function_">parent</span>();<span class="comment">//得到&lt;div&gt;节点</span></span></span><br><span class="line"><span class="language-javascript">    $(<span class="string">&#x27;#a&#x27;</span>).<span class="title function_">parents</span>();<span class="comment">//得到所有父级节点   &lt;span&gt; ,&lt;div&gt; ,&lt;body&gt; ,&lt;html&gt;</span></span></span><br><span class="line"><span class="language-javascript">    $(<span class="string">&#x27;#a&#x27;</span>).<span class="title function_">parents</span>(<span class="string">&#x27;body&#x27;</span>);<span class="comment">//得到&lt;body&gt;节点</span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、找子元素节点的方法有："><a href="#二、找子元素节点的方法有：" class="headerlink" title="二、找子元素节点的方法有："></a>二、找子元素节点的方法有：</h2><p>1、原生方法–childNodes属性</p>
+<p>childNodes 属性可返回某节点的子节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">元素.<span class="property">childNodes</span> <span class="comment">//返回元素的第一个子节点</span></span><br></pre></td></tr></table></figure>
+
+<p>2、Jquery方法(记得导包)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">元素.<span class="title function_">child</span>() 返回元素的第一个子节点</span><br><span class="line">元素.<span class="title function_">children</span>() 返回一个包含元素所有父节点的数组</span><br></pre></td></tr></table></figure>
+
+<p>下面有个例子:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;div&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;jquery-2.1.1.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//原生的方法</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;id&#x27;</span>).<span class="property">childNodes</span>   <span class="comment">//得到&lt;span&gt;节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//也可以这么玩</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;id&#x27;</span>).<span class="property">childNodes</span>.<span class="property">childNodes</span> <span class="comment">//得到&lt;a&gt;节点</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//Jquery的方法  同样记得导包哦</span></span></span><br><span class="line"><span class="language-javascript">    $(<span class="string">&#x27;#div&#x27;</span>).<span class="title function_">child</span>();<span class="comment">//得到&lt;span&gt;节点</span></span></span><br><span class="line"><span class="language-javascript">    $(<span class="string">&#x27;#div&#x27;</span>).<span class="title function_">child</span>().<span class="title function_">child</span>();<span class="comment">//得到&lt;a&gt;节点</span></span></span><br><span class="line"><span class="language-javascript">    $(<span class="string">&#x27;#div&#x27;</span>).<span class="title function_">children</span>();<span class="comment">//得到所有父级节点   &lt;span&gt; ,&lt;a&gt;</span></span></span><br><span class="line"><span class="language-javascript">    $(<span class="string">&#x27;#div&#x27;</span>).<span class="title function_">children</span>(<span class="string">&#x27;a&#x27;</span>);<span class="comment">//得到&lt;a&gt;节点</span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>以上是javascript中怎么找父级标签和子级标签全部内容，希望文章能够帮你解决javascript中怎么找父级标签和子级标签所遇到的程序开发问题。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.CodeObservatory.cn">码农刚子</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.codeobservatory.cn/archives/fe9c6897.html">https://www.codeobservatory.cn/archives/fe9c6897.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.CodeObservatory.cn" target="_blank">码农观测站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/HTML/">HTML</a><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a><a class="post-meta__tags" href="/tags/%E6%A0%87%E7%AD%BE/">标签</a></div><div class="post-share"><div class="social-share" data-image="https://images.codeobservatory.cn/hexo/202507/22/d68cae22a57819b517.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc@1.1.4/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc@1.1.4/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://images.codeobservatory.cn/wechatqr.jpg" target="_blank"><img class="post-qr-code-img" src="https://images.codeobservatory.cn/wechatqr.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://images.codeobservatory.cn/alipayqr.jpg" target="_blank"><img class="post-qr-code-img" src="https://images.codeobservatory.cn/alipayqr.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li><li class="reward-item"><a href="https://paypal.me/chao50?country.x=C2&amp;locale.x=zh_XC" target="_blank"><img class="post-qr-code-img" src="https://www.paypalobjects.com/digitalassets/c/website/logo/full-text/pp_fc_hl.svg" alt="PayPal"/></a><div class="post-qr-code-desc">PayPal</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/archives/fb8e2ad0.html" title="c# .net PayPal支付配置验证(附代码)"><img class="cover" src="https://images.codeobservatory.cn/hexo/202507/22/e2c72597654bcf3e11.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">c# .net PayPal支付配置验证(附代码)</div></div><div class="info-2"><div class="info-item-1">一、添加web窗体接收通知用于接收第三方支付回调通知，请求链接例如：https://codeobservatory.cn/Paypal/PaypalNotifyPage.aspx  二、使用步骤1.引入bll代码如下： 123456789101112131415using Newtonsoft.Json.Linq;using PayPal.Api; using System; using System.IO;using System.Net; using System.Text;using System.Web;using...</div></div></div></a><a class="pagination-related" href="/archives/2355d2b3.html" title="asp.net web开发框架_Web前端开发必不可少的9个开源框架"><img class="cover" src="https://images.codeobservatory.cn/archives-img.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">asp.net web开发框架_Web前端开发必不可少的9个开源框架</div></div><div class="info-2"><div class="info-item-1">大多数人想到Web开发时，通常会想到HTML或JavaScript，往往忽略了CSS，根据Wikipedia的说法，CSS既是网页中最重要也是最常被遗忘的部分之一，尽管它是万维网的三大基础技术之一。 今天就和大家分享9个流行的、强大的前端开源框架，帮助你轻松构建漂亮的网站前端。  1、BootstrapBootstrap无疑是最流行的CSS框架，它是最早的Web前端框架，由Twitter开发。...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/archives/fb2da740.html" title="【好用推荐】免费在线图片压缩工具"><img class="cover" src="https://images.codeobservatory.cn/hexo/202506/21/2025062109254401.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-21</div><div class="info-item-2">【好用推荐】免费在线图片压缩工具</div></div><div class="info-2"><div class="info-item-1">大家好，这里是码农观测站，我是码农刚子。前几天填写备案资料时需要上传营业执照，要求2MB以内，老板发给我的文件有十几MB，无法上传，用网上的在线工具，又担心安全性。以前也经常遇到需要图片太大的问题，基本上都是找别人用vip办公软件处理的，每次都要麻烦别人，于是我就想着自己做一个，使用方便还安全。接下来我给大家介绍一下我的图片压缩工具，源码在结尾。 使用说明 上传图片后，通过滑块调整压缩质量（0%-100%） 点击”上传并压缩图片”按钮进行处理 压缩完成后，右侧会显示压缩后的图片 点击”下载压缩图片”按钮保存结果   先体验一下吧！👉压缩图片  支持格式 JPEG (.jpg,...</div></div></div></a><a class="pagination-related" href="/archives/8b3118e9.html" title="Asp.Net通过dom-to-image.js将HTML中标签div内的内容转化为图片保存到本地"><img class="cover" src="https://images.codeobservatory.cn/archives-img.webp" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-18</div><div class="info-item-2">Asp.Net通过dom-to-image.js将HTML中标签div内的内容转化为图片保存到本地</div></div><div class="info-2"><div class="info-item-1">最近在开发一个手机商城结算系统，需要用到推广分享海报页面，代理生成自己的分享页面保存到本地，也分享给大家： 1、引入几个JS库 ：jquery 版本还没试过我用的是1.9.1 （不贴链接了，这个要找很容易） ：dom-to-image.js （点击下载 下载下来解压开在src目录里面） ：FileSaver.js （点击下载 下载下来解压开在src目录里面）  2、新建HTML引入第一步中的几个库 3、生成图片3.1、生成png图片123456789101112&lt;script&gt;var jd=...</div></div></div></a><a class="pagination-related" href="/archives/7f915cdc.html" title="HTML5实现签到功能，项目实战之基于JavaScript实现每日签到打卡送积分功能"><img class="cover" src="https://images.codeobservatory.cn/hexo/202506/18/a26e5a78688404a0.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-18</div><div class="info-item-2">HTML5实现签到功能，项目实战之基于JavaScript实现每日签到打卡送积分功能</div></div><div class="info-2"><div class="info-item-1">这篇文章介绍了如何使用HTML5和JavaScript实现一个每日签到打卡送积分的功能，详细讲解了核心代码calendar.js的实现过程，包括日历的初始化、绘制、月份切换、判断是否已签到等功能，通过JavaScript动态生成日历界面，并根据签到记录标记已签到的日期，同时提供了获取当月天数、构建日历数组等辅助方法，最终实现了用户每日签到并累计积分的功能，代码结构清晰，功能完整，适合用于网站或APP的签到系统开发。</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><script>function setClipboardText(event) {
+    let clipboardData = event.clipboardData || window.clipboardData;
+    if (!clipboardData) { return; }
+    event.preventDefault();
+    let text = window.getSelection().toString();
+    if (text) {
+        event.preventDefault();
+        var copyright = '\n\n--------------------------------------------'
+        + '\n版权声明：本文为作者原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。'
+        + '\n作者: 码农刚子'
+        + '\n邮箱: wxscc@foxmail.com'
+        + '\n原文链接: ' + window.location.href;
+        clipboardData.setData('text/plain', text + copyright);
+    }
+}
+var contents = document.getElementById("article-container");
+if(contents){
+  contents.addEventListener('copy',function(e){
+      setClipboardText(e);
+  });
+}</script><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">码农刚子</div><div class="author-info-description">码农观测站，专注于编程学习、技术分享、前端开发、后端开发、全栈开发、编程语言、程序员成长与生活随笔，为开发者提供高质量的学习资源与实用经验。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/shenchuanchao"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临小站，这里是我日常工作和学习中收集和整理的总结，希望能对你有所帮助：）<br><br>本站的内容经过个人加工总结而来，也参考了网友们分享的资料，如有侵权，请第一时间联系我，我将及时进行修改或删除😊<br><br>欢迎关注我的微信公众号<br><img src="https://images.codeobservatory.cn/hexo/index/qrcode_gzh_csharp.jpg" width="96%"/></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81JS%E4%B8%AD%E6%9F%A5%E6%89%BE%E7%88%B6%E6%A0%87%E7%AD%BE%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">一、JS中查找父标签的方法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%89%BE%E5%AD%90%E5%85%83%E7%B4%A0%E8%8A%82%E7%82%B9%E7%9A%84%E6%96%B9%E6%B3%95%E6%9C%89%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">二、找子元素节点的方法有：</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/2355d2b3.html" title="asp.net web开发框架_Web前端开发必不可少的9个开源框架"><img src="https://images.codeobservatory.cn/archives-img.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="asp.net web开发框架_Web前端开发必不可少的9个开源框架"/></a><div class="content"><a class="title" href="/archives/2355d2b3.html" title="asp.net web开发框架_Web前端开发必不可少的9个开源框架">asp.net web开发框架_Web前端开发必不可少的9个开源框架</a><time datetime="2025-07-22T06:02:21.000Z" title="发表于 2025-07-22 14:02:21">2025-07-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/fe9c6897.html" title="javascript中怎么找父级标签和子级标签"><img src="https://images.codeobservatory.cn/hexo/202507/22/d68cae22a57819b517.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="javascript中怎么找父级标签和子级标签"/></a><div class="content"><a class="title" href="/archives/fe9c6897.html" title="javascript中怎么找父级标签和子级标签">javascript中怎么找父级标签和子级标签</a><time datetime="2025-07-22T05:53:43.000Z" title="发表于 2025-07-22 13:53:43">2025-07-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/fb8e2ad0.html" title="c# .net PayPal支付配置验证(附代码)"><img src="https://images.codeobservatory.cn/hexo/202507/22/e2c72597654bcf3e11.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c# .net PayPal支付配置验证(附代码)"/></a><div class="content"><a class="title" href="/archives/fb8e2ad0.html" title="c# .net PayPal支付配置验证(附代码)">c# .net PayPal支付配置验证(附代码)</a><time datetime="2025-07-22T05:36:17.000Z" title="发表于 2025-07-22 13:36:17">2025-07-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/7198a9db.html" title="Asp.Net 404页面设置，设置错误页面自动跳转"><img src="https://images.codeobservatory.cn/archives-img.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Asp.Net 404页面设置，设置错误页面自动跳转"/></a><div class="content"><a class="title" href="/archives/7198a9db.html" title="Asp.Net 404页面设置，设置错误页面自动跳转">Asp.Net 404页面设置，设置错误页面自动跳转</a><time datetime="2025-07-22T03:53:18.000Z" title="发表于 2025-07-22 11:53:18">2025-07-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/e4c33417.html" title="C#解析、拼接json字符串"><img src="https://images.codeobservatory.cn/archives-img.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C#解析、拼接json字符串"/></a><div class="content"><a class="title" href="/archives/e4c33417.html" title="C#解析、拼接json字符串">C#解析、拼接json字符串</a><time datetime="2025-07-04T09:38:12.000Z" title="发表于 2025-07-04 17:38:12">2025-07-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 <i id="heartbeat" class="fa fa-heart"></i> By 码农观测站</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a href="/sitemap.xml" target="_blank">SiteMap</a> <a href="https://beian.miit.gov.cn" rel="external nofollow noreferrer" target="_blank">粤ICP备2021102567号</a><br> 本网站由&nbsp;<a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://images.codeobservatory.cn/upyun-logo.png" style="vertical-align:middle;height:30px;padding-bottom:3px" data-ll-status="loading" class="entered loading"></a> &nbsp;提供CDN加速/云存储服务</div></div></footer></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="fa-solid fa-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="fa-solid fa-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="fa-solid fa-arrow-rotate-right"></i></div><div class="rightMenu-item" id="menu-home"><i class="fa-solid fa-house"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" href="/archives/"><i class="fa-solid fa-archive"></i><span>文章归档</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="fa-solid fa-folder-open"></i><span>文章分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="fa-solid fa-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuNormal"><div class="rightMenu-item" id="menu-translate"><i class="fa-solid fa-earth-asia"></i><span>繁简切换</span></div><div class="rightMenu-item" id="menu-darkmode"><i class="fa-solid fa-moon"></i><span>切换模式</span></div><div class="rightMenu-item" id="menu-fullscreenmode"><i class="fa-solid fa-expand"></i><span>全屏模式</span></div></div></div><div id="rightmenu-mask"></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.3.5"></script><script src="/js/main.js?v=5.3.5"></script><script src="/js/tw_cn.js?v=5.3.5"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const initValine = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyValine = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const valineConfig = {
+      el: '#vcomment',
+      appId: 'zZNdfVwAkr5KXR73OabZMVtY-gzGzoHsz',
+      appKey: 'GXEx9xDciGUwXxu4am5mk5g8',
+      avatar: 'monsterid',
+      serverURLs: 'https://zzndfvwa.lc-cn-n1-shared.com',
+      emojiMaps: "",
+      visitor: true,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || window.location.pathname
+    }
+    new Valine(valineConfig)
+  }
+
+  const loadValine = async (el, path) => {
+    if (typeof Valine === 'function') {
+      initValine(el, path)
+    } else {
+      await btf.getScript('https://unpkg.com/valine@1.5.3/dist/Valine.min.js')
+      initValine(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Valine' === 'Valine'
+      ? window.shuoshuoComment = { loadComment: loadValine }
+      : window.loadOtherComment = loadValine
+    return
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script src="/js/rightMenu.js"></script><script src="/js/ai-summary.js"></script><div class="aplayer no-destroy" data-id="60198" data-server="netease" data-type="playlist" data-mini="true" data-listfolded="true" data-fixed="true" data-autoplay="false"> </div><script defer="defer" id="ribbon" src="https://unpkg.com/butterfly-extsrc@1.1.4/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://unpkg.com/butterfly-extsrc@1.1.4/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://unpkg.com/butterfly-extsrc@1.1.4/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://unpkg.com/butterfly-extsrc@1.1.4/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://unpkg.com/pjax@0.2.8/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      true 
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.3.5"></script></div></div></body></html>
