@@ -6,7 +6,7 @@
   <link href="https://www.codeobservatory.cn/atom.xml" rel="self"/>
   
   <link href="https://www.codeobservatory.cn/"/>
-  <updated>2025-07-22T06:12:20.743Z</updated>
+  <updated>2025-10-08T09:41:01.788Z</updated>
   <id>https://www.codeobservatory.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>.NET开发中3秒判断该用 IEnumerable 还是 IQueryable</title>
+    <link href="https://www.codeobservatory.cn/archives/eb830df6.html"/>
+    <id>https://www.codeobservatory.cn/archives/eb830df6.html</id>
+    <published>2025-10-08T09:36:06.000Z</published>
+    <updated>2025-10-08T09:41:01.788Z</updated>
+    
+    <content type="html"><![CDATA[<p>在.NET开发中，IEnumerable和IQueryable是处理数据集合时最常用的两个接口。很多开发者对它们的选择感到困惑，但其实只需要掌握几个关键点就能快速做出正确决策。</p><p>##核心区别：执行位置</p><p>IEnumerable：在内存中执行查询操作<br>IQueryable：在数据源端执行查询操作</p><p>###选择 IEnumerable 当：</p><p>1、数据已在内存中</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 数据来自内存集合</span><br><span class="line">List&lt;User&gt; users = GetUsersFromMemory();</span><br><span class="line">var result = users.Where(u =&gt; u.Age &gt; 18); // 使用 IEnumerable</span><br></pre></td></tr></table></figure><p>2、需要立即执行查询</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var users = dbContext.Users.ToList() // 立即执行</span><br><span class="line">                   .Where(u =&gt; u.Age &gt; 18); // 在内存中过滤</span><br></pre></td></tr></table></figure><p>3、使用LINQ to Objects功能</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 使用.NET方法而非SQL可翻译的方法</span><br><span class="line">var result = users.Where(u =&gt; u.Name.Contains(&quot;John&quot;))</span><br><span class="line">                  .AsEnumerable() // 切换到内存操作</span><br><span class="line">                  .Select(u =&gt; new &#123; u.Name, Initial = u.Name[0] &#125;);</span><br></pre></td></tr></table></figure><p>###选择 IQueryable 当：</p><p>1、需要数据库端过滤</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 查询被转换为SQL并在数据库执行</span><br><span class="line">var result = dbContext.Users</span><br><span class="line">                     .Where(u =&gt; u.Age &gt; 18) // 生成 SQL: WHERE Age &gt; 18</span><br><span class="line">                     .OrderBy(u =&gt; u.Name);</span><br></pre></td></tr></table></figure><p>2、需要分页或聚合操作</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 只在数据库获取需要的记录</span><br><span class="line">var pagedResult = dbContext.Users</span><br><span class="line">                          .Where(u =&gt; u.IsActive)</span><br><span class="line">                          .Skip(20).Take(10) // 生成分页SQL</span><br><span class="line">                          .ToList();</span><br></pre></td></tr></table></figure><p>3、构建动态查询</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">IQueryable&lt;User&gt; query = dbContext.Users;</span><br><span class="line"></span><br><span class="line">if (!string.IsNullOrEmpty(searchName))</span><br><span class="line">    query = query.Where(u =&gt; u.Name.Contains(searchName));</span><br><span class="line"></span><br><span class="line">if (minAge.HasValue)</span><br><span class="line">    query = query.Where(u =&gt; u.Age &gt;= minAge.Value);</span><br><span class="line"></span><br><span class="line">var finalResult = query.ToList(); // 单一SQL查询</span><br></pre></td></tr></table></figure><p>##性能提示💡</p><p>错误用法：❌</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 这将加载整个表到内存！</span><br><span class="line">var users = dbContext.Users.ToList()</span><br><span class="line">                  .Where(u =&gt; u.Age &gt; 18); </span><br></pre></td></tr></table></figure><p>正确用法：✅</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 只在数据库查询需要的记录</span><br><span class="line">var users = dbContext.Users</span><br><span class="line">                    .Where(u =&gt; u.Age &gt; 18)</span><br><span class="line">                    .ToList();</span><br></pre></td></tr></table></figure><p>##总结</p><p>记住这个简单的规则：**IQueryable用于推迟查询执行到数据源端，IEnumerable用于内存中的操作。**根据你的数据源位置和查询需求，遵循上述指南就能在3秒内做出正确选择，从而优化应用程序性能。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在.NET开发中，IEnumerable和IQueryable是处理数据集合时最常用的两个接口。很多开发者对它们的选择感到困惑，但其实只需要掌握几个关键点就能快速做出正确决策。&lt;/p&gt;
+&lt;p&gt;##核心区别：执行位置&lt;/p&gt;
+&lt;p&gt;IEnumerable：在内存中执行查询操作</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>asp.net web开发框架_Web前端开发必不可少的9个开源框架</title>
@@ -543,32 +565,6 @@ icon有很多，选择起来纷繁复杂，罗列一点常用的，用于自己�
     <category term="Excel读取" scheme="https://www.codeobservatory.cn/tags/Excel%E8%AF%BB%E5%8F%96/"/>
     
     <category term="OleDB" scheme="https://www.codeobservatory.cn/tags/OleDB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何处理:无法使用虚拟目录密码作为用户 administrator（或其他用户） 在本地登录到（发布文件路径）</title>
-    <link href="https://www.codeobservatory.cn/archives/309e0e9e.html"/>
-    <id>https://www.codeobservatory.cn/archives/309e0e9e.html</id>
-    <published>2025-06-13T00:56:20.000Z</published>
-    <updated>2025-06-13T01:02:17.394Z</updated>
-    
-    <content type="html"><![CDATA[<p>如何解决修改服务器密码后网站显示无法使用虚拟目录密码作为administrator在本地登录到网站目录</p><p><strong>问题描述</strong>：</p><p>修改服务器密码后，IIS中设置的仍是旧密码，导致网站运行出现报错：网站HTTP 错误 500.19问题，如下图所示：</p><p><img src="https://images.codeobservatory.cn/hexo/202506/13/2928b0ea82aac092.png" alt="如何处理:无法使用虚拟目录密码作为用户 administrator（或其他用户） 在本地登录到（发布文件路径）"></p><p><strong>解决方案</strong>：</p><ol><li><p>在服务器文件管理中输入路径：C:\Windows\System32\inetsrv\config</p></li><li><p>找到文件：<code>applicationHost.config</code> ，并打开该文件</p></li><li><p>根据您的站点名称查找标签<code>&lt;application path=&quot;/&quot; applicationPool=&quot;fnsxy&quot;&gt;</code>，<code>applicationPool=“站点名称”</code> 下的标签 <code>&lt;virtualDirectory&gt;</code></p></li></ol><p>例如下图：</p><p><img src="https://images.codeobservatory.cn/hexo/202506/13/12771af30b0d37a4.png" alt="如何处理:无法使用虚拟目录密码作为用户 administrator（或其他用户） 在本地登录到（发布文件路径）"></p><ol start="4"><li><p>删除其属性及值：<code>userName</code> 和 <code>password</code></p></li><li><p>然后保存退出。</p></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;如何解决修改服务器密码后网站显示无法使用虚拟目录密码作为administrator在本地登录到网站目录&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;问题描述&lt;/strong&gt;：&lt;/p&gt;
-&lt;p&gt;修改服务器密码后，IIS中设置的仍是旧密码，导致网站运行出现报错：网站HTTP 错误 500.1</summary>
-      
-    
-    
-    
-    <category term="技术分享" scheme="https://www.codeobservatory.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-    
-    <category term="IIS" scheme="https://www.codeobservatory.cn/tags/IIS/"/>
     
   </entry>
   
