@@ -504,7 +504,7 @@ ul{list-style:none;}
     });
   }
 
-  /* ---- 表单占位：部署后替换为真实接口（如飞书表单/邮箱/后端API）---- */
+  /* ---- 联系表单：Web3Forms 提交，数据自动发送到注册邮箱 ---- */
   var form = document.getElementById('leadForm');
   var tip = document.getElementById('formTip');
   if (form && tip) {
@@ -518,11 +518,34 @@ ul{list-style:none;}
         tip.textContent = '请至少填写称呼和联系方式。';
         return;
       }
-      // TODO: 部署时在此处接入提交渠道（示例：fetch 到你的后端 / 跳转微信加好友）
-      tip.style.display = 'block';
-      tip.style.color = '#2F6B0F';
-      tip.textContent = '已收到，我会在 24 小时内联系你（演示占位，尚未真实提交）。';
-      form.reset();
+      var msg = document.getElementById('f-msg').value.trim();
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: '7e56b89f-f1a9-4ea0-87f0-764b7793a432',
+          subject: '安康作品集 - 新客户需求',
+          name: name,
+          phone: phone,
+          msg: msg
+        })
+      })
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        if (data.success) {
+          tip.style.display = 'block';
+          tip.style.color = '#2F6B0F';
+          tip.textContent = '已收到，我会在 24 小时内联系你。';
+          form.reset();
+        } else {
+          throw new Error(data.message || '提交失败');
+        }
+      })
+      .catch(function(){
+        tip.style.display = 'block';
+        tip.style.color = '#B25E00';
+        tip.textContent = '提交失败，请直接加微信 lb2scc 或电话 18323297554 联系我。';
+      });
     });
   }
 })();
