@@ -71,6 +71,12 @@ ul{list-style:none;}
   padding:9px 18px;border-radius:24px;border:none;cursor:pointer;transition:opacity .2s;
 }
 .btn:hover{opacity:.85;}
+.btn.ready{
+  background:var(--primary-dark);
+  box-shadow:0 4px 14px rgba(31,78,102,0.35);
+  transform:translateY(-1px);
+  transition:background .25s,box-shadow .25s,transform .25s;
+}
 .btn-outline{background:transparent;border:1px solid var(--primary);color:var(--primary-dark);}
 
 /* 移动端菜单按钮 */
@@ -583,6 +589,25 @@ ul{list-style:none;}
         tip.textContent = '提交失败，请直接加微信 lb2scc 或电话 18323297554 联系我。';
       });
     });
+
+    /* ---- 提交按钮实时高亮：三项填齐后背景变深 ---- */
+    var readyFields = [
+      document.getElementById('f-name'),
+      document.getElementById('f-phone'),
+      document.getElementById('f-msg')
+    ];
+    var readyBtn = form.querySelector('button[type="submit"]');
+    function checkReady(){
+      var allFilled = readyFields.every(function(f){ return f && f.value.trim(); });
+      if (readyBtn && !readyBtn.disabled) {
+        if (allFilled) { readyBtn.classList.add('ready'); }
+        else { readyBtn.classList.remove('ready'); }
+      }
+    }
+    readyFields.forEach(function(f){
+      if (f) { f.addEventListener('input', checkReady); }
+    });
+    checkReady();
   }
 })();
 </script>
