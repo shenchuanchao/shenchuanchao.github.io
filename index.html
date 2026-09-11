@@ -449,7 +449,7 @@ ul{list-style:none;}
         <input type="text" id="f-phone" name="phone" placeholder="方便联系的方式" required>
 
         <label for="f-msg">需求描述</label>
-        <textarea id="f-msg" name="msg" placeholder="例如：我是做富硒茶的，想要一个扫码溯源+商城的小程序"></textarea>
+        <textarea id="f-msg" name="msg" placeholder="例如：我是做富硒茶的，想要一个扫码溯源+商城的小程序" required></textarea>
 
         <button type="submit" class="btn">提交需求</button>
         <p id="formTip" style="display:none;margin-top:10px;font-size:12.5px;color:var(--green);"></p>
@@ -512,13 +512,21 @@ ul{list-style:none;}
       e.preventDefault();
       var name = document.getElementById('f-name').value.trim();
       var phone = document.getElementById('f-phone').value.trim();
-      if (!name || !phone) {
+      var msg = document.getElementById('f-msg').value.trim();
+      if (!name || !phone || !msg) {
         tip.style.display = 'block';
+        tip.style.marginTop = '';
+        tip.style.padding = '';
+        tip.style.background = '';
         tip.style.color = '#B25E00';
-        tip.textContent = '请至少填写称呼和联系方式。';
+        tip.style.fontSize = '';
+        tip.style.fontWeight = '';
+        tip.style.borderRadius = '';
+        tip.style.textAlign = '';
+        tip.style.boxShadow = '';
+        tip.textContent = '请填写称呼、联系方式和需求描述（三项均为必填）。';
         return;
       }
-      var msg = document.getElementById('f-msg').value.trim();
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -534,16 +542,44 @@ ul{list-style:none;}
       .then(function(data){
         if (data.success) {
           tip.style.display = 'block';
-          tip.style.color = '#2F6B0F';
-          tip.textContent = '已收到，我会在 24 小时内联系你。';
+          tip.style.marginTop = '16px';
+          tip.style.padding = '18px 22px';
+          tip.style.background = 'linear-gradient(135deg, #2F6B0F 0%, #4A8B1F 100%)';
+          tip.style.color = '#FFFFFF';
+          tip.style.fontSize = '15.5px';
+          tip.style.fontWeight = '600';
+          tip.style.lineHeight = '1.7';
+          tip.style.borderRadius = '12px';
+          tip.style.textAlign = 'center';
+          tip.style.boxShadow = '0 6px 20px rgba(47,107,15,0.4)';
+          tip.style.border = '2px solid rgba(255,255,255,0.25)';
+          tip.innerHTML = '✅ <b>提交成功！</b><br>我会在 24 小时内通过电话或微信联系你，请注意查收。';
           form.reset();
+          var submitBtn = form.querySelector('button[type="submit"]');
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = '已提交 ✓';
+            submitBtn.style.opacity = '0.55';
+            submitBtn.style.cursor = 'not-allowed';
+          }
+          setTimeout(function(){ tip.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 200);
         } else {
           throw new Error(data.message || '提交失败');
         }
       })
       .catch(function(){
         tip.style.display = 'block';
+        tip.style.marginTop = '';
+        tip.style.padding = '';
+        tip.style.background = '';
         tip.style.color = '#B25E00';
+        tip.style.fontSize = '';
+        tip.style.fontWeight = '';
+        tip.style.lineHeight = '';
+        tip.style.borderRadius = '';
+        tip.style.textAlign = '';
+        tip.style.boxShadow = '';
+        tip.style.border = '';
         tip.textContent = '提交失败，请直接加微信 lb2scc 或电话 18323297554 联系我。';
       });
     });
